@@ -38,6 +38,12 @@ body {
     --sidebar-ring: 178, 98%, 45%;
   }
 
+  @layer components {
+    .placeholder-albert::before {
+      font-family: 'Albert Sans', sans-serif !important;
+      color: #6b7280; /* Tailwind gray-500 */
+    }
+  }
   .dark {
     --background: 187.9 30% 7.5%;
     --foreground: 187.9 2.5% 95%;
