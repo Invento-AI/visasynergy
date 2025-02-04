@@ -1,79 +1,86 @@
-import React from "react";
-import "@fontsource/roboto-slab";
+'use client';
+
 import "@fontsource/albert-sans";
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { FaFacebook, FaLinkedin, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 export default function Home() {
   return (
-    <div className="relative w-full h-screen overflow-hidden">
-      {/* Information Navbar */}
-      <nav className="bg-[#51868e] text-white px-6 py-2 flex justify-end items-center text-sm">
-        <div>📞 +91 99858 58655 | ✉️ info@visasynergy.com</div>
-      </nav>
-
-      {/* Main Navbar */}
-      <nav className="bg-white text-black px-6 py-3 flex justify-between items-center shadow-md" style={{ fontFamily: 'Albert Sans' }}>
-        <div className="text-2xl font-bold">VISA SYNERGY</div>
-        <div className="flex space-x-6">
-          <a href="#" className="hover:underline">About</a>
-          <a href="#" className="hover:underline">News</a>
-          <a href="#" className="hover:underline">Blogs</a>
-          <a href="#" className="hover:underline">Contact Us</a>
-          <a href="#" className="hover:underline">Dashboard</a>
-          <button className="px-4 py-2 bg-[#51868e] text-white rounded-md hover:bg-transparent hover:text-[#51868e] transition duration-300">
-            Check Eligibility
-          </button>
+    <div className="relative min-h-screen bg-gray-700 text-white">
+      {/* Top Navbar with Phone and Email */}
+      <header className="relative top-0 left-0 right-0 flex justify-between items-center p-2 bg-primary text-white z-30">
+        <div className="ml-auto flex space-x-6">
+          <span className='flex w-100 mr-6'> 
+            <Image className='mr-2' src="/call.png" alt="call" width={20} height={20}/> +1 234 567 890
+          </span>
+          <span className='flex w-100 mr-6'> 
+            <Image className='mr-2' src="/email.png" alt="email" width={25} height={20}/> contact@visasynergy.com
+          </span>
         </div>
-      </nav>
+      </header>
 
-      {/* Video Background */}
-      <video
-        autoPlay
-        loop
-        muted
-        className="absolute w-full h-full object-cover"
-      >
-        <source src="/path-to-your-video.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      {/* Navigation Bar */}
+      <header className="relative left-0 right-0 flex justify-between items-center p-2 bg-white shadow-md text-gray-700 z-20">
+        <div className="flex items-center">
+          <Image src="/logo.png" width={150} height={10} alt="Visa Synergy Logo" />
+        </div>
+        <nav className="ml-auto mr-12 space-x-12 flex text-xl font-bold" style={{fontFamily: 'Albert Sans'}}>
+          <Link href="#about">About</Link>
+          <Link href="#news">News</Link>
+          <Link href="#blogs">Blogs</Link>
+          <Link href="#contact">Contact Us</Link>
+          <Link href="#dashboard">Dashboard</Link>
+        </nav>
+        <Button className="ml-4 mr-6 text-white border-2 hover:bg-white hover:text-[#51868e] border-[#51868e] hover:border-2 transition duration-700">Check Eligibility</Button>
+      </header>
 
-      {/* Overlay for content visibility */}
-      <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white text-center p-4">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4" style={{ fontFamily: 'Roboto Slab' }}>
-          Your Gateway to a <span className="text-blue-400">New Beginning</span>
-        </h1>
-        <p className="text-lg md:text-2xl mb-6">
-          Simplifying Immigration and Visa Processes for a World of Opportunities
-        </p>
-
-        {/* Country Buttons */}
-        <div className="flex flex-wrap justify-center gap-6 mb-4">
-          {['USA', 'AUSTRALIA', 'CANADA', 'EUROPE', 'NEW ZEALAND'].map((country) => (
-            <button
-              key={country}
-              className="px-4 py-2 bg-transparent text-white border border-white rounded-lg shadow-md hover:bg-white hover:text-blue-900 transition duration-300"
-            >
-              {country}
-            </button>
-          ))}
+      {/* Hero Section */}
+      <section className="relative flex items-center justify-center min-h-screen px-6">
+        <video
+          autoPlay
+          loop
+          muted
+          className="absolute w-full h-full object-cover z-10"
+        >
+          <source src="/VisaSynergyFinal.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        
+        {/* <Image src="/bg.png" className="absolute w-full h-full object-cover z-10" layout="fill" objectFit="cover" alt="Visa Synergy Hero Image" /> */}
+        <div className="text-center -mt-40 z-20 relative">
+          <h1 className="text-5xl md:text-5xl">Your Gateway to a New Beginning</h1>
+          <p className="mt-4 text-2xl" style={{ fontFamily: 'Albert Sans' }}>Simplifying Immigration and Visa Processes for a World of Opportunities</p>
+          <div className="mt-10 justify-center gap-20 flex flex-wrap items-center">
+            <Button variant="outline" className="bg-transparent border-2 border-white hover:bg-white transition duration-700">USA 
+              <Image src="/usa.png" width={20} height={20} alt="USA Flag" />
+            </Button>
+            <Button variant="outline" className="bg-transparent border-2 border-white hover:bg-white transition duration-700">AUSTRALIA 
+              <Image src="/australia.png" width={20} height={20} alt="Australia Flag" />
+            </Button>
+            <Button variant="outline" className="bg-transparent border-2 border-white hover:bg-white transition duration-700">CANADA 
+              <Image src="/canada.png" width={20} height={20} alt="Canada Flag" />
+            </Button>
+            <Button variant="outline" className="bg-transparent border-2 border-white hover:bg-white transition duration-700">EUROPE 
+              <Image src="/europe.png" width={20} height={20} alt="Europe Flag" />
+            </Button>
+            <Button variant="outline" className="bg-transparent border-2 border-white hover:bg-white transition duration-700">NEW ZEALAND 
+              <Image src="/newzealand.png" width={20} height={20} alt="New Zealand Flag" />
+            </Button>
+          </div>
+          <p className="mt-12 text-3xl" style={{ fontFamily: 'Albert Sans' }}>Start Your Immigration Journey Today!</p>
+          <Button className="mt-4 px-6 py-4  border-2 bg-[#51868e] border-[#51868e] text-white rounded-lg text-xl shadow-lg hover:bg-transparent hover:text-white transition duration-700 hover:border-2 hover:border-white">Quick Enquiry? →</Button>
         </div>
 
-        {/* Immigration Journey Text */}
-        <p className="text-xl md:text-2xl mb-6">
-          Start Your Immigration Journey Today!
-        </p>
+      </section>
 
-        {/* Quick Enquiry Button */}
-        <button className="px-6 py-3 bg-[#51868e] text-white rounded-full text-xl shadow-lg hover:bg-transparent hover:text-white transition duration-300">
-          Quick Enquiry
-        </button>
-      </div>
-
-      {/* Social Media Links */}
-      <div className="absolute bottom-4 right-4 flex flex-col space-y-2 text-white">
-        <a href="#" className="hover:text-[#51868e]">LinkedIn</a>
-        <a href="#" className="hover:text-[#51868e]">Facebook</a>
-        <a href="#" className="hover:text-[#51868e]">Instagram</a>
-        <a href="#" className="hover:text-[#51868e]">WhatsApp</a>
+      {/* Social Media Floating Icons */}
+      <div className="fixed right-5 bottom-10 flex flex-col space-y-3 z-20">
+        <a href="#" className="bg-blue-600 p-3 rounded-full text-white"><FaFacebook size={24} /></a>
+        <a href="#" className="bg-blue-700 p-3 rounded-full text-white"><FaLinkedin size={24} /></a>
+        <a href="#" className="bg-pink-500 p-3 rounded-full text-white"><FaInstagram size={24} /></a>
+        <a href="#" className="bg-green-500 p-3 rounded-full text-white"><FaWhatsapp size={24} /></a>
       </div>
     </div>
   );
