@@ -11,7 +11,7 @@ export default function Home() {
     <div className="relative min-h-screen bg-gray-700 text-white">
       {/* Top Navbar with Phone and Email */}
       <header className="relative top-0 left-0 right-0 flex justify-between items-center p-2 bg-primary text-white z-30">
-        <div className="ml-auto flex space-x-6">
+        <div className="ml-auto flex space-x-6 mr-6">
           <span className='flex w-100 mr-6'> 
             <Image className='mr-2' src="/call.png" alt="call" width={20} height={20}/> +1 234 567 890
           </span>
