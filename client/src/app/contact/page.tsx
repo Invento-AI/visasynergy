@@ -174,47 +174,47 @@ export default function ContactPage() {
         {/* #################################################################################################################################### */}
         
         <section className="py-16 mt-6 bg-white text-gray-900">
-      <div className="container mx-auto px-6 ">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center ">
-          {/* Left Column - Office Info */}
-          <div className="text-left">
-            <h2 className="text-4xl font-bold text-[#3B4F84] w-[630px]" style={{ fontFamily: "Asap Condensed" }}>
-              Visit Our Office – Let’s Meet in Person!
-            </h2>
-            <p className="text-lg text-[#404040] mt-2" style={{ fontFamily: "albert sans" }}>
-              Visit us at our office for a face-to-face consultation.
-            </p>
+            <div className="container mx-auto px-6 min-w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center ">
+                {/* Left Column - Office Info */}
+                <div className="text-left">
+                    <h2 className="text-4xl font-bold text-[#3B4F84] w-[630px]" style={{ fontFamily: "Asap Condensed" }}>
+                    Visit Our Office – Let’s Meet in Person!
+                    </h2>
+                    <p className="text-lg text-[#404040] mt-2" style={{ fontFamily: "albert sans" }}>
+                    Visit us at our office for a face-to-face consultation.
+                    </p>
 
-            {/* Office Details */}
-            <div className="mt-6 ">
-              <h3 className="text-xl font-semibold">Our Office Location</h3>
+                    {/* Office Details */}
+                    <div className="mt-6 ">
+                    <h3 className="text-xl font-semibold">Our Office Location</h3>
 
-              <div className="mt-4">
-              <span className="flex w-100 mr-6">
-            <Image className="mr-2" src="/location.png" alt="call" width={24} height={24} /> <p className="flex items-center text-lg font-semibold">
-                  Visa Synergy Office – New York, USA
-                </p>
-          </span>
-                
-                <p className="text-[#404040] pl-8">
-                  Visa Synergy Consultancy
-                  <br />
-                  123 Global Avenue, Suite 456,
-                  <br />
-                  Midtown Manhattan, Near Times Square,
-                  <br />
-                  New York, NY 10001, USA
-                </p>
-              </div>
+                    <div className="mt-4">
+                    <span className="flex w-100 mr-6">
+                    <Image className="mr-2" src="/location.png" alt="call" width={24} height={24} /> <p className="flex items-center text-lg font-semibold">
+                        Visa Synergy Office – New York, USA
+                        </p>
+                </span>
+                        
+                        <p className="text-[#404040] pl-8">
+                        Visa Synergy Consultancy
+                        <br />
+                        123 Global Avenue, Suite 456,
+                        <br />
+                        Midtown Manhattan, Near Times Square,
+                        <br />
+                        New York, NY 10001, USA
+                        </p>
+                    </div>
 
-              {/* Business Hours */}
-              <div className="mt-4">
-              <span className="flex w-100 mr-6">
-            <Image className="mr-2" src="/time.png" alt="call" width={24} height={24} /> 
-            <p className="flex items-center text-lg font-semibold">
-                  Business Hours: <span className="ml-2">Monday – Friday | 9 AM – 6 PM</span>
-                </p>
-          </span>
+                    {/* Business Hours */}
+                    <div className="mt-4">
+                    <span className="flex w-100 mr-6">
+                    <Image className="mr-2" src="/time.png" alt="call" width={24} height={24} /> 
+                    <p className="flex items-center text-lg font-semibold">
+                        Business Hours: <span className="ml-2">Monday – Friday | 9 AM – 6 PM</span>
+                        </p>
+                </span>
                 
               </div>
 
@@ -225,28 +225,30 @@ export default function ContactPage() {
               Get Direction
               </button>
 
+                </div>
             </div>
-          </div>
 
-          {/* Right Column - Map */}
-           
-          <div>
-  <Image
-    src="/map.png" // Use the uploaded image
-    alt="Office Location Map"
-    width={730} // Adjust as per your layout
-    height={444}
-    className="transition-transform duration-700 transform hover:scale-95 shadow-md  border-[15px] border-white"
-  />
-</div>
+            {/* Right Column - Map */}
+            
+            <div>
+                <Image
+                    src="/map.png" // Use the uploaded image
+                    alt="Office Location Map"
+                    width={730} // Adjust as per your layout
+                    height={444}
+                    className="transition-transform duration-700 transform hover:scale-95 shadow-md  border-[15px] border-white"
+                />
+            </div>
 
+           </div>
         </div>
-      </div>
     </section>
         {/* #################################################################################################################################### */}
         {/* #################################################################################################################################### */}
+        
+      </main>
 
-        <footer
+      <footer
             className="bg-[#4E878C] text-white py-10 font-albert"
         >
             <div className="container mx-auto px-6 grid grid-cols-[40%_60%] gap-8">
@@ -360,8 +362,7 @@ export default function ContactPage() {
             </p>
             </div>
         </footer>
-        
-      </main>
+
     </div>
   );
 }
