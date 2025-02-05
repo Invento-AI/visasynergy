@@ -11,6 +11,7 @@ export default {
   	extend: {
 		fontFamily: {
 			albert: ["Albert Sans", "sans-serif"], // Define Albert Sans
+			asap: ["Asap condensed", "sans-serif"], // Define Asap
 		},
   		colors: {
   			background: 'hsl(var(--background))',

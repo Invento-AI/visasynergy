@@ -8,6 +8,7 @@ import Link from "next/link";
 import { FaFacebook, FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import Lottie from "lottie-react";
 import animation from "../../public/Animation - 1737981416584.json";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -17,6 +18,111 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function Home() {
   const [open, setOpen] = useState(true);
+
+  const testimonials = [
+    {
+      id: 1,
+      name: "Amit S.",
+      desc: "Canada PR Holder",
+      feedback:
+        "Visa Synergy made my PR process so easy! Their expert guidance and seamless documentation process helped me settle in Canada without stress. From the initial consultation to the final approval, they handled everything with professionalism and care. Thanks to Visa Synergy, I’m now living my dream in Canada!",
+      stars: 5,
+      image: "/ved.jpg",
+    },
+    {
+      id: 2,
+      name: "Sarah L.",
+      desc: "Work Permit Approved, Australia",
+      feedback:
+        "From my first consultation to getting my visa approved, Visa Synergy was there every step of the way. Highly recommended!",
+      stars: 5,
+      image: "/ved.jpg",
+    },
+    {
+      id: 3,
+      name: "John D.",
+      desc: "Study Visa Approved, USA",
+      feedback:
+        "I was overwhelmed with visa formalities, but Visa Synergy simplified everything. Their personalized approach made my study abroad journey smooth! From selecting the right university to preparing my documents and securing my visa, today, I’m studying in my dream country, all thanks to their exceptional support!",
+      stars: 5,
+      image: "/ved.jpg",
+    },
+    {
+      id: 4,
+      name: "Emily R.",
+      desc: "Visitor Visa Approved, UK",
+      feedback:
+        "Visa Synergy's team was extremely supportive and provided expert guidance. I got my visitor visa approved in no time. Highly recommended!",
+      stars: 3,
+      image: "/ved.jpg",
+    },
+    // Add more testimonials as needed
+  ];
+
+  interface Testimonial {
+    stars: number;
+    feedback: string;
+    image: string;
+    name: string;
+    desc: string;
+  }
+
+  const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
+    return (
+      <div className="bg-gray-100 p-6 rounded-lg shadow-md w-[400px] h-[300px] flex flex-col space-y-4">
+        {/* Stars Section */}
+        <div className="flex items-center justify-start space-x-1">
+          {[...Array(testimonial.stars)].map((_, index) => (
+            <span key={index} className="text-black text-lg">
+              ★
+            </span>
+          ))}
+        </div>
+
+        {/* Feedback Section */}
+        <p className="text-gray-700 text-sm flex-1">{testimonial.feedback}</p>
+
+        {/* Footer Section (Image, Name, Designation) */}
+        <div className="flex items-center">
+          <img
+            src={testimonial.image}
+            alt={testimonial.name}
+            className="w-12 h-12 rounded-full mr-4"
+          />
+          <div>
+            <h3 className="text-blue-700 font-semibold">{testimonial.name}</h3>
+            <p className="text-gray-500 text-sm">{testimonial.desc}</p>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const visibleTestimonials =
+    testimonials.slice(currentIndex, currentIndex + 3).length < 3
+      ? [
+          ...testimonials.slice(currentIndex),
+          ...testimonials.slice(0, 3 - testimonials.slice(currentIndex).length),
+        ]
+      : testimonials.slice(currentIndex, currentIndex + 3);
+
+
+// Return();
+
 
   return (
     <div className="relative min-h-screen bg-white text-white">
@@ -37,7 +143,7 @@ export default function Home() {
         <div className="flex items-center">
           <Image src="/logo.png" width={150} height={10} alt="Visa Synergy Logo" />
         </div>
-        <nav className="ml-auto mr-12 space-x-12 flex text-xl font-bold" style={{ fontFamily: "Albert Sans" }}>
+        <nav className="ml-auto mr-12 space-x-12 flex text-xl font-bold font-albert">
           <Link href={"/about"}>About</Link>
           <Link href={"/news"}>News</Link>
           <Link href={"/blogs"}>Blogs</Link>
@@ -61,7 +167,7 @@ export default function Home() {
 
         <div className="text-center -mt-40 z-20 relative">
           <h1 className="text-5xl md:text-5xl">Your Gateway to a New Beginning</h1>
-          <p className="mt-4 text-2xl" style={{ fontFamily: "Albert Sans" }}>
+          <p className="mt-4 text-2xl font-albert">
             Simplifying Immigration and Visa Processes for a World of Opportunities
           </p>
           <div className="mt-10 justify-center gap-20 flex flex-wrap items-center">
@@ -72,7 +178,7 @@ export default function Home() {
               </Button>
             ))}
           </div>
-          <p className="mt-12 text-3xl" style={{ fontFamily: "Albert Sans" }}>
+          <p className="mt-12 text-3xl font-albert">
             Start Your Immigration Journey Today!
           </p>
 
@@ -178,7 +284,7 @@ export default function Home() {
         <section className="py-12 bg-white text-gray-900">
           <div className="container mx-auto min-w-[100%] flex items-center justify-between px-6">
             <div className="text-left w-2/5 max-w-lg">
-              <h2 className="text-5xl font-bold my-4 text-[#3B4F84]" style={{fontFamily: 'Asap condensed'}}>In Collaboration With</h2>
+              <h2 className="text-5xl font-bold my-4 text-[#3B4F84] font-asap">In Collaboration With</h2>
               <p className="text-2xl mb-8 font-albert max-w-80">Partnering with the Best to Guide Your Journey</p>
             </div>
             <div className="flex w-3/5 ml-auto gap-20 space-x-12 ">
@@ -201,7 +307,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="w-3/5">
-                  <h2 className="text-5xl font-bold text-[#3B4F84] text-left mt-10" style={{fontFamily: 'Asap condensed'}}>
+                  <h2 className="text-5xl font-bold text-[#3B4F84] text-left mt-10 font-asap">
                     Immigration Services for Your Dream Destination
                   </h2>
                   <section className="pb-16 pt-10 pr-10 text-gray-900 ml-4">
@@ -254,7 +360,7 @@ export default function Home() {
 
       {/* Why Choose Visa Synergy Section */}
       <div className="w-6xl mx-auto p-6 mt-10">
-        <h2 className="text-5xl font-semibold text-[#3b4f84]" style={{ fontFamily: "Asap condensed" }}>
+        <h2 className="text-5xl font-semibold text-[#3b4f84] font-asap">
           Why Choose Visa Synergy?
         </h2>
         <p className=" text-[#333333] mt-2 w-1/2 font-albert text-2xl">
@@ -266,7 +372,7 @@ export default function Home() {
             <img src="/bce.gif" alt="Easy Process" className="w-20 h-20 mx-auto mb-3" />
             <h3 className="font-semibold text-xl text-left ml-6">Expertise & Proven Success</h3>
             <CardContent className="text-[#404040] mt-2">
-              <ul className="list-disc list-inside text-lg text-left " style={{ fontFamily: "Asap Condensed" }}>
+              <ul className="list-disc list-inside text-lg text-left font-asap">
                 <p className="pl-6 indent-[-1.7rem]">✔️ 21+ Years of Immigration Excellence</p>
                 <p className="pl-6 indent-[-1.7rem]">✔️ Extensive knowledge of global visa policies</p>
                 <p className="pl-6 indent-[-1.7rem]">✔️ <span>High success rate in PR, Work Permits & Student Visa</span></p>
@@ -277,7 +383,7 @@ export default function Home() {
           <Card className="p-4 text-center max-w-1/3 mx-10 bg-[#edf3f5]">
             <img src="/easy.gif" alt="Easy Process" className="w-20 h-20 mx-auto mb-3" />
             <h3 className="font-semibold text-xl text-left ml-6">Easy & Effortless Process</h3>
-            <CardContent className="text-[#404040] mt-2" style={{ fontFamily: "Asap Condensed" }}>
+            <CardContent className="text-[#404040] mt-2 font-asap">
             <ul className="text-lg text-left">
               <p className="pl-6 indent-[-1.7rem]">
                 ✔️ Personalized Immigration Pathways
@@ -295,7 +401,7 @@ export default function Home() {
           <Card className="p-4 text-center max-w-1/3 mx-10 bg-[#edf3f5]">
             <img src="/information.gif" alt="Easy Process" className="w-20 h-20 mx-auto mb-3" />
             <h3 className="font-semibold text-xl text-left ml-6">End-to-End Support</h3>
-            <CardContent className="text-[#404040] mt-2" style={{ fontFamily: "Asap Condensed" }}>
+            <CardContent className="text-[#404040] mt-2 font-asap">
               <ul className="list-disc list-inside text-lg text-left">
                 <p className="pl-6 indent-[-1.7rem]">✔️ Guidance at Every Step</p>
                 <p className="pl-6 indent-[-1.7rem]">✔️ Assistance from consultation to visa</p>
@@ -306,10 +412,7 @@ export default function Home() {
         </div>
 
         {/* Check Your Eligibility */}
-        <div
-          className="bg-[#51868e] text-white px-10 rounded-lg mt-12 text-center max-h-80"
-          style={{ fontFamily: "Asap Condensed" }}
-        >
+        <div className="bg-[#51868e] text-white px-10 rounded-lg mt-12 text-center max-h-80 font-asap">
           {/* Parent Flex Container with 1:2 Ratio */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
             
@@ -324,10 +427,7 @@ export default function Home() {
             {/* Text Content Section (2 Parts) */}
             <div className="flex-[3] flex-col justify-center items-center text-center md:text-left ">
               <h3 className="text-5xl">Check Your Eligibility Instantly!</h3>
-              <p 
-                className="mt-4 text-2xl w-3/4"
-                style={{ fontFamily: "Albert Sans" }}
-              >
+              <p className="mt-4 text-2xl w-3/4 font-albert">
                 Answer a few quick questions and discover your eligibility in seconds – no hassle, no waiting!
               </p>
 
@@ -348,6 +448,163 @@ export default function Home() {
 
 {/* ################################################################################################################################################# */}
 {/* ################################################################################################################################################# */}
+    
+<div
+        className="bg-white text-gray-900 font-asap"
+      >
+        <div className="container px-6 py-12 min-w-full">
+          <h2 className="text-5xl font-bold text-blue-900 mb-2">
+            Words That Matter : Client Testimonials
+          </h2>
+          <p className="text-gray-500 text-2xl mb-8">
+            Real Experiences, Real Success
+          </p>
+
+          <div className="relative">
+            {/* Cards Container */}
+            <div className="flex justify-center space-x-6 overflow-hidden">
+              {visibleTestimonials.map((testimonial) => (
+                <TestimonialCard
+                  key={testimonial.id}
+                  testimonial={testimonial}
+                />
+              ))}
+            </div>
+
+            {/* Left Arrow */}
+            <button
+              onClick={handlePrev}
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#4E878C] text-white p-3 rounded-lg shadow-md hover:bg-[#3b6b6f] z-10"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+
+            {/* Right Arrow */}
+            <button
+              onClick={handleNext}
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#4E878C] text-white p-3 rounded-lg shadow-md hover:bg-[#3b6b6f] z-10"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <footer
+        className="bg-[#4E878C] text-white py-10 font-albert"
+      >
+        <div className="container mx-auto px-6 grid grid-cols-[40%_60%] gap-8">
+          {/* Logo and Social Icons - 40% */}
+          <div>
+            <img
+              src="/logo-white.jpg"
+              alt="Visa Synergy"
+              className="w-36 mb-4 rounded-lg"
+            />
+            <p className="text-sm">
+              At Visa Synergy, We Simplify Your Journey and Open Doors to New
+              Opportunities
+            </p>
+            <div className="flex space-x-4 mt-4">
+              <a href="#" className="text-white text-xl hover:text-gray-300">
+                <FaWhatsapp size={24} />
+              </a>
+              <a href="#" className="text-white text-xl hover:text-gray-300">
+                <FaInstagram size={24} />
+              </a>
+              <a href="#" className="text-white text-xl hover:text-gray-300">
+                <FaLinkedin size={24} />
+              </a>
+              <a href="#" className="text-white text-xl hover:text-gray-300">
+                <FaFacebook size={24} />
+              </a>
+            </div>
+          </div>
+
+          {/* Other Sections - 60% (Equally Divided) */}
+          <div className="grid grid-cols-3 gap-10">
+            {/* Quick Links */}
+            <div>   
+              <h3
+                className="font-semibold text-2xl mb-4 font-asap"
+              >
+                Quick Links
+              </h3>
+              <ul className="space-y-4 text-sm mt-7 underline">
+                <li>
+                  <a href="#">About Us</a>
+                </li>
+                <li>
+                  <a href="#">Eligibility Calculator</a>
+                </li>
+                <li>
+                  <a href="#">Blog & Resources</a>
+                </li>
+                <li>
+                  <a href="#">Contact Us</a>
+                </li>
+                <li>
+                  <a href="#">Dashboard</a>
+                </li>
+                <li>
+                  <a href="#">News</a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Visa Quick Links */}
+            <div>
+              <h3
+                className="font-semibold text-2xl mb-4 font-asap"
+              >
+                Visa Quick Links
+              </h3>
+              <ul className="space-y-4 text-sm mt-7 underline">
+                <li>
+                  <a href="#">USA Visa</a>
+                </li>
+                <li>
+                  <a href="#">Canada Visa</a>
+                </li>
+                <li>
+                  <a href="#">Australia Visa</a>
+                </li>
+                <li>
+                  <a href="#">Europe Visa</a>
+                </li>
+                <li>
+                  <a href="#">New Zealand Visa</a>
+                </li>
+                <li>
+                  <a href="#">UK Visa</a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact Details */}
+            <div>
+              <h3
+                className="font-semibold text-2xl mb-4 font-asap"
+              >
+                Contact Details
+              </h3>
+              <p className="text-sm mt-7">
+                123 Global Avenue, Suite 456, New York, NY 10001, USA
+              </p>
+              <p className="text-sm mt-2">+1 (555) 123-4567</p>
+              <p className="text-sm mt-2">info@visasynergy.com</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Bottom */}
+        <div className="border-t-2 border-white/50 mt-10 pt-4">
+          <p className="container mx-auto px-6 text-left text-md">
+            visasynergy.in © 2025, All Rights Reserved
+          </p>
+        </div>
+      </footer>
+
     </div>
   );
 }
