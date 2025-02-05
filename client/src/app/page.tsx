@@ -1,5 +1,5 @@
 "use client";
-
+import "@fontsource/asap-condensed";
 import "@fontsource/albert-sans";
 import Image from "next/image";
 import { useState } from "react";
@@ -162,6 +162,85 @@ export default function Home() {
           <FaWhatsapp size={24} />
         </a>
       </div>
+      <div className="relative min-h-screen bg-gray-700 text-white">
+      {/* Collaboration Section */}
+      <section className="py-16 bg-gray-100 text-gray-900">
+        <div className="container mx-auto flex items-center justify-between px-6">
+          <div className="text-left max-w-lg">
+            <h2 className="text-4xl font-bold mb-6 text-[#3B4F84]" style={{fontFamily: 'Asap condensed'}}>In Collaboration With</h2>
+            <p className="text-lg mb-8">Partnering with the Best to Guide Your Journey</p>
+          </div>
+          <div className="flex ml-auto gap-20 ">
+            <Image src="/p1.png" alt="RCIC Logo" width={200} height={100} />
+            <Image src="/p2.png" alt="OISC Logo" width={100} height={100} />
+            <Image src="/p3.png" alt="MARA Logo" width={200} height={100} />
+          </div>
+        </div>
+      </section>
+
+      {/* Immigration Services Section */}
+      <section className="py-16 bg-white text-gray-900">
+  <div className="container mx-auto px-6 text-center">
+    <div className="flex items-center">
+      <div className="w-1/2 pr-8">
+        <img 
+          src="/girl.png" 
+          alt="Girl" 
+          className="w-[436px] h-[500px] rounded-[6px] shadow-md" 
+        />
+      </div>
+      <div className="w-1/2">
+        <h2 className="text-4xl font-bold mb-12 text-[#3B4F84] text-left" style={{fontFamily: 'Asap condensed'}}>
+          Immigration Services for Your Dream Destination
+        </h2>
+        <section className="py-16 pr-10 bg-white text-gray-900">
+  <div className="container mx-auto px-1 text-center">
+    <div className="flex gap-32"> {/* Increased gap between columns */}
+      {/* Left Column */}
+      <div className="w-1/2 pr-8 ml-[-20px]"> {/* Shifted the first column to the left */}
+        <div className="grid grid-cols-1 gap-12 text-left" >
+          {[
+            { title: "PR & Immigration Guidance", desc: "Canada | Australia | New Zealand | UK   |   USA  | Europe" },
+            { title: "Work Permit Assistance", desc: "Canada | Australia | New Zealand | UK | USA |  Europe" },
+            { title: "Visitor Visa", desc: "Canada | Australia | New Zealand | UK | USA | Europe" }
+          ].map((service, index) => (
+            <div key={index} className="flex flex-col items-start h-[100px] w-[300px]">
+              <h3 className="text-2xl font-bold whitespace-nowrap">{service.title}</h3>
+              <p className="text-lg text-gray-700 line-clamp-2">{service.desc}</p> {/* Apply line-clamp to restrict to 2 lines */}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Right Column */}
+      <div className="w-1/2">
+        <div className="grid grid-cols-1  gap-12 text-left">
+          {[
+            { title: "Canada PNP Expertise", desc: "Canada PNP | Ontario PNP | Alberta PNP | Manitoba PNP | New Brunswick PNP" },
+            { title: "Study Abroad Guidance", desc: "Canada | Australia | New Zealand | UK | USA | Europe" },
+            { title: "Family Visa", desc: "Canada | Australia | New Zealand | UK | USA | Europe" }
+          ].map((service, index) => (
+            <div key={index} className="flex flex-col items-start h-[100px] w-[350px]">
+              <h3 className="text-2xl font-bold whitespace-nowrap">{service.title}</h3>
+              <p className="text-lg text-gray-700 line-clamp-2">{service.desc}</p> {/* Apply line-clamp to restrict to 2 lines */}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    </div>
     </div>
   );
 }
