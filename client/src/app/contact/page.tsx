@@ -173,7 +173,76 @@ export default function ContactPage() {
         {/* #################################################################################################################################### */}
         {/* #################################################################################################################################### */}
         
-        
+        <section className="py-16 mt-6 bg-white text-gray-900">
+      <div className="container mx-auto px-6 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center ">
+          {/* Left Column - Office Info */}
+          <div className="text-left">
+            <h2 className="text-4xl font-bold text-[#3B4F84] w-[630px]" style={{ fontFamily: "Asap Condensed" }}>
+              Visit Our Office – Let’s Meet in Person!
+            </h2>
+            <p className="text-lg text-[#404040] mt-2" style={{ fontFamily: "albert sans" }}>
+              Visit us at our office for a face-to-face consultation.
+            </p>
+
+            {/* Office Details */}
+            <div className="mt-6 ">
+              <h3 className="text-xl font-semibold">Our Office Location</h3>
+
+              <div className="mt-4">
+              <span className="flex w-100 mr-6">
+            <Image className="mr-2" src="/location.png" alt="call" width={24} height={24} /> <p className="flex items-center text-lg font-semibold">
+                  Visa Synergy Office – New York, USA
+                </p>
+          </span>
+                
+                <p className="text-[#404040] pl-8">
+                  Visa Synergy Consultancy
+                  <br />
+                  123 Global Avenue, Suite 456,
+                  <br />
+                  Midtown Manhattan, Near Times Square,
+                  <br />
+                  New York, NY 10001, USA
+                </p>
+              </div>
+
+              {/* Business Hours */}
+              <div className="mt-4">
+              <span className="flex w-100 mr-6">
+            <Image className="mr-2" src="/time.png" alt="call" width={24} height={24} /> 
+            <p className="flex items-center text-lg font-semibold">
+                  Business Hours: <span className="ml-2">Monday – Friday | 9 AM – 6 PM</span>
+                </p>
+          </span>
+                
+              </div>
+
+              {/* Get Direction Button */}
+              <button
+              className="mt-6 px-6 py-3 bg-[#51868e] w-[450px] text-white rounded-md hover:bg-white border-2 hover:text-[#51868e] transition duration-700"
+              onClick={() => window.location.href = 'https://www.google.com/maps/place/Kalapi/@22.5518622,72.9406648,21z/data=!4m16!1m9!3m8!1s0xc960ad097c26959:0x8a401f637e9d0fde!2sVisa+Synergy!8m2!3d22.5488724!4d72.9447341!9m1!1b1!16s%2Fg%2F11y4855cmg!3m5!1s0x395e4e7f30c8123b:0xfd95564366f82ea1!8m2!3d22.551883!4d72.9408225!16s%2Fg%2F11fy0skv6s?authuser=0&entry=ttu&g_ep=EgoyMDI1MDIwMi4wIKXMDSoASAFQAw%3D%3D'}>
+              Get Direction
+              </button>
+
+            </div>
+          </div>
+
+          {/* Right Column - Map */}
+           
+          <div>
+  <Image
+    src="/map.png" // Use the uploaded image
+    alt="Office Location Map"
+    width={730} // Adjust as per your layout
+    height={444}
+    className="transition-transform duration-700 transform hover:scale-95 shadow-md  border-[15px] border-white"
+  />
+</div>
+
+        </div>
+      </div>
+    </section>
         {/* #################################################################################################################################### */}
         {/* #################################################################################################################################### */}
 
