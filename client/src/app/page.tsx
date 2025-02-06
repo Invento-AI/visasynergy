@@ -589,19 +589,18 @@ export default function Home() {
 
           <div className="relative">
             {/* Cards Container */}
-            <div className="flex justify-center space-x-6 overflow-hidden md:mx-auto text-sm">
+            <div className="flex overflow-hidden space-x-6 md:overflow-visible md:flex-wrap md:justify-center">
               {visibleTestimonials.map((testimonial) => (
-                <TestimonialCard
-                  key={testimonial.id}
-                  testimonial={testimonial}
-                />
+                <div key={testimonial.id} className="min-w-full md:min-w-[400px] flex justify-center">
+                  <TestimonialCard testimonial={testimonial} />
+                </div>
               ))}
             </div>
 
             {/* Left Arrow */}
             <button
               onClick={handlePrev}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#4E878C] text-white p-3 rounded-lg shadow-md hover:bg-[#3b6b6f] z-10"
+              className="absolute -left-6 md:left-0 top-1/2 transform -translate-y-1/2 bg-[#4E878C] text-white p-3 rounded-lg shadow-md hover:bg-[#3b6b6f] z-10"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
@@ -609,7 +608,7 @@ export default function Home() {
             {/* Right Arrow */}
             <button
               onClick={handleNext}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#4E878C] text-white p-3 rounded-lg shadow-md hover:bg-[#3b6b6f] z-10"
+              className="absolute -right-6 md:right-0 top-1/2 transform -translate-y-1/2 bg-[#4E878C] text-white p-3 rounded-lg shadow-md hover:bg-[#3b6b6f] z-10"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
