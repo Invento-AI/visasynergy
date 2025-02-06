@@ -1,7 +1,10 @@
 "use client";
+import OfficeInfo from "@/components/OfficeInfo";
+
 import React from 'react';
 import Image from "next/image";
 import Link from "next/link";
+import animation from "../../../public/email.gif";
 import "@fontsource/asap-condensed";
 import "@fontsource/albert-sans";
 import "@fontsource/asap-condensed";
@@ -33,14 +36,14 @@ export default function ContactPage() {
         <div className="flex items-center">
           <Image src="/logo.png" width={150} height={10} alt="Visa Synergy Logo" />
         </div>
-        <nav className="ml-auto mr-12 space-x-12 flex text-xl font-albert font-bold">
+        <nav className="ml-auto mr-12 space-x-12 flex text-xl font-albert">
           <Link href={"/about"}>About</Link>
           <Link href={"/news"}>News</Link>
           <Link href={"/blogs"}>Blogs</Link>
           <Link href={"/contact"} className='text-[#51868e] underline'>Contact Us</Link>
           <Link href={"/dashboard"}>Dashboard</Link>
         </nav>
-        <Button className="ml-4 mr-6 text-white border-2 hover:bg-white hover:text-[#51868e] border-[#51868e] hover:border-2 transition duration-700 font-albert font-bold text-lg">
+        <Button className="ml-4 mr-6 text-white border-2 hover:bg-white hover:text-[#51868e] border-[#51868e] hover:border-2 transition duration-700">
           Start Assessment
         </Button>
       </header>
@@ -49,199 +52,150 @@ export default function ContactPage() {
       {/* ###################################################################################################################################### */}
 
       {/* Contact Section */}
-      <main className="px-16 mx-auto">
-        <h1 className="text-5xl font-bold text-center text-[#3B4F84] mt-12">Get in Touch – Your Journey Starts Here!</h1>
-        <p className="text-center text-black mt-2 text-2xl font-albert" >Have questions about your visa application? Our experts are ready to assist you every step of the way</p>
+      <main className="px-4 md:px-16 mx-auto max-w-screen-xl">
+      <h1 className="text-3xl md:text-5xl font-bold text-center text-[#3B4F84] mt-8 md:mt-12">
+        Get in Touch – Your Journey Starts Here!
+      </h1>
+      <p className="text-center text-black mt-2 text-lg md:text-2xl font-albert">
+        Have questions about your visa application? Our experts are ready to assist you every step of the way.
+      </p>
 
-        <div className="grid md:grid-cols-2 gap-16 mt-12 items-stretch">
-          {/* Grid:1 */}
-          <div className="flex flex-col space-y-10">
-
-            <div className="flex-1">
-                <Image src="/contact_girl.png" alt="Contact Us" width={500} height={500} className='w-full h-full object-cover rounded-md' />
-            </div>
-
-            <div className="flex items-center space-x-4 p-4 bg-[#edf3f5] rounded-md  font-albert">
-                <div className="p-2 bg-white rounded-full">
-                {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-[#51868e]">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75M21.75 6.75A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25M21.75 6.75l-9.75 6-9.75-6" />
-                </svg> */}
-                <img src="/email.gif" alt="email" className="w-12 h-10 mx-auto mb-3 " />
-                </div>
-                <div>
-                <p className="font-bold">Email</p>
-                <p className="text-gray-600">info@visasynergy.com</p>
-                </div>
-            </div>
-
-            <div className="flex items-center space-x-4 p-4 bg-[#edf3f5] rounded-md  font-albert">
-                <div className="p-2 bg-white rounded-full">
-                <img src="/call.gif" alt="phone" className="w-12 h-10 mx-auto mb-3" />
-                </div>
-                <div>
-                <p className="font-bold">Phone</p>
-                <p className="text-gray-600">+1 (555) 123-4567</p>
-                </div>
-            </div>
-
-            </div>
-
-          {/* Grid:2 Contact Form */}
-          <div className="space-y-4 p-8 bg-[#edf3f5] rounded-md">
-            <h2 className="text-2xl font-albert text-[#ff5f00] font-bold">Get in touch</h2>
-            <p className='font-albert'>We're here to help. Send us a message & we will respond within 24 hours.</p>
-
-            <hr className="border-[#51868e] border-1" />
-
-            <form className="space-y-4">
-                <div className="grid grid-cols-2 gap-6">
-                  <div>
-                    <Label htmlFor="first-name" className="font-albert font-bold">
-                      First Name <span className="text-red-500">*</span>
-                    </Label>
-                    <Input id="first-name" className="font-albert mt-2 border-gray-300 bg-white" placeholder="Enter Your First Name" required />
-                  </div>
-                  <div>
-                    <Label htmlFor="last-name" className="font-albert font-bold">
-                      Last Name <span className="text-red-500">*</span>
-                    </Label>
-                    <Input id="last-name" className="font-albert mt-2 border-gray-300 bg-white" placeholder="Enter Your Last Name" required />
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="email" className="font-albert font-bold">
-                    Email <span className="text-red-500">*</span>
-                  </Label>
-                  <Input id="email" className="font-albert mt-2 border-gray-300 bg-white" type="email" placeholder="Enter Your Email" required />
-                </div>
-
-                <div>
-                  <Label htmlFor="mobile" className="font-albert font-bold">
-                    Mobile Number <span className="text-red-500">*</span>
-                  </Label>
-                  <Input id="mobile" className="font-albert mt-2 border-gray-300 bg-white" type="tel" placeholder="Enter Your Mobile Number" required />
-                </div>
-
-                <div>
-                  <Label htmlFor="program" className="font-albert font-bold">
-                    Program You Are Interested In <span className="text-red-500">*</span>
-                  </Label>
-                  <Select>
-                    <SelectTrigger className="font-albert mt-2">
-                      {/* <SelectValue placeholder="Select Your Program" className="placeholder-albert"/> */}
-                      <span className="font-albert text-gray-700">
-                        <SelectValue placeholder="Select Your Program"/>
-                      </span>
-                    </SelectTrigger>
-                    <SelectContent>
-                    <span className="font-albert text-gray-400">
-                      <SelectItem className="font-albert text-gray-400" value="usa">USA</SelectItem>
-                      <SelectItem value="canada">Canada</SelectItem>
-                      <SelectItem value="australia">Australia</SelectItem>
-                      <SelectItem value="europe">Europe</SelectItem>
-                      <SelectItem value="new-zealand">New Zealand</SelectItem>
-                    </span>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="">
-                    <Label htmlFor="program" className="font-albert font-bold">
-                        How can we assist you? <span className="text-red-500">*</span>
-                    </Label>
-                    <Textarea className='font-albert mt-2 bg-white border-gray-300' placeholder="Type your message here"/>
-                    <p className='text-sm font-albert text-gray-600 mt-1'>Briefly describe your visa query, and our experts will get back to you soon</p>
-                </div>
-
-                <div className="flex items-center space-x-2">
-                    <input type="checkbox" id="terms" className="accent-[#51868e]" required />
-                    <Label htmlFor="terms" className="font-albert text-sm">
-                        I accept the <a href="#" className="text-[#51868e] underline">terms and conditions</a>.
-                    </Label>
-                </div>
-                
-                <Button className="w-full bg-[#51868e] border-2 border-gray-100 text-white text-lg hover:bg-transparent hover:text-[#51868e] hover:border-[#51868e] font-albert">Submit Enquiry</Button>
-
-              </form>
-
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mt-8 md:mt-12 items-stretch">
+        {/* Image Section */}
+        <div className="flex flex-col space-y-6">
+          <div className="w-full">
+            <Image src="/contact_girl.png" alt="Contact Us" width={500} height={500} className='w-full h-auto object-cover rounded-md' />
           </div>
 
+          {/* Email and Phone Section */}
+          <div className="space-y-4">
+            <div className="flex items-center space-x-4 p-4 bg-[#edf3f5] rounded-md font-albert">
+              <div className="p-2 bg-white rounded-full">
+                <img src="/email.gif" alt="email" className="w-10 h-10" />
+              </div>
+              <div>
+                <p className="font-bold">Email</p>
+                <p className="text-gray-600 text-sm md:text-base">info@visasynergy.com</p>
+              </div>
+            </div>
+
+            <div className="flex items-center space-x-4 p-4 bg-[#edf3f5] rounded-md font-albert">
+              <div className="p-2 bg-white rounded-full">
+                <img src="/call.gif" alt="phone" className="w-10 h-10" />
+              </div>
+              <div>
+                <p className="font-bold">Phone</p>
+                <p className="text-gray-600 text-sm md:text-base">+1 (555) 123-4567</p>
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* Contact Form */}
+        <div className="p-6 md:p-8 bg-[#edf3f5] rounded-md">
+          <h2 className="text-xl md:text-2xl font-bold text-[#ff5f00] font-albert">Get in touch</h2>
+          <p className='text-sm md:text-base font-albert'>We're here to help. Send us a message & we will respond within 24 hours.</p>
+          <hr className="border-[#51868e] border-1 my-4" />
+
+          <form className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <Label htmlFor="first-name" className="font-bold text-sm md:text-base">First Name <span className="text-red-500">*</span></Label>
+                <Input id="first-name" className="mt-2 border-gray-300 bg-white" placeholder="Enter Your First Name" required />
+              </div>
+              <div>
+                <Label htmlFor="last-name" className="font-bold text-sm md:text-base">Last Name <span className="text-red-500">*</span></Label>
+                <Input id="last-name" className="mt-2 border-gray-300 bg-white" placeholder="Enter Your Last Name" required />
+              </div>
+            </div>
+
+            <div>
+              <Label htmlFor="email" className="font-bold text-sm md:text-base">Email <span className="text-red-500">*</span></Label>
+              <Input id="email" className="mt-2 border-gray-300 bg-white" type="email" placeholder="Enter Your Email" required />
+            </div>
+
+            <div>
+              <Label htmlFor="mobile" className="font-bold text-sm md:text-base">Mobile Number <span className="text-red-500">*</span></Label>
+              <Input id="mobile" className="mt-2 border-gray-300 bg-white" type="tel" placeholder="Enter Your Mobile Number" required />
+            </div>
+
+            <div>
+              <Label htmlFor="program" className="font-bold text-sm md:text-base">Program You Are Interested In <span className="text-red-500">*</span></Label>
+              <Select>
+                <SelectTrigger className="mt-2">
+                  <SelectValue placeholder="Select Your Program" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="usa">USA</SelectItem>
+                  <SelectItem value="canada">Canada</SelectItem>
+                  <SelectItem value="australia">Australia</SelectItem>
+                  <SelectItem value="europe">Europe</SelectItem>
+                  <SelectItem value="new-zealand">New Zealand</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div>
+              <Label htmlFor="message" className="font-bold text-sm md:text-base">How can we assist you? <span className="text-red-500">*</span></Label>
+              <Textarea id="message" className="mt-2 bg-white border-gray-300" placeholder="Type your message here" />
+              <p className='text-sm text-gray-600 mt-1'>Briefly describe your visa query, and our experts will get back to you soon.</p>
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <input type="checkbox" id="terms" className="accent-[#51868e]" required />
+              <Label htmlFor="terms" className="text-sm">I accept the <a href="#" className="text-[#51868e] underline">terms and conditions</a>.</Label>
+            </div>
+
+            <Button className="w-full bg-[#51868e] text-white text-lg hover:bg-transparent hover:text-[#51868e] border-2 hover:border-[#51868e]">
+              Submit Enquiry
+            </Button>
+          </form>
+        </div>
+      </div>
 
         {/* #################################################################################################################################### */}
         {/* #################################################################################################################################### */}
         
         <section className="py-16 mt-6 bg-white text-gray-900">
-            <div className="container mx-auto px-6 min-w-full">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center ">
-                {/* Left Column - Office Info */}
-                <div className="text-left">
-                    <h2 className="text-4xl font-bold text-[#3B4F84] w-[630px]" style={{ fontFamily: "Asap Condensed" }}>
-                    Visit Our Office – Let’s Meet in Person!
-                    </h2>
-                    <p className="text-lg text-[#404040] mt-2" style={{ fontFamily: "albert sans" }}>
-                    Visit us at our office for a face-to-face consultation.
-                    </p>
-
-                    {/* Office Details */}
-                    <div className="mt-6 ">
-                    <h3 className="text-xl font-semibold">Our Office Location</h3>
-
-                    <div className="mt-4">
-                    <span className="flex w-100 mr-6">
-                    <Image className="mr-2" src="/location.png" alt="call" width={24} height={24} /> <p className="flex items-center text-lg font-semibold">
-                        Visa Synergy Office – New York, USA
-                        </p>
-                </span>
-                        
-                        <p className="text-[#404040] pl-8">
-                        Visa Synergy Consultancy
-                        <br />
-                        123 Global Avenue, Suite 456,
-                        <br />
-                        Midtown Manhattan, Near Times Square,
-                        <br />
-                        New York, NY 10001, USA
-                        </p>
-                    </div>
-
-                    {/* Business Hours */}
-                    <div className="mt-4">
-                    <span className="flex w-100 mr-6">
-                    <Image className="mr-2" src="/time.png" alt="call" width={24} height={24} /> 
-                    <p className="flex items-center text-lg font-semibold">
-                        Business Hours: <span className="ml-2">Monday – Friday | 9 AM – 6 PM</span>
-                        </p>
-                </span>
-                
-              </div>
-
-              {/* Get Direction Button */}
-              <button
-              className="mt-6 px-6 py-3 bg-[#51868e] w-[450px] text-white rounded-md hover:bg-white border-2 hover:text-[#51868e] transition duration-700"
-              onClick={() => window.location.href = 'https://www.google.com/maps/place/Kalapi/@22.5518622,72.9406648,21z/data=!4m16!1m9!3m8!1s0xc960ad097c26959:0x8a401f637e9d0fde!2sVisa+Synergy!8m2!3d22.5488724!4d72.9447341!9m1!1b1!16s%2Fg%2F11y4855cmg!3m5!1s0x395e4e7f30c8123b:0xfd95564366f82ea1!8m2!3d22.551883!4d72.9408225!16s%2Fg%2F11fy0skv6s?authuser=0&entry=ttu&g_ep=EgoyMDI1MDIwMi4wIKXMDSoASAFQAw%3D%3D'}>
-              Get Direction
-              </button>
-
-                </div>
-            </div>
-
-            {/* Right Column - Map */}
-            
-            <div>
-                <Image
-                    src="/map.png" // Use the uploaded image
-                    alt="Office Location Map"
-                    width={730} // Adjust as per your layout
-                    height={444}
-                    className="transition-transform duration-700 transform hover:scale-95 shadow-md  border-[15px] border-white"
-                />
-            </div>
-
-           </div>
+      <div className="container mx-auto px-6">
+        {/* Desktop Layout */}
+        <div className="hidden md:grid grid-cols-2 gap-12 items-center">
+          {/* Left Column - Office Info */}
+          <OfficeInfo />
+          {/* Right Column - Map */}
+          <Image
+            src="/map.png"
+            alt="Office Location Map"
+            width={730}
+            height={444}
+            className="transition-transform duration-700 transform hover:scale-95 shadow-md border-[15px] border-white"
+          />
         </div>
+
+        {/* Mobile Layout */}
+        <div className="md:hidden flex flex-col space-y-8 items-center text-center">
+          {/* <h2 className="text-3xl font-bold text-[#3B4F84] w-full" style={{ fontFamily: "Asap Condensed" }}>
+            Visit Our Office – Let’s Meet in Person!
+          </h2>
+          <p className="text-lg text-[#404040]" style={{ fontFamily: "albert sans" }}>
+            Visit us at our office for a face-to-face consultation.
+          </p> */}
+          
+          {/* Office Details */}
+          <OfficeInfo />
+          
+          {/* Map Image */}
+          <Image
+            src="/map.png"
+            alt="Office Location Map"
+            width={350}
+            height={250}
+            className="shadow-md border-8 border-white"
+          />
+        </div>
+      </div>
     </section>
+
         {/* #################################################################################################################################### */}
         {/* #################################################################################################################################### */}
         
