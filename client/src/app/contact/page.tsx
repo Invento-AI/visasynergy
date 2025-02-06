@@ -14,39 +14,14 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
         
-      {/* Top Navbar */}
-      <header className="relative top-0 left-0 right-0 flex justify-between items-center p-2 bg-primary text-white z-30">
-        <div className="ml-auto flex space-x-6 mr-6">
-          <span className="flex w-100 mr-6">
-            <Image className="mr-2" src="/call.png" alt="call" width={20} height={20} /> +1 234 567 890
-          </span>
-          <span className="flex w-100 mr-6">
-            <Image className="mr-2" src="/email.png" alt="email" width={25} height={20} /> contact@visasynergy.com
-          </span>
-        </div>
-      </header>
-
-      {/* Navigation Bar */}
-      <header className="relative left-0 right-0 flex justify-between items-center p-2 bg-white text-gray-700 z-20">
-        <div className="flex items-center">
-          <Image src="/logo.png" width={150} height={10} alt="Visa Synergy Logo" />
-        </div>
-        <nav className="ml-auto mr-12 space-x-12 flex text-xl font-albert">
-          <Link href={"/about"}>About</Link>
-          <Link href={"/news"}>News</Link>
-          <Link href={"/blogs"}>Blogs</Link>
-          <Link href={"/contact"} className='text-[#51868e] underline'>Contact Us</Link>
-          <Link href={"/dashboard"}>Dashboard</Link>
-        </nav>
-        <Button className="ml-4 mr-6 text-white border-2 hover:bg-white hover:text-[#51868e] border-[#51868e] hover:border-2 transition duration-700">
-          Start Assessment
-        </Button>
-      </header>
+      <Navbar/>
 
       {/* ###################################################################################################################################### */}
       {/* ###################################################################################################################################### */}
@@ -201,121 +176,8 @@ export default function ContactPage() {
         
       </main>
 
-      <footer
-            className="bg-[#4E878C] text-white py-10 font-albert"
-        >
-            <div className="container mx-auto px-6 grid grid-cols-[40%_60%] gap-8">
-            {/* Logo and Social Icons - 40% */}
-            <div>
-                <img
-                src="/logo-white.jpg"
-                alt="Visa Synergy"
-                className="w-36 mb-4 rounded-lg"
-                />
-                <p className="text-sm">
-                At Visa Synergy, We Simplify Your Journey and Open Doors to New
-                Opportunities
-                </p>
-                <div className="flex space-x-4 mt-4">
-                <a href="#" className="text-white text-xl hover:text-gray-300">
-                    <FaWhatsapp size={24} />
-                </a>
-                <a href="#" className="text-white text-xl hover:text-gray-300">
-                    <FaInstagram size={24} />
-                </a>
-                <a href="#" className="text-white text-xl hover:text-gray-300">
-                    <FaLinkedin size={24} />
-                </a>
-                <a href="#" className="text-white text-xl hover:text-gray-300">
-                    <FaFacebook size={24} />
-                </a>
-                </div>
-            </div>
-
-            {/* Other Sections - 60% (Equally Divided) */}
-            <div className="grid grid-cols-3 gap-10">
-                {/* Quick Links */}
-                <div>   
-                <h3
-                    className="font-semibold text-2xl mb-4 font-asap"
-                >
-                    Quick Links
-                </h3>
-                <ul className="space-y-4 text-sm mt-7 underline">
-                    <li>
-                    <a href="#">About Us</a>
-                    </li>
-                    <li>
-                    <a href="#">Eligibility Calculator</a>
-                    </li>
-                    <li>
-                    <a href="#">Blog & Resources</a>
-                    </li>
-                    <li>
-                    <a href="#">Contact Us</a>
-                    </li>
-                    <li>
-                    <a href="#">Dashboard</a>
-                    </li>
-                    <li>
-                    <a href="#">News</a>
-                    </li>
-                </ul>
-                </div>
-
-                {/* Visa Quick Links */}
-                <div>
-                <h3
-                    className="font-semibold text-2xl mb-4 font-asap"
-                >
-                    Visa Quick Links
-                </h3>
-                <ul className="space-y-4 text-sm mt-7 underline">
-                    <li>
-                    <a href="#">USA Visa</a>
-                    </li>
-                    <li>
-                    <a href="#">Canada Visa</a>
-                    </li>
-                    <li>
-                    <a href="#">Australia Visa</a>
-                    </li>
-                    <li>
-                    <a href="#">Europe Visa</a>
-                    </li>
-                    <li>
-                    <a href="#">New Zealand Visa</a>
-                    </li>
-                    <li>
-                    <a href="#">UK Visa</a>
-                    </li>
-                </ul>
-                </div>
-
-                {/* Contact Details */}
-                <div>
-                <h3
-                    className="font-semibold text-2xl mb-4 font-asap"
-                >
-                    Contact Details
-                </h3>
-                <p className="text-sm mt-7">
-                    123 Global Avenue, Suite 456, New York, NY 10001, USA
-                </p>
-                <p className="text-sm mt-2">+1 (555) 123-4567</p>
-                <p className="text-sm mt-2">info@visasynergy.com</p>
-                </div>
-            </div>
-            </div>
-
-            {/* Footer Bottom */}
-            <div className="border-t-2 border-white/50 mt-10 pt-4">
-            <p className="container mx-auto px-6 text-left text-md">
-                visasynergy.in © 2025, All Rights Reserved
-            </p>
-            </div>
-        </footer>
-
+      <Footer/>
+      
     </div>
   );
 }

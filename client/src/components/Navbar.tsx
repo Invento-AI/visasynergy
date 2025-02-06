@@ -21,8 +21,7 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Top Navbar */}
-      <header className="relative top-0 left-0 right-0 flex justify-between items-center p-2 bg-primary text-white z-30">
+      <header className="hidden md:flex relative top-0 left-0 right-0 justify-between items-center p-2 bg-primary text-white z-30">
         <div className="ml-auto flex space-x-6 mr-6">
           <span className="flex w-100 mr-6">
             <Image
@@ -96,7 +95,9 @@ const Navbar = () => {
               <Link
                 key={href}
                 href={href}
-                className="text-lg font-albert"
+                className={`text-lg font-albert ${
+                  pathname === href ? "text-[#51868e] border-b-2 border-[#51868e]" : "text-gray-700 hover:text-[#51868e]"
+                }`}
                 onClick={() => setMenuOpen(false)}
               >
                 {label}

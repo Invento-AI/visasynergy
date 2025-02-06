@@ -134,35 +134,6 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-white text-white">
-      {/* Top Navbar */}
-      {/* <header className="hidden md:flex relative top-0 left-0 right-0 justify-between items-center p-2 bg-primary text-white z-30">
-        <div className="ml-auto flex space-x-6 mr-6">
-          <span className="flex w-100 mr-6">
-            <Image className="mr-2" src="/call.png" alt="call" width={20} height={20} /> +1 234 567 890
-          </span>
-          <span className="flex w-100 mr-6">
-            <Image className="mr-2" src="/email.png" alt="email" width={25} height={20} /> contact@visasynergy.com
-          </span>
-        </div>
-      </header> */}
-
-
-      {/* Navigation Bar */}
-      {/* <header className="relative left-0 right-0 flex justify-between items-center p-2 bg-white shadow-md text-gray-700 z-20">
-        <div className="flex items-center">
-          <Image src="/logo.png" width={150} height={10} alt="Visa Synergy Logo" />
-        </div>
-        <nav className="ml-auto mr-12 space-x-12 flex text-xl font-bold font-albert">
-          <Link href={"/about"}>About</Link>
-          <Link href={"/news"}>News</Link>
-          <Link href={"/blogs"}>Blogs</Link>
-          <Link href={"/contact"}>Contact Us</Link>
-          <Link href={"/dashboard"}>Dashboard</Link>
-        </nav>
-        <Button className="ml-4 mr-6 text-white border-2 hover:bg-white hover:text-[#51868e] border-[#51868e] hover:border-2 transition duration-700">
-          Start Assessment
-        </Button>
-      </header> */}
 
       <Navbar/>
 
