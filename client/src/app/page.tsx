@@ -445,7 +445,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      import Image from "next/image";
+      
 
 
    
