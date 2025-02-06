@@ -9,6 +9,7 @@ import { FaFacebook, FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa"
 import Lottie from "lottie-react";
 import animation from "../../public/Animation - 1737981416584.json";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -17,7 +18,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function Home() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const testimonials = [
     {
@@ -69,11 +71,15 @@ export default function Home() {
 
   const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
     return (
-      <div className="bg-gray-100 p-6 rounded-lg shadow-md w-[400px] h-[300px] flex flex-col space-y-4">
+      <div className="bg-gray-100 p-6 rounded-lg w-[400px] h-[300px] flex flex-col space-y-2 md:space-y-4">
+
         {/* Stars Section */}
         <div className="flex items-center justify-start space-x-1">
-          {[...Array(testimonial.stars)].map((_, index) => (
-            <span key={index} className="text-black text-lg">
+          {[...Array(5)].map((_, index) => (
+            <span
+              key={index}
+              className={`text-lg ${index < testimonial.stars ? 'text-yellow-500' : 'text-gray-300'}`}
+            >
               ★
             </span>
           ))}
@@ -90,7 +96,7 @@ export default function Home() {
             className="w-12 h-12 rounded-full mr-4"
           />
           <div>
-            <h3 className="text-blue-700 font-semibold">{testimonial.name}</h3>
+            <h3 className="text-blue-700 font-semibold text-sm">{testimonial.name}</h3>
             <p className="text-gray-500 text-sm">{testimonial.desc}</p>
           </div>
         </div>
@@ -127,7 +133,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-white text-white">
       {/* Top Navbar */}
-      <header className="relative top-0 left-0 right-0 flex justify-between items-center p-2 bg-primary text-white z-30">
+      <header className="hidden md:flex relative top-0 left-0 right-0 justify-between items-center p-2 bg-primary text-white z-30">
         <div className="ml-auto flex space-x-6 mr-6">
           <span className="flex w-100 mr-6">
             <Image className="mr-2" src="/call.png" alt="call" width={20} height={20} /> +1 234 567 890
@@ -138,8 +144,9 @@ export default function Home() {
         </div>
       </header>
 
+
       {/* Navigation Bar */}
-      <header className="relative left-0 right-0 flex justify-between items-center p-2 bg-white shadow-md text-gray-700 z-20">
+      {/* <header className="relative left-0 right-0 flex justify-between items-center p-2 bg-white shadow-md text-gray-700 z-20">
         <div className="flex items-center">
           <Image src="/logo.png" width={150} height={10} alt="Visa Synergy Logo" />
         </div>
@@ -153,13 +160,59 @@ export default function Home() {
         <Button className="ml-4 mr-6 text-white border-2 hover:bg-white hover:text-[#51868e] border-[#51868e] hover:border-2 transition duration-700">
           Start Assessment
         </Button>
-      </header>
+      </header> */}
+      <header className="relative left-0 right-0 flex justify-between items-center bg-white text-gray-700 z-40 p-2">
+      <div className="flex items-center">
+        {/* Adjust logo size for mobile screens */}
+        <Link href="/">
+          <Image
+            src="/logo.png"
+            width={150} // Desktop size
+            height={10}
+            alt="Visa Synergy Logo"
+            className="w-[120px] md:w-[150px] cursor-pointer" // Smaller logo for mobile + pointer cursor
+          />
+        </Link>
+      </div>
+
+      {/* Desktop Navigation */}
+      <nav className="hidden md:flex ml-auto mr-12 space-x-12 text-xl font-bold font-albert ">
+        <Link href={"/about"}>About</Link>
+        <Link href={"/news"}>News</Link>
+        <Link href={"/blogs"}>Blogs</Link>
+        <Link href={"/contact"}>Contact Us</Link>
+        <Link href={"/dashboard"}>Dashboard</Link>
+      </nav>
+
+      <Button className="hidden md:block ml-4 mr-6 text-white border-2 font-albert text-lg md:py-0 font-bold  hover:bg-white hover:text-[#51868e] border-[#51868e] hover:border-2 transition duration-700">
+        Start Assessment
+      </Button>
+
+      {/* Mobile Menu Button */}
+      <button className="md:hidden p-2" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <X size={30} /> : <Menu size={30} />}
+      </button>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="z-50 absolute top-full right-0 w-full bg-white shadow-lg flex flex-col items-center space-y-6 py-4 md:hidden">
+          <Link href={"/about"} className="text-lg font-albert">About</Link>
+          <Link href={"/news"} className="text-lg font-albert">News</Link>
+          <Link href={"/blogs"} className="text-lg font-albert">Blogs</Link>
+          <Link href={"/contact"} className="text-lg font-albert">Contact Us</Link>
+          <Link href={"/dashboard"} className="text-lg font-albert">Dashboard</Link>
+          <Button className="w-3/4 text-white border-2 hover:bg-white font-albert hover:text-[#51868e] border-[#51868e] transition duration-700">
+            Start Assessment
+          </Button>
+        </div>
+      )}
+    </header>
 
 {/* ########################################################################################################################################### */}
 {/* ########################################################################################################################################### */}
 
       {/* Hero Section */}
-      <section className="relative flex items-center justify-center min-h-screen px-6">
+      {/* <section className="relative flex items-center justify-center min-h-screen px-6">
         <video autoPlay loop muted className="absolute w-full h-full object-cover z-10">
           <source src="/VisaSynergyFinal.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -180,25 +233,25 @@ export default function Home() {
           </div>
           <p className="mt-12 text-3xl font-albert">
             Start Your Immigration Journey Today!
-          </p>
+          </p> */}
 
           {/* Quick Enquiry Button (Now Opens the Modal) */}
-          <Dialog open={open} onOpenChange={setOpen}>
+          {/* <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
             <Button className="mt-4 px-6 py-4 border-2 bg-[#51868e] border-[#51868e] text-white rounded-lg text-xl shadow-lg hover:bg-transparent hover:text-white transition duration-700 hover:border-2 hover:border-white group">
               Quick Enquiry
               <span className="ml-2 transition-transform duration-500 group-hover:-rotate-[45deg]">→</span>
             </Button>
-            </DialogTrigger>
+            </DialogTrigger> */}
 
             {/* Modal Content */}
-            <DialogContent className="max-w-lg p-6 rounded-lg">
+            {/* <DialogContent className="max-w-lg p-6 rounded-lg">
               <DialogHeader>
                 <DialogTitle className="text-center text-lg font-bold font-albert">Quick Enquiry</DialogTitle>
-              </DialogHeader>
+              </DialogHeader> */}
 
               {/* Form Inside Modal */}
-              <form className="space-y-4">
+              {/* <form className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="first-name" className="font-albert font-bold">
@@ -233,11 +286,119 @@ export default function Home() {
                     Program You Are Interested In <span className="text-red-500">*</span>
                   </Label>
                   <Select>
-                    <SelectTrigger className="font-albert">
+                    <SelectTrigger className="font-albert"> */}
                       {/* <SelectValue placeholder="Select Your Program" className="placeholder-albert"/> */}
-                      <span className="font-albert text-gray-700">
+                      {/* <span className="font-albert text-gray-700">
                         <SelectValue placeholder="Select Your Program" />
                       </span>
+                    </SelectTrigger>
+                    <SelectContent>
+                    <span className="font-albert text-gray-700">
+                      <SelectItem value="usa">USA</SelectItem>
+                      <SelectItem value="canada">Canada</SelectItem>
+                      <SelectItem value="australia">Australia</SelectItem>
+                      <SelectItem value="europe">Europe</SelectItem>
+                      <SelectItem value="new-zealand">New Zealand</SelectItem>
+                    </span>
+                    </SelectContent>
+                  </Select>
+                </div> */}
+
+                {/* <Button type="submit" className="w-full bg-[#51868e] text-white py-3 text-lg font-albert hover:text-[#51868e] hover:bg-white hover:border-2 hover:border-[#51868e] transition duration-700">
+                  Start Your Journey
+                </Button>
+              </form>
+            </DialogContent>
+          </Dialog>
+        </div>
+      </section> */}
+
+<section className="relative flex items-center justify-center min-h-screen px-4 pt-0 md:px-6  ">
+  {/* Background Video */}
+  <video autoPlay loop muted className="absolute w-full h-full object-cover z-10">
+    <source src="/VisaSynergyFinal.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  {/* Content */}
+  <div className="text-center z-20 relative w-full flex flex-col items-center md:-mt-24">
+    <h1 className="text-xl sm:text-3xl md:text-5xl font-bold">
+      Your Gateway to a New Beginning
+    </h1>
+    <p className="mt-2 text-base sm:text-lg md:text-2xl font-albert px-2 md:mb-6">
+      Simplifying Immigration and Visa Processes for a World of Opportunities
+    </p>
+
+    {/* Country Buttons */}
+    <div className="mt-6 flex flex-wrap justify-center gap-3 md:gap-16">
+      {["usa", "australia", "canada", "europe", "newzealand"].map((country) => (
+        <Button key={country} variant="outline" className="bg-transparent border-2 text-xs sm:text-sm md:text-lg px-3 py-1 sm:px-4 sm:py-2 border-white hover:bg-white transition duration-700 flex items-center">
+          {country.toUpperCase()}
+          <Image src={`/${country}.png`} width={14} height={14} className="ml-2" alt={`${country} Flag`} />
+        </Button>
+      ))}
+    </div>
+
+    <p className="mt-6 text-lg sm:text-xl md:text-3xl font-albert md:mt-12">
+      Start Your Immigration Journey Today!
+    </p>
+
+    {/* Quick Enquiry Button */}
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button className="mt-4 px-4 py-2 sm:px-6 sm:py-3 border-2 bg-[#51868e] border-[#51868e] text-white rounded-lg text-sm sm:text-lg md:text-xl shadow-lg hover:bg-transparent hover:text-white transition duration-700 hover:border-white group">
+          Quick Enquiry
+          <span className="ml-2 transition-transform duration-500 group-hover:-rotate-[45deg]">→</span>
+        </Button>
+      </DialogTrigger>
+
+      {/* Modal Content */}
+            <DialogContent className="max-w-lg p-6 rounded-lg">
+              <DialogHeader>
+                <DialogTitle className="text-center text-lg font-bold font-albert">Quick Enquiry</DialogTitle>
+              </DialogHeader>
+
+              {/* Form Inside Modal */}
+              <form className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="first-name" className="font-albert font-bold">
+                      First Name <span className="text-red-500">*</span>
+                    </Label>
+                    <Input id="first-name" className="font-albert bg-white border-gray-300" placeholder="Enter Your First Name" required />
+                  </div>
+                  <div>
+                    <Label htmlFor="last-name" className="font-albert font-bold">
+                      Last Name <span className="text-red-500">*</span>
+                    </Label>
+                    <Input id="last-name" className="font-albert bg-white border-gray-300" placeholder="Enter Your Last Name" required />
+                  </div>
+                </div>
+
+                <div>
+                  <Label htmlFor="email" className="font-albert font-bold">
+                    Email <span className="text-red-500">*</span>
+                  </Label>
+                  <Input id="email" className="font-albert bg-white border-gray-300" type="email" placeholder="Enter Your Email" required />
+                </div>
+
+                <div>
+                  <Label htmlFor="mobile" className="font-albert font-bold">
+                    Mobile Number <span className="text-red-500">*</span>
+                  </Label>
+                  <Input id="mobile" className="font-albert bg-white border-gray-300" type="tel" placeholder="Enter Your Mobile Number" required />
+                </div>
+
+                <div>
+                  <Label htmlFor="program" className="font-albert font-bold">
+                    Program You Are Interested In <span className="text-red-500">*</span>
+                  </Label>
+                  <Select>
+                    <SelectTrigger className="font-albert border-gray-300 text-gray-600">
+                      <SelectValue placeholder="Select Your Program" className="placeholder-albert"/>
+                      {/* <span className="font-albert text-gray-700">
+                        <SelectValue placeholder="Select Your Program" />
+                      </span> */}
                     </SelectTrigger>
                     <SelectContent>
                     <span className="font-albert text-gray-700">
@@ -258,10 +419,11 @@ export default function Home() {
             </DialogContent>
           </Dialog>
         </div>
-      </section>
+
+</section>
 
       {/* Social Media Icons */}
-      <div className="absolute right-5 top-[570px] flex flex-col space-y-3 z-20">
+      <div className="absolute right-5 top-[570px] hidden md:flex flex-col space-y-3 z-20">
         <a href="#" className="bg-blue-600 p-3 rounded-md text-white">
           <FaFacebook size={24} />
         </a>
@@ -276,12 +438,13 @@ export default function Home() {
         </a>
       </div>
 
+
 {/* ########################################################################################################################################### */}
 {/* ########################################################################################################################################### */}
       
       <div className="relative min-h-screen bg-gray-700 text-white">
         {/* Collaboration Section */}
-        <section className="py-12 bg-white text-gray-900">
+        {/* <section className="py-12 bg-white text-gray-900">
           <div className="container mx-auto min-w-[100%] flex items-center justify-between px-6">
             <div className="text-left w-2/5 max-w-lg">
               <h2 className="text-5xl font-bold my-4 text-[#3B4F84] font-asap">In Collaboration With</h2>
@@ -293,86 +456,120 @@ export default function Home() {
               <Image src="/p3.png" alt="MARA Logo" width={200} height={100} className="h-32 w-56"  />
             </div>
           </div>
+        </section> */}
+
+        <section className="py-6 bg-white text-gray-900">
+          <div className="container mx-auto px-3 md:px-6 flex flex-col md:flex-row items-center md:justify-between md:min-w-full">
+            {/* Text Section */}
+            <div className="text-left md:text-left w-full md:w-2/5 max-w-full">
+              <h2 className="text-xl md:text-5xl font-bold my-4 text-[#3B4F84] font-asap">
+                In Collaboration With
+              </h2>
+              <p className="text-md md:text-2xl mb-8 font-albert max-w-80 mx-auto md:mx-0">
+                Partnering with the Best to Guide Your Journey
+              </p>
+            </div>
+
+            {/* Logos Section */}
+            <div className="flex justify-center md:justify-end w-full md:w-3/5 gap-6 md:gap-32">
+              <Image src="/p1.png" alt="RCIC Logo" width={100} height={40} className="h-14 w-auto md:h-32 md:w-auto" />
+              <Image src="/p2.png" alt="OISC Logo" width={80} height={80} className="h-14 w-auto md:h-32 md:w-auto" />
+              <Image src="/p3.png" alt="MARA Logo" width={100} height={50} className="h-14 w-auto md:h-32 md:w-auto" />
+            </div>
+          </div>
         </section>
 
         {/* Immigration Services Section */}
-        <section className="py-12 bg-[#edf3f5] text-gray-900">
-            <div className="container mx-auto text-center items-center">
-              <div className="flex items-center">
-                <div className="w-2/5 pr-8">
-                  <img 
-                    src="/girl.png" 
-                    alt="Girl" 
-                    className="w-[420px] border-[20px] h-[550px] rounded-[6px] shadow-md border-white" 
-                  />
-                </div>
-                <div className="w-3/5">
-                  <h2 className="text-5xl font-bold text-[#3B4F84] text-left mt-10 font-asap">
-                    Immigration Services for Your Dream Destination
-                  </h2>
-                  <section className="pb-16 pt-10 pr-10 text-gray-900 ml-4">
-                    <div className="container mx-auto px-1 text-center">
-                      <div className="flex gap-32"> {/* Increased gap between columns */}
-                        {/* Left Column */}
-                        <div className="w-1/2 pr-8 ml-[-20px]"> {/* Shifted the first column to the left */}
-                          <div className="grid grid-cols-1 gap-12 text-left" >
-                            {[
-                              { title: "PR & Immigration Guidance", desc: "Canada | Australia | New Zealand | UK   |   USA  | Europe" },
-                              { title: "Work Permit Assistance", desc: "Canada | Australia | New Zealand | UK | USA |  Europe" },
-                              { title: "Visitor Visa", desc: "Canada | Australia | New Zealand | UK | USA | Europe" }
-                            ].map((service, index) => (
-                              <div key={index} className="flex flex-col items-start h-[100px] w-[300px]">
-                                <h3 className="text-2xl font-bold whitespace-nowrap">{service.title}</h3>
-                                <p className="text-lg text-gray-700 line-clamp-2">{service.desc}</p> {/* Apply line-clamp to restrict to 2 lines */}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
+        <section className="py-8 bg-[#edf3f5] text-gray-900">
+          <div className="container mx-auto text-center items-center px-4 md:min-w-full">
+            {/* Container changes from row (desktop) to column (mobile) */}
+            <div className="flex flex-col md:flex-row items-center">
+              
+              {/* Image Section */}
+              <div className="w-full md:w-2/5 mb-6 md:mb-0 md:pr-8 flex justify-center">
+                <img 
+                  src="/girl.png" 
+                  alt="Girl" 
+                  className="w-[90%] md:w-[420px] border-[10px] md:border-[20px] h-auto md:h-[550px] rounded-[6px] shadow-md border-white"
+                />
+              </div>
 
-                        {/* Right Column */}
-                        <div className="w-1/2">
-                          <div className="grid grid-cols-1  gap-12 text-left">
-                            {[
-                              { title: "Canada PNP Expertise", desc: "Canada PNP | Ontario PNP | Alberta PNP | Manitoba PNP | New Brunswick PNP" },
-                              { title: "Study Abroad Guidance", desc: "Canada | Australia | New Zealand | UK | USA | Europe" },
-                              { title: "Family Visa", desc: "Canada | Australia | New Zealand | UK | USA | Europe" }
-                            ].map((service, index) => (
-                              <div key={index} className="flex flex-col items-start h-[100px] w-[350px]">
-                                <h3 className="text-2xl font-bold whitespace-nowrap">{service.title}</h3>
-                                <p className="text-lg text-gray-700 line-clamp-2">{service.desc}</p> {/* Apply line-clamp to restrict to 2 lines */}
-                              </div>
-                            ))}
-                          </div>
+              {/* Text Content */}
+              <div className="w-full md:w-3/5">
+                
+                {/* Heading */}
+                <h2 className="text-xl md:text-5xl font-bold text-[#3B4F84] text-center md:text-left mt-6 md:mt-10 font-asap md:w-4/5">
+                  Immigration Services for Your Dream Destination
+                </h2>
+
+                {/* Service List */}
+                <section className="pt-6 md:pt-10 pr-0 md:left-0 text-gray-900">
+                  <div className="container mx-auto px-4 md:px-0">
+                    
+                    {/* Stack services vertically on mobile */}
+                    <div className="flex flex-col md:flex-row gap-12 md:gap-32">
+
+                      {/* Left Column Services */}
+                      <div className="w-full md:w-1/2">
+                        <div className="grid grid-cols-1 gap-10 text-center md:text-left">
+                          {[
+                            { title: "PR & Immigration Guidance", desc: "Canada | Australia | New Zealand | UK | USA | Europe" },
+                            { title: "Work Permit Assistance", desc: "Canada | Australia | New Zealand | UK | USA | Europe" },
+                            { title: "Visitor Visa", desc: "Canada | Australia | New Zealand | UK | USA | Europe" }
+                          ].map((service, index) => (
+                            <div key={index} className="flex flex-col items-center md:items-start">
+                              <h3 className="text-lg md:text-2xl font-bold">{service.title}</h3>
+                              <p className="text-sm md:text-lg text-gray-700">{service.desc}</p>
+                            </div>
+                          ))}
                         </div>
                       </div>
-                    </div>
-                  </section>
 
-                </div>
+                      {/* Right Column Services */}
+                      <div className="w-full md:w-1/2">
+                        <div className="grid grid-cols-1 gap-10 text-center md:text-left">
+                          {[
+                            { title: "Canada PNP Expertise", desc: "Canada PNP | Ontario PNP | Alberta PNP | Manitoba PNP | New Brunswick PNP" },
+                            { title: "Study Abroad Guidance", desc: "Canada | Australia | New Zealand | UK | USA | Europe" },
+                            { title: "Family Visa", desc: "Canada | Australia | New Zealand | UK | USA | Europe" }
+                          ].map((service, index) => (
+                            <div key={index} className="flex flex-col items-center md:items-start">
+                              <h3 className="text-lg md:text-2xl font-bold">{service.title}</h3>
+                              <p className="text-sm md:text-lg text-gray-700">{service.desc}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </section>
+
               </div>
             </div>
-          </section>
-
+          </div>
+        </section>
+        
       </div>
 
 {/* ################################################################################################################################################ */}
 {/* ################################################################################################################################################ */}
 
       {/* Why Choose Visa Synergy Section */}
-      <div className="w-6xl mx-auto p-6 mt-10">
-        <h2 className="text-5xl font-semibold text-[#3b4f84] font-asap">
+      <div className="w-6xl mx-auto p-6 md:mt-10">
+        <h2 className="text-xl md:text-5xl font-semibold text-[#3b4f84] font-asap mx-3 md:mx-0">
           Why Choose Visa Synergy?
         </h2>
-        <p className=" text-[#333333] mt-2 w-1/2 font-albert text-2xl">
+        <p className=" text-[#333333] mt-2 w-full md:w-1/2 font-albert text-md md:text-2xl mx-3 md:mx-0">
           Expert Guidance, Seamless Processing & Proven Success in Your Immigration Journey!
         </p>
 
         <div className="grid md:grid-cols-3 gap-8 mt-12 max-w-[90%] mx-auto justify-center">
-          <Card className="p-4 text-center max-w-1/3 mx-10 bg-[#edf3f5]">
+          <Card className="p-4 text-center max-w-1/3 md:mx-10 bg-[#edf3f5]">
             <img src="/bce.gif" alt="Easy Process" className="w-20 h-20 mx-auto mb-3" />
-            <h3 className="font-semibold text-xl text-left ml-6">Expertise & Proven Success</h3>
+            <h3 className="font-semibold text-lg md:text-xl text-left ml-6">Expertise & Proven Success</h3>
             <CardContent className="text-[#404040] mt-2">
-              <ul className="list-disc list-inside text-lg text-left font-asap">
+              <ul className="list-disc list-inside text-md md:text-lg text-left font-asap">
                 <p className="pl-6 indent-[-1.7rem]">✔️ 21+ Years of Immigration Excellence</p>
                 <p className="pl-6 indent-[-1.7rem]">✔️ Extensive knowledge of global visa policies</p>
                 <p className="pl-6 indent-[-1.7rem]">✔️ <span>High success rate in PR, Work Permits & Student Visa</span></p>
@@ -380,11 +577,11 @@ export default function Home() {
             </CardContent>
           </Card>
 
-          <Card className="p-4 text-center max-w-1/3 mx-10 bg-[#edf3f5]">
+          <Card className="p-4 text-center max-w-1/3 md:mx-10 bg-[#edf3f5]">
             <img src="/easy.gif" alt="Easy Process" className="w-20 h-20 mx-auto mb-3" />
-            <h3 className="font-semibold text-xl text-left ml-6">Easy & Effortless Process</h3>
+            <h3 className="font-semibold text-lg md:text-xl text-left ml-6">Easy & Effortless Process</h3>
             <CardContent className="text-[#404040] mt-2 font-asap">
-            <ul className="text-lg text-left">
+            <ul className="text-md md:text-lg text-left">
               <p className="pl-6 indent-[-1.7rem]">
                 ✔️ Personalized Immigration Pathways
               </p>
@@ -398,11 +595,11 @@ export default function Home() {
             </CardContent>
           </Card>
 
-          <Card className="p-4 text-center max-w-1/3 mx-10 bg-[#edf3f5]">
+          <Card className="p-4 text-center max-w-1/3 md:mx-10 bg-[#edf3f5]">
             <img src="/information.gif" alt="Easy Process" className="w-20 h-20 mx-auto mb-3" />
-            <h3 className="font-semibold text-xl text-left ml-6">End-to-End Support</h3>
+            <h3 className="font-semibold text-lg md:text-xl text-left ml-6">End-to-End Support</h3>
             <CardContent className="text-[#404040] mt-2 font-asap">
-              <ul className="list-disc list-inside text-lg text-left">
+              <ul className="list-disc list-inside text-md md:text-lg text-left">
                 <p className="pl-6 indent-[-1.7rem]">✔️ Guidance at Every Step</p>
                 <p className="pl-6 indent-[-1.7rem]">✔️ Assistance from consultation to visa</p>
                 <p className="pl-6 indent-[-1.7rem]">✔️ Document verification & post-landing assistance</p>
@@ -412,64 +609,58 @@ export default function Home() {
         </div>
 
         {/* Check Your Eligibility */}
-        <div className="bg-[#51868e] text-white px-10 rounded-lg mt-12 text-center max-h-80 font-asap">
-          {/* Parent Flex Container with 1:2 Ratio */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-            
-            {/* Animation Section (1 Part) */}
-            <div className="flex-[2] flex justify-center">
-              <Lottie 
-                animationData={animation} 
-                className="w-80 h-80"
-              />
-            </div>
-
-            {/* Text Content Section (2 Parts) */}
-            <div className="flex-[3] flex-col justify-center items-center text-center md:text-left ">
-              <h3 className="text-5xl">Check Your Eligibility Instantly!</h3>
-              <p className="mt-4 text-2xl w-3/4 font-albert">
-                Answer a few quick questions and discover your eligibility in seconds – no hassle, no waiting!
-              </p>
-
-              {/* Buttons */}
-              <div className="flex space-x-16 w-full flex-col md:flex-row justify-center md:justify-start gap-4 mt-6 font-albert">
-                <Button className="bg-white text-xl text-[#51868e] border-2 hover:bg-[#51868e] hover:text-white hover:border-2 hover:border-white transition duration-700">
-                  Calculate My Eligibility
-                </Button>
-                <Button className="bg-white text-xl text-[#51868e] border-2 hover:bg-[#51868e] hover:text-white hover:border-2 hover:border-white transition duration-700">
-                  Need Help? Talk to an Expert
-                </Button>
-              </div>
-            </div>
-
+        
+        <div className="bg-[#51868e] text-white px-6 md:px-10 rounded-lg mt-12 text-center font-asap py-10 md:py-0">
+        {/* Parent Flex Container */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 w-full">
+          
+          {/* Animation Section */}
+          <div className="flex-[2] flex justify-center">
+            <Lottie animationData={animation} className="w-60 h-60 md:w-80 md:h-80" />
           </div>
+
+          {/* Text & Buttons Container */}
+          <div className="flex-[3] flex flex-col justify-center items-center md:items-start text-center md:text-left w-full">
+            <h3 className="text-3xl md:text-5xl">Check Your Eligibility Instantly!</h3>
+            <p className="mt-4 text-lg md:text-2xl w-full md:w-3/4 font-albert">
+              Answer a few quick questions and discover your eligibility in seconds – no hassle, no waiting!
+            </p>
+
+            {/* Buttons (Side by Side on Mobile) */}
+            <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-6 w-full">
+              <Button className="bg-white text-lg md:text-xl text-[#51868e] border-2 hover:bg-[#51868e] hover:text-white hover:border-2 hover:border-white transition duration-700 px-6 py-3">
+                Calculate My Eligibility
+              </Button>
+              <Button className="bg-white text-lg md:text-xl text-[#51868e] border-2 hover:bg-[#51868e] hover:text-white hover:border-2 hover:border-white transition duration-700 px-6 py-3">
+                Need Help? Talk to an Expert
+              </Button>
+            </div>
+          </div>
+
         </div>
       </div>
-      
 
-
-   
-  
-
+      </div>
 
 
 {/* ################################################################################################################################################# */}
 {/* ################################################################################################################################################# */}
     
-<div
+    {/* Testimonials */}
+      <div
         className="bg-white text-gray-900 font-asap"
       >
-        <div className="container px-6 py-12 min-w-full">
-          <h2 className="text-5xl font-bold text-blue-900 mb-2">
+        <div className="container px-6 py-8 min-w-full">
+          <h2 className="text-xl md:text-5xl font-bold text-blue-900 mb-2">
             Words That Matter : Client Testimonials
           </h2>
-          <p className="text-gray-500 text-2xl mb-8">
+          <p className="text-gray-500 text-lg md:text-2xl mb-8">
             Real Experiences, Real Success
           </p>
 
           <div className="relative">
             {/* Cards Container */}
-            <div className="flex justify-center space-x-6 overflow-hidden">
+            <div className="flex justify-center space-x-6 overflow-hidden md:mx-auto text-sm">
               {visibleTestimonials.map((testimonial) => (
                 <TestimonialCard
                   key={testimonial.id}
@@ -497,120 +688,137 @@ export default function Home() {
         </div>
       </div>
 
-      <footer
-        className="bg-[#4E878C] text-white py-10 font-albert"
-      >
-        <div className="container mx-auto px-6 grid grid-cols-[40%_60%] gap-8">
-          {/* Logo and Social Icons - 40% */}
-          <div>
-            <img
-              src="/logo-white.jpg"
-              alt="Visa Synergy"
-              className="w-36 mb-4 rounded-lg"
-            />
-            <p className="text-sm">
-              At Visa Synergy, We Simplify Your Journey and Open Doors to New
-              Opportunities
-            </p>
-            <div className="flex space-x-4 mt-4">
-              <a href="#" className="text-white text-xl hover:text-gray-300">
-                <FaWhatsapp size={24} />
-              </a>
-              <a href="#" className="text-white text-xl hover:text-gray-300">
-                <FaInstagram size={24} />
-              </a>
-              <a href="#" className="text-white text-xl hover:text-gray-300">
-                <FaLinkedin size={24} />
-              </a>
-              <a href="#" className="text-white text-xl hover:text-gray-300">
-                <FaFacebook size={24} />
-              </a>
-            </div>
-          </div>
+{/* ################################################################################################################################################# */}
+{/* ################################################################################################################################################# */}
 
-          {/* Other Sections - 60% (Equally Divided) */}
-          <div className="grid grid-cols-3 gap-10">
-            {/* Quick Links */}
-            <div>   
-              <h3
-                className="font-semibold text-2xl mb-4 font-asap"
-              >
-                Quick Links
-              </h3>
-              <ul className="space-y-4 text-sm mt-7 underline">
-                <li>
-                  <a href="#">About Us</a>
-                </li>
-                <li>
-                  <a href="#">Eligibility Calculator</a>
-                </li>
-                <li>
-                  <a href="#">Blog & Resources</a>
-                </li>
-                <li>
-                  <a href="#">Contact Us</a>
-                </li>
-                <li>
-                  <a href="#">Dashboard</a>
-                </li>
-                <li>
-                  <a href="#">News</a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Visa Quick Links */}
-            <div>
-              <h3
-                className="font-semibold text-2xl mb-4 font-asap"
-              >
-                Visa Quick Links
-              </h3>
-              <ul className="space-y-4 text-sm mt-7 underline">
-                <li>
-                  <a href="#">USA Visa</a>
-                </li>
-                <li>
-                  <a href="#">Canada Visa</a>
-                </li>
-                <li>
-                  <a href="#">Australia Visa</a>
-                </li>
-                <li>
-                  <a href="#">Europe Visa</a>
-                </li>
-                <li>
-                  <a href="#">New Zealand Visa</a>
-                </li>
-                <li>
-                  <a href="#">UK Visa</a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Contact Details */}
-            <div>
-              <h3
-                className="font-semibold text-2xl mb-4 font-asap"
-              >
-                Contact Details
-              </h3>
-              <p className="text-sm mt-7">
-                123 Global Avenue, Suite 456, New York, NY 10001, USA
-              </p>
-              <p className="text-sm mt-2">+1 (555) 123-4567</p>
-              <p className="text-sm mt-2">info@visasynergy.com</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Footer Bottom */}
-        <div className="border-t-2 border-white/50 mt-10 pt-4">
-          <p className="container mx-auto px-6 text-left text-md">
-            visasynergy.in © 2025, All Rights Reserved
+    {/* Desktop Footer */}
+    <footer className="hidden md:block bg-[#4E878C] text-white py-10 font-albert w-full">
+      <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-[1fr_2fr] gap-8 w-full">
+        
+        {/* Left Section - Logo and Social Icons */}
+        <div>
+          <img src="/logo-white.jpg" alt="Visa Synergy" className="w-36 mb-4 rounded-lg" />
+          <p className="text-sm max-w-sm">
+            At Visa Synergy, We Simplify Your Journey and Open Doors to New Opportunities
           </p>
+          <div className="flex space-x-4 mt-4">
+            <a href="#" className="text-white text-xl hover:text-gray-300"><FaWhatsapp size={24} /></a>
+            <a href="#" className="text-white text-xl hover:text-gray-300"><FaInstagram size={24} /></a>
+            <a href="#" className="text-white text-xl hover:text-gray-300"><FaLinkedin size={24} /></a>
+            <a href="#" className="text-white text-xl hover:text-gray-300"><FaFacebook size={24} /></a>
+          </div>
         </div>
-      </footer>
+
+        {/* Right Section - Links and Contact */}
+        <div className="grid grid-cols-3 gap-10 w-full">
+          
+          {/* Quick Links */}
+          <div>
+            <h3 className="font-semibold text-2xl mb-4 font-asap">Quick Links</h3>
+            <ul className="space-y-4 text-sm mt-7 underline">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Eligibility Calculator</a></li>
+              <li><a href="#">Blog & Resources</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="#">News</a></li>
+            </ul>
+          </div>
+
+          {/* Visa Quick Links */}
+          <div>
+            <h3 className="font-semibold text-2xl mb-4 font-asap">Visa Quick Links</h3>
+            <ul className="space-y-4 text-sm mt-7 underline">
+              <li><a href="#">USA Visa</a></li>
+              <li><a href="#">Canada Visa</a></li>
+              <li><a href="#">Australia Visa</a></li>
+              <li><a href="#">Europe Visa</a></li>
+              <li><a href="#">New Zealand Visa</a></li>
+              <li><a href="#">UK Visa</a></li>
+            </ul>
+          </div>
+
+          {/* Contact Details */}
+          <div>
+            <h3 className="font-semibold text-2xl mb-4 font-asap">Contact Details</h3>
+            <p className="text-sm mt-7">123 Global Avenue, Suite 456, New York, NY 10001, USA</p>
+            <p className="text-sm mt-2">+1 (555) 123-4567</p>
+            <p className="text-sm mt-2">info@visasynergy.com</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer Bottom */}
+      <div className="border-t-2 border-white/50 mt-10 pt-4 w-full">
+        <p className="max-w-[1400px] mx-auto px-6 text-left text-md">
+          visasynergy.in © 2025, All Rights Reserved
+        </p>
+      </div>
+    </footer>
+
+
+    {/* Mobile Footer */}
+    <footer className="md:hidden bg-[#4E878C] text-white py-10 font-albert w-full">
+      <div className="max-w-[500px] mx-auto px-6 flex flex-col items-center text-center w-full">
+        
+        {/* Logo and Social Icons */}
+        <img src="/logo-white.jpg" alt="Visa Synergy" className="w-28 mb-4 rounded-lg" />
+        <p className="text-sm max-w-xs">
+          At Visa Synergy, We Simplify Your Journey and Open Doors to New Opportunities
+        </p>
+        <div className="flex space-x-4 mt-4">
+          <a href="#" className="text-white text-xl hover:text-gray-300"><FaWhatsapp size={24} /></a>
+          <a href="#" className="text-white text-xl hover:text-gray-300"><FaInstagram size={24} /></a>
+          <a href="#" className="text-white text-xl hover:text-gray-300"><FaLinkedin size={24} /></a>
+          <a href="#" className="text-white text-xl hover:text-gray-300"><FaFacebook size={24} /></a>
+        </div>
+
+        {/* Quick Links & Visa Links - Side by Side */}
+        <div className="grid grid-cols-2 gap-6 mt-6">
+          
+          {/* Quick Links */}
+          <div>
+            <h3 className="font-semibold text-xl mb-3 font-asap">Quick Links</h3>
+            <ul className="space-y-3 text-xs underline">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Eligibility Calculator</a></li>
+              <li><a href="#">Blog & Resources</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="#">News</a></li>
+            </ul>
+          </div>
+
+          {/* Visa Quick Links */}
+          <div>
+            <h3 className="font-semibold text-xl mb-3 font-asap">Visa Quick Links</h3>
+            <ul className="space-y-3 text-xs underline">
+              <li><a href="#">USA Visa</a></li>
+              <li><a href="#">Canada Visa</a></li>
+              <li><a href="#">Australia Visa</a></li>
+              <li><a href="#">Europe Visa</a></li>
+              <li><a href="#">New Zealand Visa</a></li>
+              <li><a href="#">UK Visa</a></li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Contact Details - Below the Links */}
+        <div className="mt-6">
+          <h3 className="font-semibold text-xl mb-3 font-asap">Contact Details</h3>
+          <p className="text-xs">123 Global Avenue, Suite 456, New York, NY 10001, USA</p>
+          <p className="text-xs mt-2">+1 (555) 123-4567</p>
+          <p className="text-xs mt-2">info@visasynergy.com</p>
+        </div>
+      </div>
+
+      {/* Footer Bottom */}
+      <div className="border-t-2 border-white/50 mt-8 pt-4 w-full text-center">
+        <p className="text-sm">
+          visasynergy.in © 2025, All Rights Reserved
+        </p>
+      </div>
+    </footer>
 
     </div>
   );
