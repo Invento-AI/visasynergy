@@ -17,6 +17,7 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   const [open, setOpen] = useState(true);
@@ -134,7 +135,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-white text-white">
       {/* Top Navbar */}
-      <header className="hidden md:flex relative top-0 left-0 right-0 justify-between items-center p-2 bg-primary text-white z-30">
+      {/* <header className="hidden md:flex relative top-0 left-0 right-0 justify-between items-center p-2 bg-primary text-white z-30">
         <div className="ml-auto flex space-x-6 mr-6">
           <span className="flex w-100 mr-6">
             <Image className="mr-2" src="/call.png" alt="call" width={20} height={20} /> +1 234 567 890
@@ -143,7 +144,7 @@ export default function Home() {
             <Image className="mr-2" src="/email.png" alt="email" width={25} height={20} /> contact@visasynergy.com
           </span>
         </div>
-      </header>
+      </header> */}
 
 
       {/* Navigation Bar */}
@@ -162,52 +163,8 @@ export default function Home() {
           Start Assessment
         </Button>
       </header> */}
-      <header className="relative left-0 right-0 flex justify-between items-center bg-white text-gray-700 z-40 p-2">
-      <div className="flex items-center">
-        {/* Adjust logo size for mobile screens */}
-        <Link href="/">
-          <Image
-            src="/logo.png"
-            width={150} // Desktop size
-            height={10}
-            alt="Visa Synergy Logo"
-            className="w-[120px] md:w-[150px] cursor-pointer" // Smaller logo for mobile + pointer cursor
-          />
-        </Link>
-      </div>
 
-      {/* Desktop Navigation */}
-      <nav className="hidden md:flex ml-auto mr-12 space-x-12 text-xl font-bold font-albert ">
-        <Link href={"/about"}>About</Link>
-        <Link href={"/news"}>News</Link>
-        <Link href={"/blogs"}>Blogs</Link>
-        <Link href={"/contact"}>Contact Us</Link>
-        <Link href={"/dashboard"}>Dashboard</Link>
-      </nav>
-
-      <Button className="hidden md:block ml-4 mr-6 text-white border-2 font-albert text-lg md:py-0 font-bold  hover:bg-white hover:text-[#51868e] border-[#51868e] hover:border-2 transition duration-700">
-        Start Assessment
-      </Button>
-
-      {/* Mobile Menu Button */}
-      <button className="md:hidden p-2" onClick={() => setMenuOpen(!menuOpen)}>
-        {menuOpen ? <X size={30} /> : <Menu size={30} />}
-      </button>
-
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="z-50 absolute top-full right-0 w-full bg-white shadow-lg flex flex-col items-center space-y-6 py-4 md:hidden">
-          <Link href={"/about"} className="text-lg font-albert">About</Link>
-          <Link href={"/news"} className="text-lg font-albert">News</Link>
-          <Link href={"/blogs"} className="text-lg font-albert">Blogs</Link>
-          <Link href={"/contact"} className="text-lg font-albert">Contact Us</Link>
-          <Link href={"/dashboard"} className="text-lg font-albert">Dashboard</Link>
-          <Button className="w-3/4 text-white border-2 hover:bg-white font-albert hover:text-[#51868e] border-[#51868e] transition duration-700">
-            Start Assessment
-          </Button>
-        </div>
-      )}
-    </header>
+      <Navbar/>
 
 {/* ########################################################################################################################################### */}
 {/* ########################################################################################################################################### */}
