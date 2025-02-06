@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function Home() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const testimonials = [
@@ -353,7 +353,7 @@ export default function Home() {
       </DialogTrigger>
 
       {/* Modal Content */}
-            <DialogContent className="max-w-lg p-6 rounded-lg">
+            <DialogContent className="max-w-lg p-6 rounded-lg w-[90%] md:mx-auto">
               <DialogHeader>
                 <DialogTitle className="text-center text-lg font-bold font-albert">Quick Enquiry</DialogTitle>
               </DialogHeader>
@@ -549,7 +549,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        
+
       </div>
 
 {/* ################################################################################################################################################ */}
