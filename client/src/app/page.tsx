@@ -318,27 +318,51 @@ export default function Home() {
                   <Input id="mobile" className="font-albert bg-white border-gray-300" type="tel" placeholder="Enter Your Mobile Number" required />
                 </div>
 
-                <div>
-                  <Label htmlFor="program" className="font-albert font-bold">
-                    Program You Are Interested In <span className="text-red-500">*</span>
-                  </Label>
-                  <Select>
-                    <SelectTrigger className="font-albert border-gray-300 text-gray-600">
-                      <SelectValue placeholder="Select Your Program" className="placeholder-albert"/>
-                      {/* <span className="font-albert text-gray-700">
-                        <SelectValue placeholder="Select Your Program" />
-                      </span> */}
-                    </SelectTrigger>
-                    <SelectContent>
-                    <span className="font-albert text-gray-700">
-                      <SelectItem value="usa">USA</SelectItem>
-                      <SelectItem value="canada">Canada</SelectItem>
-                      <SelectItem value="australia">Australia</SelectItem>
-                      <SelectItem value="europe">Europe</SelectItem>
-                      <SelectItem value="new-zealand">New Zealand</SelectItem>
-                    </span>
-                    </SelectContent>
-                  </Select>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="first-name" className="font-albert font-bold">
+                      Country <span className="text-red-500">*</span>
+                    </Label>
+                    <Select>
+                      <SelectTrigger className="font-albert border-gray-300 text-gray-600">
+                        <SelectValue placeholder="Select Your Program" className="placeholder-albert"/>
+                        {/* <span className="font-albert text-gray-700">
+                          <SelectValue placeholder="Select Your Program" />
+                        </span> */}
+                      </SelectTrigger>
+                      <SelectContent>
+                      <span className="font-albert text-gray-700">
+                        <SelectItem value="usa">USA</SelectItem>
+                        <SelectItem value="canada">Canada</SelectItem>
+                        <SelectItem value="australia">Australia</SelectItem>
+                        <SelectItem value="europe">Europe</SelectItem>
+                        <SelectItem value="new-zealand">New Zealand</SelectItem>
+                      </span>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
+                    <Label htmlFor="last-name" className="font-albert font-bold">
+                      Visa Category <span className="text-red-500">*</span>
+                    </Label>
+                    <Select>
+                      <SelectTrigger className="font-albert border-gray-300 text-gray-600">
+                        <SelectValue placeholder="Select Your visa type" className="placeholder-albert"/>
+                        {/* <span className="font-albert text-gray-700">
+                          <SelectValue placeholder="Select Your Program" />
+                        </span> */}
+                      </SelectTrigger>
+                      <SelectContent>
+                      <span className="font-albert text-gray-700">
+                        <SelectItem value="usa">Work</SelectItem>
+                        <SelectItem value="canada">Study</SelectItem>
+                        <SelectItem value="australia">Immigration</SelectItem>
+                        <SelectItem value="europe">Business</SelectItem>
+                        <SelectItem value="new-zealand">Tourist</SelectItem>
+                      </span>
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
 
                 <Button type="submit" className="w-full bg-[#51868e] text-white py-3 text-lg font-albert hover:text-[#51868e] hover:bg-white hover:border-2 hover:border-[#51868e] transition duration-700">
@@ -390,7 +414,7 @@ export default function Home() {
         <section className="py-6 bg-white text-gray-900">
           <div className="container mx-auto px-3 md:px-6 flex flex-col md:flex-row items-center md:justify-between md:min-w-full">
             {/* Text Section */}
-            <div className="text-left md:text-left w-full md:w-2/5 max-w-full">
+            <div className="text-left md:text-left mx-auto md:w-2/5 max-w-full">
               <h2 className="text-xl md:text-5xl font-bold my-4 text-[#3B4F84] font-asap">
                 In Collaboration With
               </h2>

@@ -27,7 +27,7 @@ export default function ContactPage() {
       {/* ###################################################################################################################################### */}
 
       {/* Contact Section */}
-      <main className="px-4 md:px-16 mx-auto max-w-screen-xl">
+      <main className="px-4 md:px-0 mx-auto max-w-screen-xl">
       <h1 className="text-3xl md:text-5xl font-bold text-center text-[#3B4F84] mt-8 md:mt-12">
         Get in Touch – Your Journey Starts Here!
       </h1>
@@ -37,13 +37,13 @@ export default function ContactPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mt-8 md:mt-12 items-stretch">
         {/* Image Section */}
-        <div className="flex flex-col space-y-6">
+        <div className="flex flex-col space-y-6 justify-between">
           <div className="w-full">
             <Image src="/contact_girl.png" alt="Contact Us" width={500} height={500} className='w-full h-auto object-cover rounded-md' />
           </div>
 
           {/* Email and Phone Section */}
-          <div className="space-y-4">
+          <div className="space-y-4 md:space-y-12">
             <div className="flex items-center space-x-4 p-4 bg-[#edf3f5] rounded-md font-albert">
               <div className="p-2 bg-white rounded-full">
                 <img src="/email.gif" alt="email" className="w-10 h-10" />
@@ -72,7 +72,7 @@ export default function ContactPage() {
           <p className='text-sm md:text-base font-albert'>We're here to help. Send us a message & we will respond within 24 hours.</p>
           <hr className="border-[#51868e] border-1 my-4" />
 
-          <form className="space-y-4">
+          <form className="space-y-4 font-albert">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <Label htmlFor="first-name" className="font-bold text-sm md:text-base">First Name <span className="text-red-500">*</span></Label>
@@ -94,20 +94,51 @@ export default function ContactPage() {
               <Input id="mobile" className="mt-2 border-gray-300 bg-white" type="tel" placeholder="Enter Your Mobile Number" required />
             </div>
 
-            <div>
-              <Label htmlFor="program" className="font-bold text-sm md:text-base">Program You Are Interested In <span className="text-red-500">*</span></Label>
-              <Select>
-                <SelectTrigger className="mt-2">
-                  <SelectValue placeholder="Select Your Program" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="usa">USA</SelectItem>
-                  <SelectItem value="canada">Canada</SelectItem>
-                  <SelectItem value="australia">Australia</SelectItem>
-                  <SelectItem value="europe">Europe</SelectItem>
-                  <SelectItem value="new-zealand">New Zealand</SelectItem>
-                </SelectContent>
-              </Select>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <Label htmlFor="first-name" className="font-albert font-bold text-sm md:text-base">
+                  Country <span className="text-red-500">*</span>
+                </Label>
+                <Select>
+                  <SelectTrigger className="mt-2 font-albert border-gray-300 text-gray-600">
+                    <SelectValue placeholder="Select Your Program" className="placeholder-albert"/>
+                    {/* <span className="font-albert text-gray-700">
+                      <SelectValue placeholder="Select Your Program" />
+                    </span> */}
+                  </SelectTrigger>
+                  <SelectContent>
+                  <span className="font-albert text-gray-700">
+                    <SelectItem value="usa">USA</SelectItem>
+                    <SelectItem value="canada">Canada</SelectItem>
+                    <SelectItem value="australia">Australia</SelectItem>
+                    <SelectItem value="europe">Europe</SelectItem>
+                    <SelectItem value="new-zealand">New Zealand</SelectItem>
+                  </span>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <Label htmlFor="last-name" className="font-albert font-bold text-sm md:text-base">
+                  Visa Category <span className="text-red-500">*</span>
+                </Label>
+                <Select>
+                  <SelectTrigger className="mt-2 font-albert border-gray-300 text-gray-600">
+                    <SelectValue placeholder="Select Your visa type" className="placeholder-albert"/>
+                    {/* <span className="font-albert text-gray-700">
+                      <SelectValue placeholder="Select Your Program" />
+                    </span> */}
+                  </SelectTrigger>
+                  <SelectContent>
+                  <span className="font-albert text-gray-700">
+                    <SelectItem value="usa">Work</SelectItem>
+                    <SelectItem value="canada">Study</SelectItem>
+                    <SelectItem value="australia">Immigration</SelectItem>
+                    <SelectItem value="europe">Business</SelectItem>
+                    <SelectItem value="new-zealand">Tourist</SelectItem>
+                  </span>
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
 
             <div>
@@ -131,45 +162,45 @@ export default function ContactPage() {
         {/* #################################################################################################################################### */}
         {/* #################################################################################################################################### */}
         
-        <section className="py-16 mt-6 bg-white text-gray-900">
-      <div className="container mx-auto px-6">
-        {/* Desktop Layout */}
-        <div className="hidden md:grid grid-cols-2 gap-12 items-center">
-          {/* Left Column - Office Info */}
-          <OfficeInfo />
-          {/* Right Column - Map */}
-          <Image
-            src="/map.png"
-            alt="Office Location Map"
-            width={730}
-            height={444}
-            className="transition-transform duration-700 transform hover:scale-95 shadow-md border-[15px] border-white"
-          />
-        </div>
+      <section className="py-16 mt-6 bg-white text-gray-900">
+        <div className="container mx-auto px-6">
+          {/* Desktop Layout */}
+          <div className="hidden md:grid grid-cols-2 gap-12 items-center">
+            {/* Left Column - Office Info */}
+            <OfficeInfo />
+            {/* Right Column - Map */}
+            <Image
+              src="/map.png"
+              alt="Office Location Map"
+              width={730}
+              height={444}
+              className="transition-transform duration-700 transform hover:scale-95 shadow-md border-[15px] border-white"
+            />
+          </div>
 
-        {/* Mobile Layout */}
-        <div className="md:hidden flex flex-col space-y-8 items-center text-center">
-          {/* <h2 className="text-3xl font-bold text-[#3B4F84] w-full" style={{ fontFamily: "Asap Condensed" }}>
-            Visit Our Office – Let’s Meet in Person!
-          </h2>
-          <p className="text-lg text-[#404040]" style={{ fontFamily: "albert sans" }}>
-            Visit us at our office for a face-to-face consultation.
-          </p> */}
-          
-          {/* Office Details */}
-          <OfficeInfo />
-          
-          {/* Map Image */}
-          <Image
-            src="/map.png"
-            alt="Office Location Map"
-            width={350}
-            height={250}
-            className="shadow-md border-8 border-white"
-          />
+          {/* Mobile Layout */}
+          <div className="md:hidden flex flex-col space-y-8 items-center text-center">
+            {/* <h2 className="text-3xl font-bold text-[#3B4F84] w-full" style={{ fontFamily: "Asap Condensed" }}>
+              Visit Our Office – Let’s Meet in Person!
+            </h2>
+            <p className="text-lg text-[#404040]" style={{ fontFamily: "albert sans" }}>
+              Visit us at our office for a face-to-face consultation.
+            </p> */}
+            
+            {/* Office Details */}
+            <OfficeInfo />
+            
+            {/* Map Image */}
+            <Image
+              src="/map.png"
+              alt="Office Location Map"
+              width={350}
+              height={250}
+              className="shadow-md border-8 border-white"
+            />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
         {/* #################################################################################################################################### */}
         {/* #################################################################################################################################### */}
