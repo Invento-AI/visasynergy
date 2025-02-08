@@ -352,7 +352,7 @@ export default function NewsPage() {
         <Footer />
       </div>
 
-      <div className="bg-white black md:hidden">
+      <div className="bg-white block md:hidden">
         <Navbar />
 
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center text-[#3b4f84] mt-10 px-4">
