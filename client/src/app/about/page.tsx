@@ -44,10 +44,10 @@ export default function About() {
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      <main>
-        <div className="container mx-auto p-8">
+      <main className="md:mx-6">
+        <div className="container mx-auto md:min-w-full p-8">
           {/* Desktop Layout */}
-          <div className="hidden md:grid md:grid-cols-5 gap-8 items-center">
+          <div className="hidden md:grid md:grid-cols-5 gap-16 items-center">
             <div className="md:col-span-2 relative w-fit mx-auto">
               {/* Background Rotated Square */}
               <div className="absolute top-0 left-0 w-full h-full bg-red-700 rotate-12 rounded-lg -z-10"></div>
@@ -61,15 +61,15 @@ export default function About() {
                 className="rounded-lg shadow-lg border-[12px] border-white "
               />
             </div>
-            <div className="md:col-span-3">
+            <div className="md:col-span-3 md:justify-between">
               <h2
-                className="text-4xl font-semibold text-[#3b4f84]"
+                className="text-5xl font-semibold text-[#3b4f84]"
                 style={{ fontFamily: "Asap Condensed" }}
               >
                 Who We Are
               </h2>
               <p
-                className="mt-4 text-lg text-[#333333]"
+                className="mt-4 text-2xl text-[#333333]"
                 style={{ fontFamily: "Albert Sans" }}
               >
                 Visa Synergy is more than a visa consulting firm – we’re your
@@ -87,16 +87,10 @@ export default function About() {
                   className="mr-4"
                 />
                 <div>
-                  <h3
-                    className="font-bold text-black"
-                    style={{ fontFamily: "Albert Sans" }}
-                  >
+                  <h3 className="font-bold text-black font-albert text-lg">
                     Mission
                   </h3>
-                  <p
-                    className="text-[#1d2c3c]"
-                    style={{ fontFamily: "Albert Sans" }}
-                  >
+                  <p className="text-[#1d2c3c] font-albert text-lg">
                     Navigating borders, unlocking opportunities—our mission is
                     to make visa journeys effortless, empowering you to explore
                     the world with confidence.
@@ -112,16 +106,10 @@ export default function About() {
                   className="mr-4"
                 />
                 <div>
-                  <h3
-                    className="font-bold text-black"
-                    style={{ fontFamily: "Albert Sans" }}
-                  >
+                  <h3 className="font-bold text-black font-albert text-lg">
                     Vision
                   </h3>
-                  <p
-                    className="text-[#1d2c3c]"
-                    style={{ fontFamily: "Albert Sans" }}
-                  >
+                  <p className="text-[#1d2c3c] font-albert text-lg">
                     A world without boundaries—where aspirations know no limits,
                     and every journey leads to new possibilities.
                   </p>
@@ -184,16 +172,10 @@ export default function About() {
                 height={50}
                 className="mb-2"
               />
-              <h3
-                className="font-bold text-black"
-                style={{ fontFamily: "Albert Sans" }}
-              >
+              <h3 className="font-bold text-black font-albert">
                 Vision
               </h3>
-              <p
-                className="text-[#1d2c3c] text-center"
-                style={{ fontFamily: "Albert Sans" }}
-              >
+              <p className="text-[#1d2c3c] text-center font-albert">
                 A world without boundaries—where aspirations know no limits, and
                 every journey leads to new possibilities.
               </p>
@@ -201,17 +183,11 @@ export default function About() {
           </div>
 
           {/* Title Section */}
-          <div className="text-left mt-8">
-            <h2
-              className="text-4xl font-bold text-[#3b4f84]"
-              style={{ fontFamily: "Asap Condensed" }}
-            >
+          <div className="text-left mt-12">
+            <h2 className="text-5xl font-bold text-[#3b4f84] font-asap">
               Why Trust Visa Synergy?
             </h2>
-            <p
-              className="text-[#333333] mt-2"
-              style={{ fontFamily: "Albert Sans" }}
-            >
+            <p className="text-[#333333] mt-2 text-2xl font-albert">
               Guiding You with Integrity, Expertise, and Commitment
             </p>
           </div>
@@ -219,58 +195,37 @@ export default function About() {
           {/* Desktop Layout */}
           <div className="hidden md:grid md:grid-cols-4 gap-6 mt-8">
             <div className="p-6 bg-gray-100 rounded-lg shadow-md text-center border-2">
-              <h3
-                className="text-4xl font-bold text-[#3b4f84]"
-                style={{ fontFamily: "Albert Sans" }}
-              >
+              <h3 className="text-4xl font-bold text-[#3b4f84] font-albert">
                 21+
               </h3>
-              <p
-                className="text-[#333333] mt-2"
-                style={{ fontFamily: "Albert Sans" }}
-              >
+              <p className="text-[#333333] mt-2 text-xl font-albert">
                 Years of Experience
               </p>
             </div>
             <div className="p-6 bg-gray-100 rounded-lg shadow-md text-center border-2">
-              <h3
-                className="text-4xl font-bold text-[#3b4f84]"
-                style={{ fontFamily: "Albert Sans" }}
-              >
+              <h3 className="text-4xl font-bold text-[#3b4f84] font-albert">
+
                 15+
               </h3>
-              <p
-                className="text-[#333333] mt-2"
-                style={{ fontFamily: "Albert Sans" }}
-              >
+              <p className="text-[#333333] mt-2 text-xl font-albert">
                 Immigration Lawyers
               </p>
             </div>
             <div className="p-6 bg-gray-100 rounded-lg shadow-md text-center border-2">
-              <h3
-                className="text-4xl font-bold text-[#3b4f84]"
-                style={{ fontFamily: "Albert Sans" }}
-              >
+              <h3 className="text-4xl font-bold text-[#3b4f84] font-albert">
+
                 98%
               </h3>
-              <p
-                className="text-[#333333] mt-2"
-                style={{ fontFamily: "Albert Sans" }}
-              >
+              <p className="text-[#333333] mt-2 text-xl font-albert">
                 Visa Success Ratio
               </p>
             </div>
             <div className="p-6 bg-gray-100 rounded-lg shadow-md text-center border-2">
-              <h3
-                className="text-4xl font-bold text-[#3b4f84]"
-                style={{ fontFamily: "Albert Sans" }}
-              >
+              <h3 className="text-4xl font-bold text-[#3b4f84] font-albert">
+
                 50+
               </h3>
-              <p
-                className="text-[#333333] mt-2"
-                style={{ fontFamily: "Albert Sans" }}
-              >
+              <p className="text-[#333333] mt-2 text-xl font-albert">
                 Satisfied Clients
               </p>
             </div>
@@ -338,18 +293,18 @@ export default function About() {
         </div>
       </main>
 
-      <div className="bg-white w-full py-10 px-4 flex justify-center">
-        <div className="container mx-auto px-8">
+      <div className="justify-centre py-6 md:mx-6 md:mb-4">
+        <div className="container mx-auto min-w-full px-8 ">
           {/* Heading Section */}
           <div className="text-left mb-8">
-            <h2 className="text-4xl font-bold text-blue-800">How We Work</h2>
+            <h2 className="text-5xl font-bold text-[#3b4f84] font-asap">How We Work</h2>
           </div>
 
           {/* Content Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 w-full items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-24 w-full md:w-full items-start">
             {/* Left Section - 60% Width */}
-            <div className="lg:col-span-3 flex flex-col justify-between h-full">
-              <p className="text-lg text-gray-700 mb-6">
+            <div className="lg:col-span-2 flex flex-col justify-between h-full">
+              <p className="text-2xl text-black mb-6 font-albert">
                 At Visa Synergy, we make your global dreams take flight with a
                 smooth and stress-free visa process. Just like a journey through
                 an airport, we guide you every step of the way—ensuring a
@@ -357,7 +312,7 @@ export default function About() {
               </p>
 
               {/* Steps - Limited to 4 */}
-              <div className="space-y-4 flex-1 flex flex-col justify-between">
+              <div className="space-y-4 flex-1 flex flex-col justify-between mt-8">
                 {steps.slice(0, 4).map((step) => (
                   <Card
                     key={step.id}

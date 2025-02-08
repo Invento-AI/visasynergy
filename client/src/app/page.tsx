@@ -607,7 +607,7 @@ export default function Home() {
           <h2 className="text-xl md:text-5xl font-bold text-blue-900 mb-2">
             Words That Matter : Client Testimonials
           </h2>
-          <p className="text-gray-500 text-lg md:text-2xl mb-8">
+          <p className="text-gray-500 text-2xl md:text-2xl mb-8">
             Real Experiences, Real Success
           </p>
 

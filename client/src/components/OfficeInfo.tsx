@@ -10,10 +10,10 @@ const OfficeInfo = () => {
         Visit us at our office for a face-to-face consultation.
       </p>
 
-      <div className="mt-6">
+      <div className="mt-6 font-albert">
         <h3 className="text-xl font-semibold">Our Office Location</h3>
         <div className="mt-4 flex items-start">
-          <Image className="mr-2" src="/location.png" alt="location" width={24} height={24} />
+          <img className="mr-2" src="/location.png" alt="location" width={24} height={24} />
           <div>
             <p className="text-lg font-semibold">Visa Synergy Office – New York, USA</p>
             <p className="text-[#404040] text-sm">
@@ -26,7 +26,7 @@ const OfficeInfo = () => {
         </div>
 
         <div className="mt-4 flex items-start">
-          <Image className="mr-2" src="/time.png" alt="business hours" width={24} height={24} />
+          <img className="mr-2" src="/time.png" alt="business hours" width={24} height={24} />
           <p className="text-lg font-semibold">
             Business Hours: <span className="ml-2">Monday – Friday | 9 AM – 6 PM</span>
           </p>
