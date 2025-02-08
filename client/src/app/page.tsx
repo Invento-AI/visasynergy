@@ -294,13 +294,13 @@ export default function Home() {
                           <Label htmlFor="first-name" className="font-albert font-bold">
                             First Name <span className="text-red-500">*</span>
                           </Label>
-                          <Input id="first-name" className="font-albert bg-white border-gray-300" placeholder="Enter Your First Name" required />
+                          <Input id="first-name" className="font-albert bg-white border-gray-300" placeholder="Enter your first name" required />
                         </div>
                         <div>
                           <Label htmlFor="last-name" className="font-albert font-bold">
                             Last Name <span className="text-red-500">*</span>
                           </Label>
-                          <Input id="last-name" className="font-albert bg-white border-gray-300" placeholder="Enter Your Last Name" required />
+                          <Input id="last-name" className="font-albert bg-white border-gray-300" placeholder="Enter your last name" required />
                         </div>
                       </div>
 
@@ -308,14 +308,14 @@ export default function Home() {
                         <Label htmlFor="email" className="font-albert font-bold">
                           Email <span className="text-red-500">*</span>
                         </Label>
-                        <Input id="email" className="font-albert bg-white border-gray-300" type="email" placeholder="Enter Your Email" required />
+                        <Input id="email" className="font-albert bg-white border-gray-300" type="email" placeholder="Enter your mail" required />
                       </div>
 
                       <div>
                         <Label htmlFor="mobile" className="font-albert font-bold">
                           Mobile Number <span className="text-red-500">*</span>
                         </Label>
-                        <Input id="mobile" className="font-albert bg-white border-gray-300" type="tel" placeholder="Enter Your Mobile Number" required />
+                        <Input id="mobile" className="font-albert bg-white border-gray-300" type="tel" placeholder="Enter your mobile number" required />
                       </div>
 
                       <div className="grid grid-cols-2 gap-4">
@@ -325,7 +325,7 @@ export default function Home() {
                           </Label>
                           <Select>
                             <SelectTrigger className="font-albert border-gray-300 text-gray-600">
-                              <SelectValue placeholder="Select A Country" className="placeholder-albert"/>
+                              <SelectValue placeholder="Select a country" className="placeholder-albert"/>
                               {/* <span className="font-albert text-gray-700">
                                 <SelectValue placeholder="Select Your Program" />
                               </span> */}
@@ -347,7 +347,7 @@ export default function Home() {
                           </Label>
                           <Select>
                             <SelectTrigger className="font-albert border-gray-300 text-gray-600">
-                              <SelectValue placeholder="Select Your Visa Type" className="placeholder-albert"/>
+                              <SelectValue placeholder="Select your visa type" className="placeholder-albert"/>
                               {/* <span className="font-albert text-gray-700">
                                 <SelectValue placeholder="Select Your Program" />
                               </span> */}
