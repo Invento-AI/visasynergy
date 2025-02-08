@@ -178,12 +178,6 @@ export default function ContactPage() {
 
           {/* Mobile Layout */}
           <div className="md:hidden flex flex-col space-y-8 items-center text-center">
-            {/* <h2 className="text-3xl font-bold text-[#3B4F84] w-full" style={{ fontFamily: "Asap Condensed" }}>
-              Visit Our Office – Let’s Meet in Person!
-            </h2>
-            <p className="text-lg text-[#404040]" style={{ fontFamily: "albert sans" }}>
-              Visit us at our office for a face-to-face consultation.
-            </p> */}
             
             {/* Office Details */}
             <OfficeInfo />

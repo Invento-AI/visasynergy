@@ -26,7 +26,7 @@ export default function About() {
       feedback:
         "Visa Synergy made my PR process so easy! Their expert guidance and seamless documentation process helped me settle in Canada without stress. From the initial consultation to the final approval, they handled everything with professionalism and care. Thanks to Visa Synergy, I’m now living my dream in Canada!",
       stars: 5,
-      image: "/ved.jpg",
+      image: "/Images_home/ved.jpg",
     },
     {
       id: 2,
@@ -35,7 +35,7 @@ export default function About() {
       feedback:
         "From my first consultation to getting my visa approved, Visa Synergy was there every step of the way. Highly recommended!",
       stars: 5,
-      image: "/ved.jpg",
+      image: "/Images_home/ved.jpg",
     },
     {
       id: 3,
@@ -44,7 +44,7 @@ export default function About() {
       feedback:
         "I was overwhelmed with visa formalities, but Visa Synergy simplified everything. Their personalized approach made my study abroad journey smooth! From selecting the right university to preparing my documents and securing my visa, today, I’m studying in my dream country, all thanks to their exceptional support!",
       stars: 5,
-      image: "/ved.jpg",
+      image: "/Images_home/ved.jpg",
     },
     {
       id: 4,
@@ -53,7 +53,7 @@ export default function About() {
       feedback:
         "Visa Synergy's team was extremely supportive and provided expert guidance. I got my visitor visa approved in no time. Highly recommended!",
       stars: 3,
-      image: "/ved.jpg",
+      image: "/Images_home/ved.jpg",
     },
     // Add more testimonials as needed
   ];
@@ -406,9 +406,9 @@ export default function About() {
         </div>
 
       <div className="justify-centre py-6 md:mx-6 md:mb-4">
-        <div className="container mx-auto min-w-full px-8 ">
+        <div className="container mx-auto min-w-full px-2 ">
           {/* Heading Section */}
-          <div className="text-left mb-8">
+          <div className="text-left mb-4">
             <h2 className="text-5xl font-bold text-[#3b4f84] font-asap">How We Work</h2>
           </div>
 

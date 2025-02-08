@@ -3,11 +3,12 @@ import "@fontsource/asap-condensed";
 import "@fontsource/albert-sans";
 import "@fontsource/asap-condensed";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FaFacebook, FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 import Lottie from "lottie-react";
-import animation from "../../public/Animation - 1737981416584.json";
+import animation from "../../public/Images_home/Animation - 1737981416584.json";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Menu, X } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -21,7 +22,6 @@ import Navbar from "@/components/Navbar";
 
 export default function Home() {
   const [open, setOpen] = useState(true);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const testimonials = [
     {
@@ -31,7 +31,7 @@ export default function Home() {
       feedback:
         "Visa Synergy made my PR process so easy! Their expert guidance and seamless documentation process helped me settle in Canada without stress. From the initial consultation to the final approval, they handled everything with professionalism and care. Thanks to Visa Synergy, I’m now living my dream in Canada!",
       stars: 5,
-      image: "/ved.jpg",
+      image: "/Images_home/ved.jpg",
     },
     {
       id: 2,
@@ -40,7 +40,7 @@ export default function Home() {
       feedback:
         "From my first consultation to getting my visa approved, Visa Synergy was there every step of the way. Highly recommended!",
       stars: 5,
-      image: "/ved.jpg",
+      image: "/Images_home/ved.jpg",
     },
     {
       id: 3,
@@ -49,7 +49,7 @@ export default function Home() {
       feedback:
         "I was overwhelmed with visa formalities, but Visa Synergy simplified everything. Their personalized approach made my study abroad journey smooth! From selecting the right university to preparing my documents and securing my visa, today, I’m studying in my dream country, all thanks to their exceptional support!",
       stars: 5,
-      image: "/ved.jpg",
+      image: "/Images_home/ved.jpg",
     },
     {
       id: 4,
@@ -58,7 +58,7 @@ export default function Home() {
       feedback:
         "Visa Synergy's team was extremely supportive and provided expert guidance. I got my visitor visa approved in no time. Highly recommended!",
       stars: 3,
-      image: "/ved.jpg",
+      image: "/Images_home/ved.jpg",
     },
     // Add more testimonials as needed
   ];
@@ -128,9 +128,38 @@ export default function Home() {
         ]
       : testimonials.slice(currentIndex, currentIndex + 3);
 
+  
+
+  const images = [
+    '/Images_home/bg_image_1.png',
+    '/Images_home/bg_image_2.png',
+    '/Images_home/bg_image_3.png',
+    '/Images_home/bg_image_4.jpg',
+  ];
+  
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000); // Change every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? "100%" : "-100%",
+      opacity: 0,
+    }),
+    center: { x: 0, opacity: 1 },
+    exit: (direction: number) => ({
+      x: direction > 0 ? "-100%" : "100%",
+      opacity: 0,
+    }),
+  };
 
 // Return();
-
 
   return (
     <div className="relative min-h-screen bg-white text-white">
@@ -141,113 +170,26 @@ export default function Home() {
 {/* ########################################################################################################################################### */}
 
       {/* Hero Section */}
-      {/* <section className="relative flex items-center justify-center min-h-screen px-6">
-        <video autoPlay loop muted className="absolute w-full h-full object-cover z-10">
-          <source src="/VisaSynergyFinal.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-
-        <div className="text-center -mt-40 z-20 relative">
-          <h1 className="text-5xl md:text-5xl">Your Gateway to a New Beginning</h1>
-          <p className="mt-4 text-2xl font-albert">
-            Simplifying Immigration and Visa Processes for a World of Opportunities
-          </p>
-          <div className="mt-10 justify-center gap-20 flex flex-wrap items-center">
-            {["usa", "australia", "canada", "europe", "newzealand"].map((country) => (
-              <Button key={country} variant="outline" className="bg-transparent border-2 text-lg border-white hover:bg-white transition duration-700">
-                {country.toUpperCase()}
-                <Image src={`/${country}.png`} width={20} height={20} alt={`${country} Flag`} />
-              </Button>
-            ))}
-          </div>
-          <p className="mt-12 text-3xl font-albert">
-            Start Your Immigration Journey Today!
-          </p> */}
-
-          {/* Quick Enquiry Button (Now Opens the Modal) */}
-          {/* <Dialog open={open} onOpenChange={setOpen}>
-            <DialogTrigger asChild>
-            <Button className="mt-4 px-6 py-4 border-2 bg-[#51868e] border-[#51868e] text-white rounded-lg text-xl shadow-lg hover:bg-transparent hover:text-white transition duration-700 hover:border-2 hover:border-white group">
-              Quick Enquiry
-              <span className="ml-2 transition-transform duration-500 group-hover:-rotate-[45deg]">→</span>
-            </Button>
-            </DialogTrigger> */}
-
-            {/* Modal Content */}
-            {/* <DialogContent className="max-w-lg p-6 rounded-lg">
-              <DialogHeader>
-                <DialogTitle className="text-center text-lg font-bold font-albert">Quick Enquiry</DialogTitle>
-              </DialogHeader> */}
-
-              {/* Form Inside Modal */}
-              {/* <form className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="first-name" className="font-albert font-bold">
-                      First Name <span className="text-red-500">*</span>
-                    </Label>
-                    <Input id="first-name" className="font-albert" placeholder="Enter Your First Name" required />
-                  </div>
-                  <div>
-                    <Label htmlFor="last-name" className="font-albert font-bold">
-                      Last Name <span className="text-red-500">*</span>
-                    </Label>
-                    <Input id="last-name" className="font-albert" placeholder="Enter Your Last Name" required />
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="email" className="font-albert font-bold">
-                    Email <span className="text-red-500">*</span>
-                  </Label>
-                  <Input id="email" className="font-albert" type="email" placeholder="Enter Your Email" required />
-                </div>
-
-                <div>
-                  <Label htmlFor="mobile" className="font-albert font-bold">
-                    Mobile Number <span className="text-red-500">*</span>
-                  </Label>
-                  <Input id="mobile" className="font-albert" type="tel" placeholder="Enter Your Mobile Number" required />
-                </div>
-
-                <div>
-                  <Label htmlFor="program" className="font-albert font-bold">
-                    Program You Are Interested In <span className="text-red-500">*</span>
-                  </Label>
-                  <Select>
-                    <SelectTrigger className="font-albert"> */}
-                      {/* <SelectValue placeholder="Select Your Program" className="placeholder-albert"/> */}
-                      {/* <span className="font-albert text-gray-700">
-                        <SelectValue placeholder="Select Your Program" />
-                      </span>
-                    </SelectTrigger>
-                    <SelectContent>
-                    <span className="font-albert text-gray-700">
-                      <SelectItem value="usa">USA</SelectItem>
-                      <SelectItem value="canada">Canada</SelectItem>
-                      <SelectItem value="australia">Australia</SelectItem>
-                      <SelectItem value="europe">Europe</SelectItem>
-                      <SelectItem value="new-zealand">New Zealand</SelectItem>
-                    </span>
-                    </SelectContent>
-                  </Select>
-                </div> */}
-
-                {/* <Button type="submit" className="w-full bg-[#51868e] text-white py-3 text-lg font-albert hover:text-[#51868e] hover:bg-white hover:border-2 hover:border-[#51868e] transition duration-700">
-                  Start Your Journey
-                </Button>
-              </form>
-            </DialogContent>
-          </Dialog>
-        </div>
-      </section> */}
-
       <section className="relative flex items-center justify-center min-h-screen px-4 pt-0 md:px-6  ">
-        {/* Background Video */}
-        <video autoPlay loop muted className="absolute w-full h-full object-cover z-10">
-          <source src="/VisaSynergyFinal.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        {/* Background */}
+        <AnimatePresence mode="sync">
+          <motion.div
+            key={index}
+            className="absolute inset-0 w-full h-full"
+            initial={{ x: "100%" }} // Start off-screen to the right
+            animate={{ x: "0%" }} // Move to center
+            exit={{ x: "-100%" }} // Move out to the left
+            transition={{ duration: 1, ease: "easeInOut" }}
+          >
+            <Image
+              src={images[index]}
+              alt="Background"
+              layout="fill"
+              objectFit="cover"
+              priority
+            />
+          </motion.div>
+        </AnimatePresence>
 
         {/* Content */}
         <div className="text-center z-20 relative w-full flex flex-col items-center md:-mt-24">
@@ -263,7 +205,7 @@ export default function Home() {
             {["usa", "australia", "canada", "europe", "newzealand"].map((country) => (
               <Button key={country} variant="outline" className="bg-transparent border-2 text-xs sm:text-sm md:text-lg px-3 py-1 sm:px-4 sm:py-2 border-white hover:bg-white transition duration-700 flex items-center">
                 {country.toUpperCase()}
-                <img src={`/${country}.png`} width={14} height={14} className="ml-2" alt={`${country} Flag`} />
+                <img src={`/Images_home/${country}.png`} width={14} height={14} className="ml-2" alt={`${country} Flag`} />
               </Button>
             ))}
           </div>
@@ -394,23 +336,11 @@ export default function Home() {
 
 {/* ########################################################################################################################################### */}
 {/* ########################################################################################################################################### */}
-      
-      <div className="relative min-h-screen bg-gray-700 text-white">
-        {/* Collaboration Section */}
-        {/* <section className="py-12 bg-white text-gray-900">
-          <div className="container mx-auto min-w-[100%] flex items-center justify-between px-6">
-            <div className="text-left w-2/5 max-w-lg">
-              <h2 className="text-5xl font-bold my-4 text-[#3B4F84] font-asap">In Collaboration With</h2>
-              <p className="text-2xl mb-8 font-albert max-w-80">Partnering with the Best to Guide Your Journey</p>
-            </div>
-            <div className="flex w-3/5 ml-auto gap-20 space-x-12 ">
-              <Image src="/p1.png" alt="RCIC Logo" width={200} height={80} className="h-32 w-64"/>
-              <Image src="/p2.png" alt="OISC Logo" width={100} height={100} className="h-32 w-28"/>
-              <Image src="/p3.png" alt="MARA Logo" width={200} height={100} className="h-32 w-56"  />
-            </div>
-          </div>
-        </section> */}
 
+       {/* In Collaboration With */}
+      <div className="relative min-h-screen bg-gray-700 text-white">
+
+        {/* Collaboration Section */}
         <section className="py-6 bg-white text-gray-900">
           <div className="container mx-auto px-3 md:px-6 flex flex-col md:flex-row items-center md:justify-between md:min-w-full">
             {/* Text Section */}
@@ -425,9 +355,9 @@ export default function Home() {
 
             {/* Logos Section */}
             <div className="flex justify-center md:justify-end w-full md:w-3/5 gap-6 md:gap-32">
-              <img src="/p1.png" alt="RCIC Logo" className="h-14 w-auto md:h-32 md:w-auto" />
-              <img src="/p2.png" alt="OISC Logo" className="h-14 w-auto md:h-32 md:w-auto" />
-              <img src="/p3.png" alt="MARA Logo" className="h-14 w-auto md:h-32 md:w-auto" />
+              <img src="/Images_home/p1.png" alt="RCIC Logo" className="h-14 w-auto md:h-32 md:w-auto"/>
+              <img src="/Images_home/p2.png" alt="OISC Logo" className="h-14 w-auto md:h-32 md:w-auto" />
+              <img src="/Images_home/p3.png" alt="MARA Logo" className="h-14 w-auto md:h-32 md:w-auto" />
               </div>
           </div>
         </section>
@@ -441,7 +371,7 @@ export default function Home() {
               {/* Image Section */}
               <div className="w-full md:w-2/5 mb-6 md:mb-0 md:pr-8 flex justify-center">
                 <img 
-                  src="/girl.png" 
+                  src="/Images_home/girl.png" 
                   alt="Girl" 
                   className="w-[90%] md:w-[420px] border-[10px] md:border-[20px] h-auto md:h-[550px] rounded-[6px] shadow-md border-white"
                 />
@@ -472,7 +402,7 @@ export default function Home() {
                           ].map((service, index) => (
                             <div key={index} className="flex flex-col items-center md:items-start">
                               <h3 className="text-lg md:text-2xl font-bold">{service.title}</h3>
-                              <p className="text-sm md:text-lg text-gray-700">{service.desc}</p>
+                              <p className="text-sm md:text-lg text-gray-700 font-albert">{service.desc}</p>
                             </div>
                           ))}
                         </div>
@@ -488,7 +418,7 @@ export default function Home() {
                           ].map((service, index) => (
                             <div key={index} className="flex flex-col items-center md:items-start">
                               <h3 className="text-lg md:text-2xl font-bold">{service.title}</h3>
-                              <p className="text-sm md:text-lg text-gray-700">{service.desc}</p>
+                              <p className="text-sm md:text-lg text-gray-700 font-albert">{service.desc}</p>
                             </div>
                           ))}
                         </div>
@@ -519,7 +449,7 @@ export default function Home() {
 
         <div className="grid md:grid-cols-3 gap-8 mt-12 max-w-[90%] mx-auto justify-center">
           <Card className="p-4 text-center max-w-1/3 md:mx-10 bg-[#edf3f5]">
-            <img src="/bce.gif" alt="Easy Process" className="w-20 h-20 mx-auto mb-3" />
+            <img src="/Images_home/bce.gif" alt="Easy Process" className="w-20 h-20 mx-auto mb-3" />
             <h3 className="font-semibold text-lg md:text-xl text-left ml-6">Expertise & Proven Success</h3>
             <CardContent className="text-[#404040] mt-2">
               <ul className="list-disc list-inside text-md md:text-lg text-left font-asap">
@@ -531,7 +461,7 @@ export default function Home() {
           </Card>
 
           <Card className="p-4 text-center max-w-1/3 md:mx-10 bg-[#edf3f5]">
-            <img src="/easy.gif" alt="Easy Process" className="w-20 h-20 mx-auto mb-3" />
+            <img src="/Images_home/easy.gif" alt="Easy Process" className="w-20 h-20 mx-auto mb-3" />
             <h3 className="font-semibold text-lg md:text-xl text-left ml-6">Easy & Effortless Process</h3>
             <CardContent className="text-[#404040] mt-2 font-asap">
             <ul className="text-md md:text-lg text-left">
@@ -549,7 +479,7 @@ export default function Home() {
           </Card>
 
           <Card className="p-4 text-center max-w-1/3 md:mx-10 bg-[#edf3f5]">
-            <img src="/information.gif" alt="Easy Process" className="w-20 h-20 mx-auto mb-3" />
+            <img src="/Images_home/information.gif" alt="Easy Process" className="w-20 h-20 mx-auto mb-3" />
             <h3 className="font-semibold text-lg md:text-xl text-left ml-6">End-to-End Support</h3>
             <CardContent className="text-[#404040] mt-2 font-asap">
               <ul className="list-disc list-inside text-md md:text-lg text-left">
