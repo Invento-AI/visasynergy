@@ -20,7 +20,7 @@ const Navbar = () => {
   ];
 
   return (
-    <>
+    <div>
       <header className="hidden md:flex relative top-0 left-0 right-0 justify-between items-center p-2 bg-primary text-white z-30">
         <div className="ml-auto flex space-x-6 mr-6">
           <span className="flex w-100 mr-6">
@@ -90,7 +90,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="z-50 absolute top-full right-0 w-full bg-white shadow-lg flex flex-col items-center space-y-6 py-4 md:hidden">
+          <div className="z-50 absolute top-full right-0 w-full bg-white shadow-lg flex flex-col items-center space-y-6 py-4 md:hidden font-bold">
             {navLinks.map(({ href, label }) => (
               <Link
                 key={href}
@@ -109,7 +109,7 @@ const Navbar = () => {
           </div>
         )}
       </header>
-    </>
+    </div>
   );
 };
 

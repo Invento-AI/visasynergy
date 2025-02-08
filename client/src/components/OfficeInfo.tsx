@@ -11,7 +11,7 @@ const OfficeInfo = () => {
       </p>
 
       <div className="mt-6 font-albert">
-        <h3 className="text-xl font-semibold">Our Office Location</h3>
+        <h3 className="text-xl font-semibold font-roboto">Our Office Location</h3>
         <div className="mt-4 flex items-start">
           <img className="mr-2" src="/location.png" alt="location" width={24} height={24} />
           <div>
@@ -33,7 +33,7 @@ const OfficeInfo = () => {
         </div>
 
         <button
-          className="mt-6 px-6 py-3 bg-[#51868e] w-full md:w-[450px] text-white rounded-md hover:bg-white border-2 hover:text-[#51868e] transition duration-700"
+          className="mt-6 p-2 bg-[#51868e] w-full md:w-[450px] text-white rounded-md hover:bg-white border-2 hover:text-[#51868e] transition duration-700 font-bold text-lg"
           onClick={() => window.location.href = 'https://www.google.com/maps?q=Visa+Synergy'}
         >
           Get Directions

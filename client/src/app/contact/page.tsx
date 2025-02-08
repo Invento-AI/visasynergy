@@ -2,9 +2,7 @@
 import OfficeInfo from "@/components/OfficeInfo";
 
 import React from 'react';
-import Image from "next/image";
 import Link from "next/link";
-import animation from "../../../public/email.gif";
 import "@fontsource/asap-condensed";
 import "@fontsource/albert-sans";
 import "@fontsource/asap-condensed";
@@ -23,8 +21,8 @@ export default function ContactPage() {
         
       <Navbar/>
 
-      {/* ###################################################################################################################################### */}
-      {/* ###################################################################################################################################### */}
+ {/* ###################################################################################################################################### */}
+ {/* ###################################################################################################################################### */}
 
       {/* Contact Section */}
       <main className="px-4 md:px-0 mx-auto max-w-screen-xl">
@@ -39,7 +37,7 @@ export default function ContactPage() {
         {/* Image Section */}
         <div className="flex flex-col space-y-6 justify-between">
           <div className="w-full">
-            <Image src="/contact_girl.png" alt="Contact Us" width={500} height={500} className='w-full h-auto object-cover rounded-md' />
+            <img src="/contact_girl.png" alt="Contact Us" width={500} height={500} className='w-full h-auto object-cover rounded-md' />
           </div>
 
           {/* Email and Phone Section */}
@@ -159,8 +157,8 @@ export default function ContactPage() {
         </div>
       </div>
 
-        {/* #################################################################################################################################### */}
-        {/* #################################################################################################################################### */}
+ {/* #################################################################################################################################### */}
+ {/* #################################################################################################################################### */}
         
       <section className="py-16 mt-6 bg-white text-gray-900">
         <div className="container mx-auto px-6">
@@ -169,7 +167,7 @@ export default function ContactPage() {
             {/* Left Column - Office Info */}
             <OfficeInfo />
             {/* Right Column - Map */}
-            <Image
+            <img
               src="/map.png"
               alt="Office Location Map"
               width={730}
@@ -191,7 +189,7 @@ export default function ContactPage() {
             <OfficeInfo />
             
             {/* Map Image */}
-            <Image
+            <img
               src="/map.png"
               alt="Office Location Map"
               width={350}
@@ -202,10 +200,10 @@ export default function ContactPage() {
         </div>
       </section>
 
-        {/* #################################################################################################################################### */}
-        {/* #################################################################################################################################### */}
-        
       </main>
+        
+ {/* #################################################################################################################################### */}
+ {/* #################################################################################################################################### */}
 
       <Footer/>
       

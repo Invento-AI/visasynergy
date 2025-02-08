@@ -12,6 +12,7 @@ export default {
 		fontFamily: {
 			albert: ["Albert Sans", "sans-serif"], // Define Albert Sans
 			asap: ["Asap condensed", "sans-serif"], // Define Asap
+			roboto: ["Roboto slab", "sans-serif"] // Define Roboto
 		},
   		colors: {
   			background: 'hsl(var(--background))',

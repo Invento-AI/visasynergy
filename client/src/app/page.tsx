@@ -242,138 +242,138 @@ export default function Home() {
         </div>
       </section> */}
 
-<section className="relative flex items-center justify-center min-h-screen px-4 pt-0 md:px-6  ">
-  {/* Background Video */}
-  <video autoPlay loop muted className="absolute w-full h-full object-cover z-10">
-    <source src="/VisaSynergyFinal.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+      <section className="relative flex items-center justify-center min-h-screen px-4 pt-0 md:px-6  ">
+        {/* Background Video */}
+        <video autoPlay loop muted className="absolute w-full h-full object-cover z-10">
+          <source src="/VisaSynergyFinal.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
-  {/* Content */}
-  <div className="text-center z-20 relative w-full flex flex-col items-center md:-mt-24">
-    <h1 className="text-xl sm:text-3xl md:text-5xl font-bold">
-      Your Gateway to a New Beginning
-    </h1>
-    <p className="mt-2 text-base sm:text-lg md:text-2xl font-albert px-2 md:mb-6">
-      Simplifying Immigration and Visa Processes for a World of Opportunities
-    </p>
+        {/* Content */}
+        <div className="text-center z-20 relative w-full flex flex-col items-center md:-mt-24">
+          <h1 className="text-xl sm:text-3xl md:text-5xl font-bold">
+            Your Gateway to a New Beginning
+          </h1>
+          <p className="mt-2 text-base sm:text-lg md:text-2xl font-albert px-2 md:mb-6">
+            Simplifying Immigration and Visa Processes for a World of Opportunities
+          </p>
 
-    {/* Country Buttons */}
-    <div className="mt-6 flex flex-wrap justify-center gap-3 md:gap-16">
-      {["usa", "australia", "canada", "europe", "newzealand"].map((country) => (
-        <Button key={country} variant="outline" className="bg-transparent border-2 text-xs sm:text-sm md:text-lg px-3 py-1 sm:px-4 sm:py-2 border-white hover:bg-white transition duration-700 flex items-center">
-          {country.toUpperCase()}
-          <Image src={`/${country}.png`} width={14} height={14} className="ml-2" alt={`${country} Flag`} />
-        </Button>
-      ))}
-    </div>
+          {/* Country Buttons */}
+          <div className="mt-6 flex flex-wrap justify-center gap-3 md:gap-16">
+            {["usa", "australia", "canada", "europe", "newzealand"].map((country) => (
+              <Button key={country} variant="outline" className="bg-transparent border-2 text-xs sm:text-sm md:text-lg px-3 py-1 sm:px-4 sm:py-2 border-white hover:bg-white transition duration-700 flex items-center">
+                {country.toUpperCase()}
+                <img src={`/${country}.png`} width={14} height={14} className="ml-2" alt={`${country} Flag`} />
+              </Button>
+            ))}
+          </div>
 
-    <p className="mt-6 text-lg sm:text-xl md:text-3xl font-albert md:mt-12">
-      Start Your Immigration Journey Today!
-    </p>
+          <p className="mt-6 text-lg sm:text-xl md:text-3xl font-albert md:mt-12">
+            Start Your Immigration Journey Today!
+          </p>
 
-    {/* Quick Enquiry Button */}
-    <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button className="mt-4 px-4 py-2 sm:px-6 sm:py-3 border-2 bg-[#51868e] border-[#51868e] text-white rounded-lg text-sm sm:text-lg md:text-xl shadow-lg hover:bg-transparent hover:text-white transition duration-700 hover:border-white group">
-          Quick Enquiry
-          <span className="ml-2 transition-transform duration-500 group-hover:-rotate-[45deg]">→</span>
-        </Button>
-      </DialogTrigger>
+          {/* Quick Enquiry Button */}
+          <Dialog open={open} onOpenChange={setOpen}>
+            <DialogTrigger asChild>
+              <Button className="mt-4 px-4 py-2 sm:px-6 sm:py-3 border-2 bg-[#51868e] border-[#51868e] text-white rounded-lg text-sm sm:text-lg md:text-xl shadow-lg hover:bg-transparent hover:text-white transition duration-700 hover:border-white group">
+                Quick Enquiry
+                <span className="ml-2 transition-transform duration-500 group-hover:-rotate-[45deg]">→</span>
+              </Button>
+            </DialogTrigger>
 
-      {/* Modal Content */}
-            <DialogContent className="max-w-lg p-6 rounded-lg w-[90%] md:mx-auto">
-              <DialogHeader>
-                <DialogTitle className="text-center text-lg font-bold font-albert">Quick Enquiry</DialogTitle>
-              </DialogHeader>
+            {/* Modal Content */}
+                  <DialogContent className="max-w-lg p-6 rounded-lg w-[90%] md:mx-auto">
+                    <DialogHeader>
+                      <DialogTitle className="text-center text-lg font-bold font-albert">Quick Enquiry</DialogTitle>
+                    </DialogHeader>
 
-              {/* Form Inside Modal */}
-              <form className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="first-name" className="font-albert font-bold">
-                      First Name <span className="text-red-500">*</span>
-                    </Label>
-                    <Input id="first-name" className="font-albert bg-white border-gray-300" placeholder="Enter Your First Name" required />
-                  </div>
-                  <div>
-                    <Label htmlFor="last-name" className="font-albert font-bold">
-                      Last Name <span className="text-red-500">*</span>
-                    </Label>
-                    <Input id="last-name" className="font-albert bg-white border-gray-300" placeholder="Enter Your Last Name" required />
-                  </div>
-                </div>
+                    {/* Form Inside Modal */}
+                    <form className="space-y-4">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <Label htmlFor="first-name" className="font-albert font-bold">
+                            First Name <span className="text-red-500">*</span>
+                          </Label>
+                          <Input id="first-name" className="font-albert bg-white border-gray-300" placeholder="Enter Your First Name" required />
+                        </div>
+                        <div>
+                          <Label htmlFor="last-name" className="font-albert font-bold">
+                            Last Name <span className="text-red-500">*</span>
+                          </Label>
+                          <Input id="last-name" className="font-albert bg-white border-gray-300" placeholder="Enter Your Last Name" required />
+                        </div>
+                      </div>
 
-                <div>
-                  <Label htmlFor="email" className="font-albert font-bold">
-                    Email <span className="text-red-500">*</span>
-                  </Label>
-                  <Input id="email" className="font-albert bg-white border-gray-300" type="email" placeholder="Enter Your Email" required />
-                </div>
+                      <div>
+                        <Label htmlFor="email" className="font-albert font-bold">
+                          Email <span className="text-red-500">*</span>
+                        </Label>
+                        <Input id="email" className="font-albert bg-white border-gray-300" type="email" placeholder="Enter Your Email" required />
+                      </div>
 
-                <div>
-                  <Label htmlFor="mobile" className="font-albert font-bold">
-                    Mobile Number <span className="text-red-500">*</span>
-                  </Label>
-                  <Input id="mobile" className="font-albert bg-white border-gray-300" type="tel" placeholder="Enter Your Mobile Number" required />
-                </div>
+                      <div>
+                        <Label htmlFor="mobile" className="font-albert font-bold">
+                          Mobile Number <span className="text-red-500">*</span>
+                        </Label>
+                        <Input id="mobile" className="font-albert bg-white border-gray-300" type="tel" placeholder="Enter Your Mobile Number" required />
+                      </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="first-name" className="font-albert font-bold">
-                      Country <span className="text-red-500">*</span>
-                    </Label>
-                    <Select>
-                      <SelectTrigger className="font-albert border-gray-300 text-gray-600">
-                        <SelectValue placeholder="Select Your Program" className="placeholder-albert"/>
-                        {/* <span className="font-albert text-gray-700">
-                          <SelectValue placeholder="Select Your Program" />
-                        </span> */}
-                      </SelectTrigger>
-                      <SelectContent>
-                      <span className="font-albert text-gray-700">
-                        <SelectItem value="usa">USA</SelectItem>
-                        <SelectItem value="canada">Canada</SelectItem>
-                        <SelectItem value="australia">Australia</SelectItem>
-                        <SelectItem value="europe">Europe</SelectItem>
-                        <SelectItem value="new-zealand">New Zealand</SelectItem>
-                      </span>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <Label htmlFor="last-name" className="font-albert font-bold">
-                      Visa Category <span className="text-red-500">*</span>
-                    </Label>
-                    <Select>
-                      <SelectTrigger className="font-albert border-gray-300 text-gray-600">
-                        <SelectValue placeholder="Select Your visa type" className="placeholder-albert"/>
-                        {/* <span className="font-albert text-gray-700">
-                          <SelectValue placeholder="Select Your Program" />
-                        </span> */}
-                      </SelectTrigger>
-                      <SelectContent>
-                      <span className="font-albert text-gray-700">
-                        <SelectItem value="usa">Work</SelectItem>
-                        <SelectItem value="canada">Study</SelectItem>
-                        <SelectItem value="australia">Immigration</SelectItem>
-                        <SelectItem value="europe">Business</SelectItem>
-                        <SelectItem value="new-zealand">Tourist</SelectItem>
-                      </span>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <Label htmlFor="first-name" className="font-albert font-bold">
+                            Country <span className="text-red-500">*</span>
+                          </Label>
+                          <Select>
+                            <SelectTrigger className="font-albert border-gray-300 text-gray-600">
+                              <SelectValue placeholder="Select A Country" className="placeholder-albert"/>
+                              {/* <span className="font-albert text-gray-700">
+                                <SelectValue placeholder="Select Your Program" />
+                              </span> */}
+                            </SelectTrigger>
+                            <SelectContent>
+                            <span className="font-albert text-gray-700">
+                              <SelectItem value="usa">USA</SelectItem>
+                              <SelectItem value="canada">Canada</SelectItem>
+                              <SelectItem value="australia">Australia</SelectItem>
+                              <SelectItem value="europe">Europe</SelectItem>
+                              <SelectItem value="new-zealand">New Zealand</SelectItem>
+                            </span>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        <div>
+                          <Label htmlFor="last-name" className="font-albert font-bold">
+                            Visa Category <span className="text-red-500">*</span>
+                          </Label>
+                          <Select>
+                            <SelectTrigger className="font-albert border-gray-300 text-gray-600">
+                              <SelectValue placeholder="Select Your Visa Type" className="placeholder-albert"/>
+                              {/* <span className="font-albert text-gray-700">
+                                <SelectValue placeholder="Select Your Program" />
+                              </span> */}
+                            </SelectTrigger>
+                            <SelectContent>
+                            <span className="font-albert text-gray-700">
+                              <SelectItem value="usa">Work</SelectItem>
+                              <SelectItem value="canada">Study</SelectItem>
+                              <SelectItem value="australia">Immigration</SelectItem>
+                              <SelectItem value="europe">Business</SelectItem>
+                              <SelectItem value="new-zealand">Tourist</SelectItem>
+                            </span>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      </div>
 
-                <Button type="submit" className="w-full bg-[#51868e] text-white py-3 text-lg font-albert hover:text-[#51868e] hover:bg-white hover:border-2 hover:border-[#51868e] transition duration-700">
-                  Start Your Journey
-                </Button>
-              </form>
-            </DialogContent>
-          </Dialog>
-        </div>
+                      <Button type="submit" className="w-full bg-[#51868e] text-white py-3 text-lg font-albert hover:text-[#51868e] hover:bg-white hover:border-2 hover:border-[#51868e] transition duration-700">
+                        Start Your Journey
+                      </Button>
+                    </form>
+                  </DialogContent>
+                </Dialog>
+              </div>
 
-</section>
+      </section>
 
       {/* Social Media Icons */}
       <div className="absolute right-5 top-[570px] hidden md:flex flex-col space-y-3 z-20">
@@ -425,10 +425,10 @@ export default function Home() {
 
             {/* Logos Section */}
             <div className="flex justify-center md:justify-end w-full md:w-3/5 gap-6 md:gap-32">
-              <Image src="/p1.png" alt="RCIC Logo" width={100} height={40} className="h-14 w-auto md:h-32 md:w-auto" />
-              <Image src="/p2.png" alt="OISC Logo" width={80} height={80} className="h-14 w-auto md:h-32 md:w-auto" />
-              <Image src="/p3.png" alt="MARA Logo" width={100} height={50} className="h-14 w-auto md:h-32 md:w-auto" />
-            </div>
+              <img src="/p1.png" alt="RCIC Logo" className="h-14 w-auto md:h-32 md:w-auto" />
+              <img src="/p2.png" alt="OISC Logo" className="h-14 w-auto md:h-32 md:w-auto" />
+              <img src="/p3.png" alt="MARA Logo" className="h-14 w-auto md:h-32 md:w-auto" />
+              </div>
           </div>
         </section>
 
