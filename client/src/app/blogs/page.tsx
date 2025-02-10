@@ -23,6 +23,7 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 import Footer from "@/components/Footer";
+import QuickEnquiry from "@/components/QuickEnquiry";
 
 const blogsData = [
   {
@@ -127,13 +128,11 @@ export default function NewsPage() {
   return (
     <div>
       <div className="bg-white hidden md:block">
-        <Navbar />
-
         <h1 className="text-5xl font-bold mb-4 text-center text-[#3b4f84] mt-10">
-            Your Ultimate Resource for Visa & Immigration Blogs
+          Your Ultimate Resource for Visa & Immigration Blogs
         </h1>
         <p className="text-2xl text-black font-albert mb-6 text-center">
-            Discover comprehensive guides, expert advice, and timely updates
+          Discover comprehensive guides, expert advice, and timely updates
         </p>
 
         <div className="relative flex w-full h-[80%] px-10 py-8">
@@ -185,132 +184,7 @@ export default function NewsPage() {
               </h2>
 
               {/* Form Inside Modal */}
-              <form className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label
-                      htmlFor="first-name"
-                      className="font-albert font-bold"
-                    >
-                      First Name <span className="text-red-500">*</span>
-                    </Label>
-                    <Input
-                      id="first-name"
-                      className="font-albert bg-white border-gray-300"
-                      placeholder="Enter Your First Name"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <Label
-                      htmlFor="last-name"
-                      className="font-albert font-bold"
-                    >
-                      Last Name <span className="text-red-500">*</span>
-                    </Label>
-                    <Input
-                      id="last-name"
-                      className="font-albert bg-white border-gray-300"
-                      placeholder="Enter Your Last Name"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="email" className="font-albert font-bold">
-                    Email <span className="text-red-500">*</span>
-                  </Label>
-                  <Input
-                    id="email"
-                    className="font-albert bg-white border-gray-300"
-                    type="email"
-                    placeholder="Enter Your Email"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="mobile" className="font-albert font-bold">
-                    Mobile Number <span className="text-red-500">*</span>
-                  </Label>
-                  <Input
-                    id="mobile"
-                    className="font-albert bg-white border-gray-300"
-                    type="tel"
-                    placeholder="Enter Your Mobile Number"
-                    required
-                  />
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label
-                      htmlFor="first-name"
-                      className="font-albert font-bold"
-                    >
-                      Country <span className="text-red-500">*</span>
-                    </Label>
-                    <Select>
-                      <SelectTrigger className="font-albert border-gray-300 text-gray-600">
-                        <SelectValue
-                          placeholder="Select A Country"
-                          className="placeholder-albert"
-                        />
-                        {/* <span className="font-albert text-gray-700">
-                                        <SelectValue placeholder="Select Your Program" />
-                                    </span> */}
-                      </SelectTrigger>
-                      <SelectContent>
-                        <span className="font-albert text-gray-700">
-                          <SelectItem value="usa">USA</SelectItem>
-                          <SelectItem value="canada">Canada</SelectItem>
-                          <SelectItem value="australia">Australia</SelectItem>
-                          <SelectItem value="europe">Europe</SelectItem>
-                          <SelectItem value="new-zealand">
-                            New Zealand
-                          </SelectItem>
-                        </span>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <Label
-                      htmlFor="last-name"
-                      className="font-albert font-bold"
-                    >
-                      Visa Category <span className="text-red-500">*</span>
-                    </Label>
-                    <Select>
-                      <SelectTrigger className="font-albert border-gray-300 text-gray-600">
-                        <SelectValue
-                          placeholder="Select Your Visa Type"
-                          className="placeholder-albert"
-                        />
-                        {/* <span className="font-albert text-gray-700">
-                                        <SelectValue placeholder="Select Your Program" />
-                                    </span> */}
-                      </SelectTrigger>
-                      <SelectContent>
-                        <span className="font-albert text-gray-700">
-                          <SelectItem value="usa">Work</SelectItem>
-                          <SelectItem value="canada">Study</SelectItem>
-                          <SelectItem value="australia">Immigration</SelectItem>
-                          <SelectItem value="europe">Business</SelectItem>
-                          <SelectItem value="new-zealand">Tourist</SelectItem>
-                        </span>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-
-                <Button
-                  type="submit"
-                  className="w-full mt-4 bg-[#3b4f84] text-white py-3 text-lg font-albert hover:text-[#3b4f84] hover:bg-white hover:border-2 hover:border-[#3b4f84] transition duration-700"
-                >
-                  Start Your Journey
-                </Button>
-              </form>
+              <QuickEnquiry />
             </div>
 
             {/* Connect With Us Section */}
@@ -347,8 +221,6 @@ export default function NewsPage() {
             </div>
           </div>
         </div>
-
-        <Footer />
       </div>
 
       <div className="bg-white block md:hidden">
@@ -448,8 +320,6 @@ export default function NewsPage() {
             </a>
           </div>
         </div>
-
-        <Footer />
       </div>
     </div>
   );
