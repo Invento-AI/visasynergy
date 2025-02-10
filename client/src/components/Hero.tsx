@@ -225,7 +225,7 @@ const Hero = () => {
           </Dialog>
         </div>
       </section>
-      <div className="absolute right-5 top-[570px] hidden md:flex flex-col space-y-3 z-20">
+      <div className="absolute right-5 top-[60%] hidden md:flex flex-col space-y-3 z-20">
         <Link href="#" className="bg-blue-600 p-3 rounded-md text-white">
           <FaFacebook size={24} />
         </Link>

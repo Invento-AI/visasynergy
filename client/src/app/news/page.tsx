@@ -24,93 +24,8 @@ import {
 } from "react-icons/fa";
 import Footer from "@/components/Footer";
 import QuickEnquiry from "@/components/QuickEnquiry";
+import { NEWSDATA } from "@/lib/constant";
 
-const newsData = [
-  {
-    id: 1,
-    title: "Canada Introduces Faster Visa Processing for Skilled Workers",
-    description:
-      "The Canadian government has implemented new policies to expedite visa approvals for skilled professionals, reducing processing times significantly...",
-    image: "/Images_news/news1.jpg",
-  },
-  {
-    id: 2,
-    title: "New Immigration Pathways Announced",
-    description:
-      "Authorities have launched new pathways for professionals looking to settle in various countries...",
-    image: "/Images_news/news2.jpg",
-  },
-  {
-    id: 3,
-    title: "Travel Restrictions Updated for 2025",
-    description:
-      "Recent changes in travel restrictions impact visa applications for multiple regions...",
-    image: "/Images_news/news3.jpg",
-  },
-  {
-    id: 4,
-    title: "Visa Interview Process Simplified",
-    description:
-      "Government authorities have introduced new procedures to simplify visa interviews...",
-    image: "/Images_news/news4.jpg",
-  },
-  {
-    id: 5,
-    title: "Canada Introduces Faster Visa Processing for Skilled Workers",
-    description:
-      "The Canadian government has implemented new policies to expedite visa approvals for skilled professionals, reducing processing times significantly...",
-    image: "/Images_news/news1.jpg",
-  },
-  {
-    id: 6,
-    title: "New Immigration Pathways Announced",
-    description:
-      "Authorities have launched new pathways for professionals looking to settle in various countries...",
-    image: "/Images_news/news2.jpg",
-  },
-  {
-    id: 7,
-    title: "Travel Restrictions Updated for 2025",
-    description:
-      "Recent changes in travel restrictions impact visa applications for multiple regions...",
-    image: "/Images_news/news3.jpg",
-  },
-  {
-    id: 8,
-    title: "Visa Interview Process Simplified",
-    description:
-      "Government authorities have introduced new procedures to simplify visa interviews...",
-    image: "/Images_news/news4.jpg",
-  },
-  {
-    id: 9,
-    title: "Canada Introduces Faster Visa Processing for Skilled Workers",
-    description:
-      "The Canadian government has implemented new policies to expedite visa approvals for skilled professionals, reducing processing times significantly...",
-    image: "/Images_news/news1.jpg",
-  },
-  {
-    id: 10,
-    title: "New Immigration Pathways Announced",
-    description:
-      "Authorities have launched new pathways for professionals looking to settle in various countries...",
-    image: "/Images_news/news2.jpg",
-  },
-  {
-    id: 11,
-    title: "Travel Restrictions Updated for 2025",
-    description:
-      "Recent changes in travel restrictions impact visa applications for multiple regions...",
-    image: "/Images_news/news3.jpg",
-  },
-  {
-    id: 12,
-    title: "Visa Interview Process Simplified",
-    description:
-      "Government authorities have introduced new procedures to simplify visa interviews...",
-    image: "/Images_news/news4.jpg",
-  },
-];
 
 export default function NewsPage() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -149,7 +64,7 @@ export default function NewsPage() {
 
           <div className="w-2/3 h-full overflow-y-auto pr-6">
             <div className="grid grid-cols-2 gap-6 my-8">
-              {newsData.map((news) => (
+              {NEWSDATA.map((news) => (
                 <div
                   key={news.id}
                   className="group bg-gray-100 font-albert shadow-md rounded-xl p-5 transform transition duration-300 ease-in-out hover:-translate-y-2 flex flex-col justify-between h-full relative cursor-pointer"
@@ -239,7 +154,7 @@ export default function NewsPage() {
 
           <div className="w-full md:w-2/3 overflow-y-auto pr-0 md:pr-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8">
-              {newsData.map((news) => (
+              {NEWSDATA.map((news) => (
                 <div
                   key={news.id}
                   className="group bg-gray-100 font-albert shadow-md rounded-xl p-5 transform transition duration-300 ease-in-out hover:-translate-y-2 flex flex-col justify-between h-full relative cursor-pointer"

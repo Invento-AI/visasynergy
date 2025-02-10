@@ -4,41 +4,12 @@ import "@fontsource/asap-condensed";
 import "@fontsource/albert-sans";
 import "@fontsource/asap-condensed";
 import { Button } from "@/components/ui/button";
+import {STEPS} from '@/lib/constant'
 
 import React from "react";
 import Animation from "@/components/Animation";
 
 export default function About() {
-  const steps = [
-    {
-      id: 1,
-      icon: "/mentoring.gif",
-      title: "Step 1 - Boarding (Consultation)",
-      description:
-        "Your journey begins with a consultation. Share your goals, and our experts will create a personalized visa plan for you.",
-    },
-    {
-      id: 2,
-      icon: "/agreement.gif",
-      title: "Step 2 – Security Check (Documents)",
-      description:
-        "We ensure all your documents are in order—just like a smooth security check before your flight.",
-    },
-    {
-      id: 3,
-      icon: "/online-education.gif",
-      title: "Step 3 - Takeoff (Submission)",
-      description:
-        "We carefully review and submit your visa application, ensuring every detail is perfect. Just like a smooth takeoff, we handle the process with precision.",
-    },
-    {
-      id: 4,
-      icon: "/customs-clearance.gif",
-      title: "Step 4 - Landing (Approval)",
-      description:
-        "Visa approved! Welcome to your new journey. We're with you till the final step to celebrate your success and provide final guidance.",
-    },
-  ];
 
   return (
     <main className="md:mx-6 mb-6">
@@ -301,7 +272,7 @@ export default function About() {
 
               {/* Steps - Limited to 4 */}
               <div className="space-y-4 flex-1 flex flex-col justify-between mt-8">
-                {steps.slice(0, 4).map((step) => (
+                {STEPS.slice(0, 4).map((step) => (
                   <Card
                     key={step.id}
                     className="p-4 bg-gray-100 rounded-lg flex items-center"
