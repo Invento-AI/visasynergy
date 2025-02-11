@@ -58,14 +58,12 @@ const OfficeInfo = () => {
             <span className="ml-2">Monday – Friday | 9 AM – 6 PM</span>
           </p>
         </div>
+        <Link href="https://www.google.com/maps?q=Visa+Synergy" target="_blank">
+          <div className="w-full text-center p-2 bg-[#51868e] text-white rounded-md hover:bg-white border-2 hover:text-[#51868e] transition duration-700 font-bold text-lg">
+            Get Directions
+          </div>
+        </Link>
       </div>
-      <Link
-        href="https://www.google.com/maps?q=Visa+Synergy"
-        target="_blank"
-        className=" p-2 bg-[#51868e] w-full md:w-[450px] text-white rounded-md hover:bg-white border-2 hover:text-[#51868e] transition duration-700 font-bold text-lg"
-      >
-        Get Directions
-      </Link>
     </div>
   );
 };

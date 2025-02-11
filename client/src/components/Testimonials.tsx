@@ -49,15 +49,14 @@ const testimonials = [
 
 const TestimonialCard = ({ testimonial }: { testimonial: any }) => {
   return (
-    <Card className="w-[300px] md:w-[400px] h-[300px] flex flex-col p-4 shadow-lg rounded-lg">
+    <Card className="h-[300px] text-center max-w-1/5 md:mx-10 flex flex-col p-4 shadow-lg rounded-lg">
       <CardContent className="flex flex-col space-y-3 h-full">
-        {/* Stars Section */}
-        <div className="flex items-center space-x-1">
+        <div className="flex items-center space-x-1 ">
           {[...Array(5)].map((_, index) => (
             <span
               key={index}
               className={`text-lg ${
-                index < testimonial.stars ? "text-yellow-500" : "text-gray-300"
+                index < testimonial.stars ? "text-black" : "text-gray-300"
               }`}
             >
               ★
@@ -91,20 +90,17 @@ const TestimonialCard = ({ testimonial }: { testimonial: any }) => {
 
 const Testimonials = () => {
   return (
-    <div className="bg-white text-gray-900 font-asap py-8">
-      <div className="text-center mb-6">
-        <h2 className="text-xl md:text-3xl font-bold text-blue-900">
-          Words That Matter: Client Testimonials
-        </h2>
-        <p className="text-gray-500 text-sm md:text-lg">
-          Real Experiences, Real Success
-        </p>
-      </div>
-
-      {/* Carousel Section */}
-      {/* <div className="max-w-7xl mx-auto px-4">
-        <Carousel className="w-full">
-          <CarouselContent className="flex flex-row justify-center items-center">
+    <div className="md:mt-10 p-6 text-black">
+      <h2 className="text-xl md:text-5xl font-semibold text-[#3b4f84] font-asap mx-3 md:mx-0">
+        Why Choose Visa Synergy?
+      </h2>
+      <p className=" text-[#333333] mt-2 w-full md:w-1/2 font-albert text-md md:text-2xl mx-3 md:mx-0">
+        Expert Guidance, Seamless Processing & Proven Success in Your
+        Immigration Journey!
+      </p>
+      <div className=" px-6 w-full mt-12 mx-auto">
+        <Carousel>
+          <CarouselContent>
             {testimonials.map((testimonial) => (
               <CarouselItem
                 key={testimonial.id}
@@ -117,26 +113,7 @@ const Testimonials = () => {
           <CarouselPrevious />
           <CarouselNext />
         </Carousel>
-      </div> */}
-      <Carousel
-        opts={{
-          align: "start",
-        }}
-        className="w-full max-w-sm"
-      >
-        <CarouselContent>
-          {testimonials.map((testimonial) => (
-            <CarouselItem
-              key={testimonial.id}
-              className="md:basis-1/2 lg:basis-1/3"
-            >
-              <TestimonialCard testimonial={testimonial} />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
+      </div>
     </div>
   );
 };

@@ -3,17 +3,6 @@ import React from "react";
 import "@fontsource/asap-condensed";
 import "@fontsource/albert-sans";
 import "@fontsource/asap-condensed";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from "@/components/ui/select";
 import Image from "next/image";
 import ContactUsForm from "@/components/ContactUsForm";
 

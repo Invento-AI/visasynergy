@@ -2,7 +2,6 @@ import React from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import { Textarea } from "./ui/textarea";
 import {
   Select,
   SelectTrigger,
@@ -10,7 +9,7 @@ import {
   SelectContent,
   SelectItem,
 } from "./ui/select";
-const QuickEnquiry = () => {
+const QuickEnquiry = ({ btncss }: { btncss: string }) => {
   return (
     <form className="space-y-4">
       <div className="grid grid-cols-2 gap-4">
@@ -117,10 +116,7 @@ const QuickEnquiry = () => {
         </div>
       </div>
 
-      <Button
-        type="submit"
-        className="w-full mt-4 bg-[#3b4f84] text-white py-3 text-lg font-albert hover:text-[#3b4f84] hover:bg-white hover:border-2 hover:border-[#3b4f84] transition duration-700"
-      >
+      <Button type="submit" className={`${btncss}`}>
         Start Your Journey
       </Button>
     </form>

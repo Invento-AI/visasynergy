@@ -26,7 +26,6 @@ import Footer from "@/components/Footer";
 import QuickEnquiry from "@/components/QuickEnquiry";
 import { NEWSDATA } from "@/lib/constant";
 
-
 export default function NewsPage() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [cursorVisible, setCursorVisible] = useState(false);
@@ -95,7 +94,7 @@ export default function NewsPage() {
               <h2 className="text-xl text-center font-bold mb-4 text-[#3b4f84] font-albert">
                 Quick Enquiry
               </h2>
-              <QuickEnquiry />
+              <QuickEnquiry btncss="w-full bg-[#3b4f84] text-white py-3 text-lg font-albert hover:text-[#3b4f84] hover:bg-white hover:border-2 hover:border-[#3b4f84] transition duration-700" />
             </div>
 
             <div className="mt-8 text-center sticky">

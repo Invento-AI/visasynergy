@@ -1,19 +1,5 @@
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import AutoPlay from "embla-carousel-autoplay";
 import Image from "next/image";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Button } from "./ui/button";
-import { Label } from "./ui/label";
 import {
   Dialog,
   DialogContent,
@@ -21,7 +7,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "./ui/input";
 import { MoveRight } from "lucide-react";
 import {
   FaFacebook,
@@ -30,32 +15,13 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 import Link from "next/link";
-const Images = [
-  "/Images_home/bg_image_1.png",
-  "/Images_home/bg_image_2.png",
-  "/Images_home/bg_image_3.png",
-  "/Images_home/bg_image_4.jpg",
-];
+import HeroCarousel from "./HeroCarousel";
+import QuickEnquiry from "./QuickEnquiry";
+
 const Hero = () => {
   return (
     <div className="h-screen w-full relative bg-black">
-      <Carousel plugins={[AutoPlay({ delay: 3000 })]}>
-        <CarouselContent>
-          {Images.map((image, index) => (
-            <CarouselItem key={index}>
-              <div className="h-screen w-full relative">
-                <Image
-                  src={image}
-                  alt="image"
-                  fill
-                  className="object-cover opacity-50"
-                />
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
-
+      <HeroCarousel />
       <section className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-white px-4 md:px-6 z-20">
         <div className="text-center w-full flex flex-col items-center md:-mt-24">
           <h1 className="text-xl sm:text-3xl md:text-5xl font-bold">
@@ -109,118 +75,7 @@ const Hero = () => {
                   Quick Enquiry
                 </DialogTitle>
               </DialogHeader>
-
-              <form className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label
-                      htmlFor="first-name"
-                      className="font-albert font-bold"
-                    >
-                      First Name <span className="text-red-500">*</span>
-                    </Label>
-                    <Input
-                      id="first-name"
-                      className="font-albert bg-white border-gray-300"
-                      placeholder="Enter your first name"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <Label
-                      htmlFor="last-name"
-                      className="font-albert font-bold"
-                    >
-                      Last Name <span className="text-red-500">*</span>
-                    </Label>
-                    <Input
-                      id="last-name"
-                      className="font-albert bg-white border-gray-300"
-                      placeholder="Enter your last name"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="email" className="font-albert font-bold">
-                    Email <span className="text-red-500">*</span>
-                  </Label>
-                  <Input
-                    id="email"
-                    className="font-albert bg-white border-gray-300"
-                    type="email"
-                    placeholder="Enter your mail"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="mobile" className="font-albert font-bold">
-                    Mobile Number <span className="text-red-500">*</span>
-                  </Label>
-                  <Input
-                    id="mobile"
-                    className="font-albert bg-white border-gray-300"
-                    type="tel"
-                    placeholder="Enter your mobile number"
-                    required
-                  />
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="country" className="font-albert font-bold">
-                      Country <span className="text-red-500">*</span>
-                    </Label>
-                    <Select>
-                      <SelectTrigger className="font-albert border-gray-300 text-gray-600">
-                        <SelectValue
-                          placeholder="Select a country"
-                          className="placeholder-albert"
-                        />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="usa">USA</SelectItem>
-                        <SelectItem value="canada">Canada</SelectItem>
-                        <SelectItem value="australia">Australia</SelectItem>
-                        <SelectItem value="europe">Europe</SelectItem>
-                        <SelectItem value="new-zealand">New Zealand</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <Label
-                      htmlFor="visa-category"
-                      className="font-albert font-bold"
-                    >
-                      Visa Category <span className="text-red-500">*</span>
-                    </Label>
-                    <Select>
-                      <SelectTrigger className="font-albert border-gray-300 text-gray-600">
-                        <SelectValue
-                          placeholder="Select your visa type"
-                          className="placeholder-albert"
-                        />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="work">Work</SelectItem>
-                        <SelectItem value="study">Study</SelectItem>
-                        <SelectItem value="immigration">Immigration</SelectItem>
-                        <SelectItem value="business">Business</SelectItem>
-                        <SelectItem value="tourist">Tourist</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-
-                <Button
-                  type="submit"
-                  className="w-full bg-[#51868e] text-white py-3 text-lg font-albert hover:text-[#51868e] hover:bg-white hover:border-2 hover:border-[#51868e] transition duration-700"
-                >
-                  Start Your Journey
-                </Button>
-              </form>
+              <QuickEnquiry btncss="w-full bg-[#51868e] text-white py-3 text-lg font-albert hover:text-[#51868e] hover:bg-white hover:border-2 hover:border-[#51868e] transition duration-700" />
             </DialogContent>
           </Dialog>
         </div>

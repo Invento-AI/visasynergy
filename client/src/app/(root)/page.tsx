@@ -1,19 +1,21 @@
-"use client";
 import "@fontsource/asap-condensed";
 import "@fontsource/albert-sans";
 import "@fontsource/asap-condensed";
-import Lottie from "lottie-react";
-import animation from "../../../public/Images_home/Animation.json";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-
+import Animation from "@/components/Animation";
+import Image from "next/image";
+import WelcomePopup from "@/components/WelcomePopup";
+import CheckEligibility from "@/components/CheckEligibility";
+import Testimonials from "@/components/Testimonials";
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-white text-white">
       <Navbar />
+      <WelcomePopup />
       <Hero />
       <div className="relative text-white">
         <section className="py-6 bg-white text-gray-900">
@@ -28,19 +30,25 @@ export default function Home() {
             </div>
 
             <div className="flex justify-center md:justify-end w-full md:w-3/5 gap-6 md:gap-32">
-              <img
+              <Image
                 src="/Images_home/p1.png"
                 alt="RCIC Logo"
+                height={1080}
+                width={1080}
                 className="h-14 w-auto md:h-32 md:w-auto"
               />
-              <img
+              <Image
                 src="/Images_home/p2.png"
                 alt="OISC Logo"
+                height={1080}
+                width={1080}
                 className="h-14 w-auto md:h-32 md:w-auto"
               />
-              <img
+              <Image
                 src="/Images_home/p3.png"
                 alt="MARA Logo"
+                height={1080}
+                width={1080}
                 className="h-14 w-auto md:h-32 md:w-auto"
               />
             </div>
@@ -51,9 +59,11 @@ export default function Home() {
           <div className="container mx-auto text-center items-center px-4 md:min-w-full">
             <div className="flex flex-col md:flex-row items-center">
               <div className="w-full md:w-2/5 mb-6 md:mb-0 md:pr-8 flex justify-center">
-                <img
+                <Image
                   src="/Images_home/girl.png"
                   alt="Girl"
+                  height={1080}
+                  width={1080}
                   className="w-[90%] md:w-[420px] border-[10px] md:border-[20px] h-auto md:h-[550px] rounded-[6px] shadow-md border-white"
                 />
               </div>
@@ -147,9 +157,12 @@ export default function Home() {
 
         <div className="grid md:grid-cols-3 gap-8 mt-12 max-w-[90%] mx-auto justify-center">
           <Card className="p-4 text-center max-w-1/3 md:mx-10 bg-[#edf3f5]">
-            <img
+            <Image
               src="/Images_home/bce.gif"
               alt="Easy Process"
+              height={1080}
+              width={1080}
+              unoptimized
               className="w-20 h-20 mx-auto mb-3"
             />
             <h3 className="font-semibold text-lg md:text-xl text-left ml-6">
@@ -174,9 +187,12 @@ export default function Home() {
           </Card>
 
           <Card className="p-4 text-center max-w-1/3 md:mx-10 bg-[#edf3f5]">
-            <img
+            <Image
               src="/Images_home/easy.gif"
               alt="Easy Process"
+              height={1080}
+              width={1080}
+              unoptimized
               className="w-20 h-20 mx-auto mb-3"
             />
             <h3 className="font-semibold text-lg md:text-xl text-left ml-6">
@@ -198,9 +214,12 @@ export default function Home() {
           </Card>
 
           <Card className="p-4 text-center max-w-1/3 md:mx-10 bg-[#edf3f5]">
-            <img
+            <Image
               src="/Images_home/information.gif"
               alt="Easy Process"
+              height={1080}
+              width={1080}
+              unoptimized
               className="w-20 h-20 mx-auto mb-3"
             />
             <h3 className="font-semibold text-lg md:text-xl text-left ml-6">
@@ -221,36 +240,8 @@ export default function Home() {
             </CardContent>
           </Card>
         </div>
-
-        <div className="bg-[#51868e] text-white px-6 md:px-10 rounded-lg mt-12 text-center font-asap py-10 md:py-0">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 w-full">
-            <div className="flex-[2] flex justify-center">
-              <Lottie
-                animationData={animation}
-                className="w-60 h-60 md:w-80 md:h-80"
-              />
-            </div>
-
-            <div className="flex-[3] flex flex-col justify-center items-center md:items-start text-center md:text-left w-full">
-              <h3 className="text-3xl md:text-5xl">
-                Check Your Eligibility Instantly!
-              </h3>
-              <p className="mt-4 text-lg md:text-2xl w-full md:w-3/4 font-albert">
-                Answer a few quick questions and discover your eligibility in
-                seconds – no hassle, no waiting!
-              </p>
-
-              <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-6 w-full">
-                <Button className="bg-white text-lg md:text-xl text-[#51868e] border-2 hover:bg-[#51868e] hover:text-white hover:border-2 hover:border-white transition duration-700 px-6 py-3">
-                  Calculate My Eligibility
-                </Button>
-                <Button className="bg-white text-lg md:text-xl text-[#51868e] border-2 hover:bg-[#51868e] hover:text-white hover:border-2 hover:border-white transition duration-700 px-6 py-3">
-                  Need Help? Talk to an Expert
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <CheckEligibility />
+        <Testimonials />
       </div>
       <Footer />
     </div>

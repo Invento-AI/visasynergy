@@ -6,26 +6,14 @@ import "@fontsource/albert-sans";
 import "@fontsource/asap-condensed";
 import Image from "next/image";
 import Navbar from "../../components/Navbar";
-import { Input } from "../../components/ui/input";
-import { Label } from "../../components/ui/label";
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from "../../components/ui/select";
-import { Button } from "../../components/ui/button";
 import {
   FaFacebookF,
   FaInstagram,
   FaWhatsapp,
   FaLinkedinIn,
 } from "react-icons/fa";
-import Footer from "@/components/Footer";
 import QuickEnquiry from "@/components/QuickEnquiry";
-import {BLOGSDATA} from '@/lib/constant'
-
+import { BLOGSDATA } from "@/lib/constant";
 
 export default function NewsPage() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -97,9 +85,7 @@ export default function NewsPage() {
               <h2 className="text-xl text-center font-bold mb-4 text-[#3b4f84] font-albert">
                 Quick Enquiry
               </h2>
-
-              {/* Form Inside Modal */}
-              <QuickEnquiry />
+              <QuickEnquiry btncss="w-full bg-[#3b4f84] text-white py-3 text-lg font-albert hover:text-[#3b4f84] hover:bg-white hover:border-2 hover:border-[#3b4f84] transition duration-700" />
             </div>
 
             {/* Connect With Us Section */}
@@ -196,9 +182,7 @@ export default function NewsPage() {
               <h2 className="text-xl text-center font-bold mb-4 text-[#3b4f84] font-albert">
                 Quick Enquiry
               </h2>
-              <Button className="w-full bg-[#3b4f84] text-white py-3 text-lg font-albert">
-                Start Your Journey
-              </Button>
+              <QuickEnquiry btncss="w-full bg-[#3b4f84] text-white py-3 text-lg font-albert hover:text-[#3b4f84] hover:bg-white hover:border-2 hover:border-[#3b4f84] transition duration-700" />
             </div>
           </div>
         </div>

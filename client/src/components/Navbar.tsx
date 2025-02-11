@@ -4,6 +4,7 @@ import {
   Sheet,
   SheetContent,
   SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Navlink from "./Navlink";
@@ -43,6 +44,7 @@ const Navbar = () => {
             </SheetTrigger>
             <SheetContent side={"right"}>
               <SheetHeader>
+                <SheetTitle></SheetTitle>
                 <Navlink size="mobile" />
               </SheetHeader>
             </SheetContent>
