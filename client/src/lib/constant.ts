@@ -202,3 +202,70 @@ export const NEWSDATA = [
     image: "/Images_news/news4.jpg",
   },
 ];
+
+
+export const visaCategories = [
+  {
+    title: "PR & Immigration Guidance",
+    description:
+      "Secure your Permanent Residency through Express Entry & PNP programs",
+    link: "#",
+  },
+  {
+    title: "Work Permit Assistance",
+    description:
+      "Explore work opportunities in Canada with employer-sponsored and open work permits.",
+    link: "#",
+  },
+  {
+    title: "Study in Canada",
+    description:
+      "Get admission to top universities and unlock future PR pathways.",
+    link: "#",
+  },
+  {
+    title: "Visitor & Family Visa",
+    description:
+      "Travel, reunite with family, or explore Canada with hassle-free visa processing.",
+    link: "#",
+  },
+  {
+    title: "Business & Investor Visa",
+    description:
+      "Expand your business or invest in Canada with dedicated immigration programs.",
+    link: "#",
+  },
+];
+
+export const faqData = [
+  {
+    question: "What types of visas are available for [Country Name]?",
+    answer:
+      "[Country Name] offers Study, Work, Visitor, PR, and Business/Investor visas. Each has specific requirements and benefits.",
+  },
+  {
+    question: "How long does it take to process a visa?",
+    answer:
+      "Processing times vary: Study (4–12 weeks), Work (6–24 weeks), PR (6 months). Applying early is recommended.",
+  },
+  {
+    question: "Do I need an English language test like IELTS?",
+    answer:
+      "Yes, IELTS/TOEFL is required for Study, Work, and PR visas, unless exempted based on nationality or education.",
+  },
+  {
+    question: "Can I work while studying in [Country Name]?",
+    answer:
+      "Yes, international students can work part-time (e.g., 20 hours/week) and full-time during breaks.",
+  },
+  {
+    question: "How do I apply for Permanent Residency (PR)?",
+    answer:
+      "PR options include Express Entry, skilled migration, and family sponsorship. Eligibility depends on work experience, education, and language skills.",
+  },
+  {
+    question: "Can I switch from a Visitor Visa to a Work or Study Visa?",
+    answer:
+      "Some countries allow visa conversion. Check specific policies or consult an expert for guidance.",
+  },
+];

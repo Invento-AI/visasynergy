@@ -36,20 +36,22 @@ const Hero = () => {
           <div className="mt-6 flex flex-wrap justify-center gap-3 md:gap-16">
             {["usa", "australia", "canada", "europe", "newzealand"].map(
               (country) => (
-                <Button
-                  key={country}
-                  variant="outline"
-                  className="bg-transparent border-2 text-xs sm:text-sm md:text-lg px-3 py-1 sm:px-4 sm:py-2 border-white hover:bg-white transition duration-700 flex items-center"
-                >
-                  {country.toUpperCase()}
-                  <Image
-                    src={`/Images_home/${country}.png`}
-                    width={14}
-                    height={14}
-                    className="ml-2"
-                    alt={`${country} Flag`}
-                  />
-                </Button>
+                <Link href={`/${country}`}>
+                  <Button
+                    key={country}
+                    variant="outline"
+                    className="bg-transparent border-2 text-xs sm:text-sm md:text-lg px-3 py-1 sm:px-4 sm:py-2 border-white hover:bg-white transition duration-700 flex items-center"
+                  >
+                    {country.toUpperCase()}
+                    <Image
+                      src={`/Images_home/${country}.png`}
+                      width={14}
+                      height={14}
+                      className="ml-2"
+                      alt={`${country} Flag`}
+                    />
+                  </Button>
+                </Link>
               )
             )}
           </div>

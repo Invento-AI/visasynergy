@@ -2,7 +2,6 @@ import OfficeInfo from "@/components/OfficeInfo";
 import React from "react";
 import "@fontsource/asap-condensed";
 import "@fontsource/albert-sans";
-import "@fontsource/asap-condensed";
 import Image from "next/image";
 import ContactUsForm from "@/components/ContactUsForm";
 

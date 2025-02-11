@@ -9,11 +9,20 @@ export default {
   ],
   theme: {
   	extend: {
-		fontFamily: {
-			albert: ["Albert Sans", "sans-serif"], // Define Albert Sans
-			asap: ["Asap condensed", "sans-serif"], // Define Asap
-			roboto: ["Roboto slab", "sans-serif"] // Define Roboto
-		},
+  		fontFamily: {
+  			albert: [
+  				'Albert Sans',
+  				'sans-serif'
+  			],
+  			asap: [
+  				'Asap condensed',
+  				'sans-serif'
+  			],
+  			roboto: [
+  				'Roboto slab',
+  				'sans-serif'
+  			]
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -60,6 +69,28 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
+  		},
+  		keyframes: {
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			}
+  		},
+  		animation: {
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
   		}
   	}
   },
