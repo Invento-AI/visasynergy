@@ -7,6 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import axios from "axios";
 import { MoveRight } from "lucide-react";
 import {
   FaFacebook,
@@ -18,10 +19,20 @@ import Link from "next/link";
 import HeroCarousel from "./HeroCarousel";
 import QuickEnquiry from "./QuickEnquiry";
 
-const Hero = () => {
+const API_BASE_URL = "http://34.45.78.183";
+
+const Hero = async() => {
+
+  const res = await axios.get( API_BASE_URL + "/api/countries?populate=*" );
+  let country_names: { name: string; flag: string }[] = []
+
+  res.data.data.map((item: any) => {
+    country_names.push({name: item.country, flag: API_BASE_URL + item.Image[0].url});
+  });
+
   return (
     <div className="h-screen w-full relative bg-black">
-      <HeroCarousel />
+      <HeroCarousel/>
       <section className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-white px-4 md:px-6 z-20">
         <div className="text-center w-full flex flex-col items-center md:-mt-24">
           <h1 className="text-xl sm:text-3xl md:text-5xl font-bold">
@@ -34,26 +45,42 @@ const Hero = () => {
 
           {/* Country Buttons */}
           <div className="mt-6 flex flex-wrap justify-center gap-3 md:gap-16">
-            {["usa", "australia", "canada", "europe", "newzealand"].map(
+            {country_names.map(
               (country) => (
-                <Link href={`/${country}`}>
+                <Link href={`/${country.name}`}>
                   <Button
-                    key={country}
+                    key={country.name}
                     variant="outline"
                     className="bg-transparent border-2 text-xs sm:text-sm md:text-lg px-3 py-1 sm:px-4 sm:py-2 border-white hover:bg-white transition duration-700 flex items-center"
                   >
-                    {country.toUpperCase()}
-                    <Image
-                      src={`/Images_home/${country}.png`}
+                    {country.name.toUpperCase()}
+                    <img
+                      src={country.flag}
                       width={14}
                       height={14}
                       className="ml-2"
-                      alt={`${country} Flag`}
+                      key={`${country.name} Flag`}
                     />
                   </Button>
                 </Link>
               )
             )}
+            <Link href={`/europe`}>
+              <Button
+                key="europe"
+                variant="outline"
+                className="bg-transparent border-2 text-xs sm:text-sm md:text-lg px-3 py-1 sm:px-4 sm:py-2 border-white hover:bg-white transition duration-700 flex items-center"
+              >
+                EUROPE
+                <img
+                  src={"/Images_home/Europe.png"}
+                  width={14}
+                  height={14}
+                  className="ml-2"
+                  alt={`Europe Flag`}
+                />
+              </Button>
+            </Link>
           </div>
 
           <p className="mt-6 text-lg sm:text-xl md:text-3xl font-albert md:mt-12">
