@@ -1,6 +1,3 @@
-// "use client";
-
-// import { useParams } from "next/navigation";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,17 +11,12 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
-import Footer from "@/components/Footer";
 import { visaCategories, faqData, STEPS } from "@/lib/constant";
-import Navbar from "@/components/Navbar";
 
-function page() {
-  // const { country } = useParams();
+function page({ params }: { params: { country: string } }) {
   return (
-    // <div>{country}</div>
     <>
-      <Navbar />
-
+      <div>{params.country}</div>
       <div className="container min-w-full p-16 bg-white">
         {/* Header Section */}
         <div className="flex items-center p-6 gap-7 rounded-lg">
@@ -218,8 +210,6 @@ function page() {
           </Accordion>
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }
