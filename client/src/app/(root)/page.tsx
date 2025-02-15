@@ -1,12 +1,10 @@
 import "@fontsource/asap-condensed";
 import "@fontsource/albert-sans";
 import "@fontsource/asap-condensed";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Animation from "@/components/Animation";
 import Image from "next/image";
 import WelcomePopup from "@/components/WelcomePopup";
 import CheckEligibility from "@/components/CheckEligibility";

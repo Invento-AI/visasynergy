@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/accordion";
 import { visaCategories, faqData, STEPS } from "@/lib/constant";
 
-function page({ params }: { params: { country: string } }) {
+async function page() {
   return (
     <>
       {/* <div>{params.country}</div> */}
@@ -33,7 +33,7 @@ function page({ params }: { params: { country: string } }) {
       {/* Content */}
       <div className="relative z-10 font-asap  text-center px-4">
         <h1 className="text-white text-3xl md:text-5xl ">
-          Explore Visa Opportunities in <span className="text-white">[Country Name]</span>
+          Explore Visa Opportunities in <span className="text-white">Europe</span>
         </h1>
         <button className="mt-6 bg-[#51868e] w-[249px] font-sans h-auto p-2 rounded-lg text-white text-m hover:bg-white hover:text-[#51868e] border-2 hover:border-[#51868e] duration-700">
           Need Help? Talk to an Expert
@@ -101,7 +101,7 @@ function page({ params }: { params: { country: string } }) {
           <p className="text-[#333333] text-lg font-albert mb-4">
             [Country Name] is a top destination for students, professionals, and
             families seeking a better future. With its strong economy,
-            world-class education, and welcoming immigration policies, it's the
+            world-class education, and welcoming immigration policies, it&apos;s the
             perfect place to grow and succeed.
           </p>
           <ul className="list-disc list-outside space-y-3 text-[#333333] pl-6 text-lg font-albert">
@@ -131,7 +131,7 @@ function page({ params }: { params: { country: string } }) {
             </li>
           </ul>
           <p className="text-[#333333] text-lg font-albert mt-4">
-            Whether you're looking to study, work, or settle, [Country Name]
+            Whether you&apos;re looking to study, work, or settle, [Country Name]
             offers everything you need for a successful future!
           </p>
         </div>

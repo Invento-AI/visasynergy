@@ -1,9 +1,7 @@
-import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import "@fontsource/asap-condensed";
 import "@fontsource/albert-sans";
 import "@fontsource/asap-condensed";
-import { STEPS } from "@/lib/constant";
 import React from "react";
 import CheckEligibility from "@/components/CheckEligibility";
 import Testimonials from "@/components/Testimonials";
@@ -40,7 +38,7 @@ export default function About() {
               working, and living abroad.
             </p>
             <div className="mt-6 p-4 bg-gray-100 rounded-lg flex items-center">
-              <img
+              <Image
                 src="/mission.gif"
                 alt="Mission"
                 width={50}
@@ -59,7 +57,7 @@ export default function About() {
               </div>
             </div>
             <div className="mt-4 p-4 bg-gray-100 rounded-lg flex items-center">
-              <img
+              <Image
                 src="/vision.gif"
                 alt="Vision"
                 width={50}
@@ -81,9 +79,11 @@ export default function About() {
 
         {/* Mobile Layout */}
         <div className="md:hidden flex flex-col items-center text-center">
-          <img
+          <Image
             src="/aboutus.png"
             alt="Team meeting"
+            width={50}
+            height={50}
             className="w-full max-w-xs rounded-lg shadow-lg border-[8px] border-white"
           />
           <h2
@@ -103,7 +103,7 @@ export default function About() {
             and living abroad.
           </p>
           <div className="mt-6 p-4 bg-gray-100 rounded-lg flex flex-col items-center">
-            <img
+            <Image
               src="/mission.gif"
               alt="Mission"
               width={50}
@@ -126,7 +126,7 @@ export default function About() {
             </p>
           </div>
           <div className="mt-4 p-4 bg-gray-100 rounded-lg flex flex-col items-center">
-            <img
+            <Image
               src="/vision.gif"
               alt="Vision"
               width={50}

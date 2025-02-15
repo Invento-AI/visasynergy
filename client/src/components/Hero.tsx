@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 import { Button } from "./ui/button";
 import {
   Dialog,
@@ -7,7 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import axios from "axios";
+// import axios from "axios";
 import { MoveRight } from "lucide-react";
 import {
   FaFacebook,
@@ -19,18 +19,18 @@ import Link from "next/link";
 import HeroCarousel from "./HeroCarousel";
 import QuickEnquiry from "./QuickEnquiry";
 
-const API_BASE_URL = "http://34.45.78.183";
+// const API_BASE_URL = "http://34.45.78.183";
 
 const Hero = async () => {
-  const res = await axios.get(API_BASE_URL + "/api/countries?populate=*");
-  let country_names: { name: string; flag: string }[] = [];
+  // const res = await axios.get(API_BASE_URL + "/api/countries?populate=*");
+  // let country_names: { name: string; flag: string }[] = [];
 
-  res.data.data.map((item: any) => {
-    country_names.push({
-      name: item.country,
-      flag: API_BASE_URL + item.Image[0].url,
-    });
-  });
+  // res.data.data.map((item: any) => {
+  //   country_names.push({
+  //     name: item.country,
+  //     flag: API_BASE_URL + item.Image[0].url,
+  //   });
+  // });
 
   return (
     <div className="h-screen w-full relative bg-black">
@@ -47,7 +47,7 @@ const Hero = async () => {
 
           {/* Country Buttons */}
           <div className="mt-6 flex flex-wrap justify-center gap-3 md:gap-16">
-            {country_names.map((country) => (
+            {/* {country_names.map((country) => (
               <Link href={`/${country.name}`} key={country.name}>
                 <Button
                   key={country.name}
@@ -64,7 +64,7 @@ const Hero = async () => {
                   />
                 </Button>
               </Link>
-            ))}
+            ))} */}
             <Link href={`/europe`}>
               <Button
                 key="europe"

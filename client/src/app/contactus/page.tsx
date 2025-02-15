@@ -31,7 +31,7 @@ export default function ContactPage() {
             <div className="space-y-4 md:space-y-12">
               <div className="flex items-center space-x-4 p-4 bg-[#edf3f5] rounded-md font-albert">
                 <div className="p-2 bg-white rounded-full">
-                  <img src="/email.gif" alt="email" className="w-10 h-10" />
+                  <Image src="/email.gif" alt="email" width={10} height={10} className="w-10 h-10" />
                 </div>
                 <div>
                   <p className="font-bold">Email</p>
@@ -43,7 +43,7 @@ export default function ContactPage() {
 
               <div className="flex items-center space-x-4 p-4 bg-[#edf3f5] rounded-md font-albert">
                 <div className="p-2 bg-white rounded-full">
-                  <img src="/call.gif" alt="phone" className="w-10 h-10" />
+                  <Image src="/call.gif" alt="phone" width={10} height={10} className="w-10 h-10" />
                 </div>
                 <div>
                   <p className="font-bold">Phone</p>
@@ -59,7 +59,7 @@ export default function ContactPage() {
               Get in touch
             </h2>
             <p className="text-sm md:text-base font-albert">
-              We're here to help. Send us a message & we will respond within 24
+              We&apos;re here to help. Send us a message & we will respond within 24
               hours.
             </p>
             <hr className="border-[#51868e] border-1 my-4" />

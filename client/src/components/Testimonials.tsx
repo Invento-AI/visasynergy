@@ -47,12 +47,12 @@ const testimonials = [
   },
 ];
 
-const TestimonialCard = ({ testimonial }: { testimonial: any }) => {
+const TestimonialCard = ({ testimonial }: { testimonial: {id:number ,name:string,desc:string,feedback:string,stars:number,image:string} }) => {
   return (
     <Card className="h-[300px] text-center max-w-1/5 md:mx-10 flex flex-col p-4 shadow-lg rounded-lg">
       <CardContent className="flex flex-col space-y-3 h-full">
         <div className="flex items-center space-x-1 ">
-          {[...Array(5)].map((_, index) => (
+          {[...Array(5)].map((_, index:number) => (
             <span
               key={index}
               className={`text-lg ${

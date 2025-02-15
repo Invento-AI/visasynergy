@@ -5,7 +5,6 @@ import "@fontsource/asap-condensed";
 import "@fontsource/albert-sans";
 import "@fontsource/asap-condensed";
 import Image from "next/image";
-import Navbar from "../../components/Navbar";
 import {
   FaFacebookF,
   FaInstagram,

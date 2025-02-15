@@ -5,16 +5,6 @@ import "@fontsource/asap-condensed";
 import "@fontsource/albert-sans";
 import "@fontsource/asap-condensed";
 import Image from "next/image";
-import Navbar from "../../components/Navbar";
-import { Input } from "../../components/ui/input";
-import { Label } from "../../components/ui/label";
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from "../../components/ui/select";
 import { Button } from "../../components/ui/button";
 import {
   FaFacebookF,
@@ -22,7 +12,6 @@ import {
   FaWhatsapp,
   FaLinkedinIn,
 } from "react-icons/fa";
-import Footer from "@/components/Footer";
 import QuickEnquiry from "@/components/QuickEnquiry";
 import { NEWSDATA } from "@/lib/constant";
 
