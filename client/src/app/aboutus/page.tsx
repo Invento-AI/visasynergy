@@ -257,59 +257,14 @@ export default function About() {
             </h2>
           </div>
 
-          {/* Content Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-24 w-full md:w-full items-start">
-            {/* Left Section - 60% Width */}
-            <div className="lg:col-span-2 flex flex-col justify-between h-full">
-              <p className="text-2xl text-black mb-6 font-albert">
-                At Visa Synergy, we make your global dreams take flight with a
-                smooth and stress-free visa process. Just like a journey through
-                an airport, we guide you every step of the way—ensuring a
-                hassle-free experience from start to finish.
-              </p>
 
-              {/* Steps - Limited to 4 */}
-              <div className="space-y-4 flex-1 flex flex-col justify-between mt-8">
-                {STEPS.slice(0, 4).map((step) => (
-                  <Card
-                    key={step.id}
-                    className="p-4 bg-gray-100 rounded-lg flex items-center"
-                  >
-                    <Image
-                      src={step.icon}
-                      alt={step.title}
-                      width={50}
-                      height={50}
-                      className="mr-4"
-                    />
-                    <div>
-                      <h3
-                        className="font-bold text-black"
-                        style={{ fontFamily: "Albert Sans" }}
-                      >
-                        {step.title}
-                      </h3>
-                      <p
-                        className="text-[#1d2c3c]"
-                        style={{ fontFamily: "Albert Sans" }}
-                      >
-                        {step.description}
-                      </p>
-                    </div>
-                  </Card>
-                ))}
-              </div>
-            </div>
-            <div className="lg:col-span-2 flex justify-center items-stretch h-full">
-              <Image
-                src="/happy-young-man-holding-passport-boarding-pass-with-globe-while-standing-against-blue-background 2.png"
-                alt="Visa Consultation"
-                width={700}
-                height={1000}
-                className="rounded-lg shadow-md object-cover w-full h-full self-stretch"
-              />
-            </div>
-          </div>
+
+         
+
+
+
+
+
         </div>
       </div>
       <CheckEligibility />

@@ -16,10 +16,34 @@ import { visaCategories, faqData, STEPS } from "@/lib/constant";
 function page({ params }: { params: { country: string } }) {
   return (
     <>
-      <div>{params.country}</div>
+      {/* <div>{params.country}</div> */}
+      <div className="relative w-full h-[300px] md:h-[400px] lg:h-[450px] flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 w-full h-full">
+        <Image
+          src="/country_image/canada.jpg" // Ensure this image is placed in the public folder or use the correct path
+          alt="Visa Opportunities"
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-30" /> {/* Dark overlay */}
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 font-asap  text-center px-4">
+        <h1 className="text-white text-3xl md:text-5xl ">
+          Explore Visa Opportunities in <span className="text-white">[Country Name]</span>
+        </h1>
+        <button className="mt-6 bg-[#51868e] w-[249px] font-sans h-auto p-2 rounded-lg text-white text-m hover:bg-white hover:text-[#51868e] border-2 hover:border-[#51868e] duration-700">
+          Need Help? Talk to an Expert
+        </button>
+      </div>
+    </div>
+
       <div className="container min-w-full p-16 bg-white">
         {/* Header Section */}
-        <div className="flex items-center p-6 gap-7 rounded-lg">
+        {/* <div className="flex items-center p-6 gap-7 rounded-lg">
           <img
             src="/Images_home/Canada_svg.webp"
             alt="Canada Flag"
@@ -40,44 +64,35 @@ function page({ params }: { params: { country: string } }) {
               Need Help? Talk to an Expert
             </button>
           </div>
-        </div>
-
+        </div> */}
         {/* Visa Categories Section */}
         <div className="mt-12 flex">
-          <div className="w-3/5 pr-6">
-            <h2 className="text-5xl font-semibold mb-6 font-asap text-[#3b4f84]">
-              Visa Categories & Options for [Country Name]
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {visaCategories.map((category, index) => (
-                <div
-                  key={index}
-                  className="p-6 border rounded-lg shadow-lg bg-[#EDF3F5] text-[#1A202C] flex flex-col justify-between h-full"
-                >
-                  <div>
-                    <h3 className="text-2xl font-semibold">{category.title}</h3>
-                    <p className="mt-2 text-gray-700">{category.description}</p>
-                  </div>
-                  <Link
-                    href={category.link}
-                    className="mt-6 w-full px-6 py-3 border-2 border-[#51868e] text-[#51868e] rounded-lg text-center hover:bg-[#51868e] hover:text-white duration-700"
-                  >
-                    Explore More
-                  </Link>
-                </div>
-              ))}
-            </div>
+  <div className="w-full pr-6">
+    <h2 className="text-5xl font-semibold mb-6 font-asap text-[#3b4f84]">
+      Visa Categories & Options for [Country Name]
+    </h2>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {visaCategories.map((category, index) => (
+        <div
+          key={index}
+          className="p-6 border rounded-lg shadow-lg bg-[#EDF3F5] text-[#1A202C] flex flex-col justify-between h-full"
+        >
+          <div>
+            <h3 className="text-2xl font-semibold">{category.title}</h3>
+            <p className="mt-2 text-gray-700">{category.description}</p>
           </div>
-          <div className="w-2/5 flex justify-center mt-14">
-            <Image
-              src="/Images_home/girl.png"
-              alt="Girl"
-              height={1080}
-              width={1080}
-              className="w-[90%] md:w-[420px] border-[10px] md:border-[20px] h-auto md:h-[550px] rounded-[6px] shadow-md border-white"
-            />
-          </div>
+          <Link
+            href={category.link}
+            className="mt-6 w-full px-6 py-3 border-2 border-[#51868e] text-[#51868e] rounded-lg text-center hover:bg-[#51868e] hover:text-white duration-700"
+          >
+            Explore More
+          </Link>
         </div>
+      ))}
+    </div>
+  </div>
+</div>
+
 
         <div className="max-w-6xl mt-12">
           <h2 className="text-5xl font-semibold text-[#3b4f84] mb-6 font-asap">
@@ -126,46 +141,30 @@ function page({ params }: { params: { country: string } }) {
             {/* Heading Section */}
             <div className="text-left mb-4">
               <h2 className="text-5xl font-bold text-[#3b4f84] font-asap">
-                How We Work
+                Visa Process Timeline
               </h2>
             </div>
 
             {/* Content Section */}
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-24 w-full md:w-full items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 w-full items-center">
+
+
               {/* Left Section - 60% Width */}
-              <div className="lg:col-span-2 flex flex-col justify-between h-full">
-                <p className="text-2xl text-black mb-6 font-albert">
-                  At Visa Synergy, we make your global dreams take flight with a
-                  smooth and stress-free visa process. Just like a journey
-                  through an airport, we guide you every step of the
-                  way—ensuring a hassle-free experience from start to finish.
+              <div className="lg:col-span-2 flex flex-col justify-center h-full">
+                <p className="text-2xl text-black mb-4 font-albert">
+                  A Step-by-Step Guide to Navigate Your Visa Journey with Ease
                 </p>
 
                 {/* Steps - Limited to 4 */}
-                <div className="space-y-4 flex-1 flex flex-col justify-between mt-8">
+                <div className="space-y-2 flex flex-col justify-center mt-4">
                   {STEPS.slice(0, 4).map((step) => (
-                    <Card
-                      key={step.id}
-                      className="p-4 bg-gray-100 rounded-lg flex items-center"
-                    >
-                      <Image
-                        src={step.icon}
-                        alt={step.title}
-                        width={50}
-                        height={50}
-                        className="mr-4"
-                      />
+                    <Card key={step.id} className="p-3 bg-gray-100 rounded-lg flex items-center">
+                      <Image src={step.icon} alt={step.title} width={40} height={40} className="mr-3" />
                       <div>
-                        <h3
-                          className="font-bold text-black"
-                          style={{ fontFamily: "Albert Sans" }}
-                        >
+                        <h3 className="font-bold text-black" style={{ fontFamily: "Albert Sans" }}>
                           {step.title}
                         </h3>
-                        <p
-                          className="text-[#1d2c3c]"
-                          style={{ fontFamily: "Albert Sans" }}
-                        >
+                        <p className="text-[#1d2c3c]" style={{ fontFamily: "Albert Sans" }}>
                           {step.description}
                         </p>
                       </div>
@@ -173,15 +172,21 @@ function page({ params }: { params: { country: string } }) {
                   ))}
                 </div>
               </div>
-              <div className="lg:col-span-2 flex justify-center items-stretch h-full">
-                <Image
-                  src="/happy-young-man-holding-passport-boarding-pass-with-globe-while-standing-against-blue-background 2.png"
-                  alt="Visa Consultation"
-                  width={700}
-                  height={1000}
-                  className="rounded-lg shadow-md object-cover w-full h-full self-stretch"
-                />
+
+
+              {/* Right Section - Centered Image */}
+              <div className="lg:col-span-2 flex justify-center items-center h-full relative w-full">
+                <div className="relative w-3/4 max-w-[450px] h-auto"> {/* Restrict max size */}
+                  <Image
+                    src="/country_image/visaProcess.png"
+                    alt="Visa Consultation"
+                    width={450}
+                    height={550}
+                    className="rounded-lg shadow-md object-cover w-full h-auto border-[10px] md:border-[20px] border-white"
+                  />
+                </div>
               </div>
+
             </div>
           </div>
         </div>
