@@ -1,4 +1,3 @@
-"use client"
 import Image from "next/image";
 import "@fontsource/asap-condensed";
 import "@fontsource/albert-sans";
@@ -257,15 +256,6 @@ export default function About() {
               How We Work
             </h2>
           </div>
-
-
-
-         
-
-
-
-
-
         </div>
       </div>
       <CheckEligibility />
