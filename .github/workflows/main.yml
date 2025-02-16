@@ -25,7 +25,7 @@ jobs:
         ssh -i ~/.ssh/ec2_key.pem -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
           cd /home/ubuntu/visasynergy  # Change to your project path
           sudo git pull origin main
-          cd /client
+          cd client
           sudo npm install
           sudo pm2 restart visasynergy
           echo "Deployment complete!"
