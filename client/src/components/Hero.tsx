@@ -16,21 +16,81 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 import Link from "next/link";
+import axios from "axios";
 import HeroCarousel from "./HeroCarousel";
 import QuickEnquiry from "./QuickEnquiry";
 
-// const API_BASE_URL = "http://34.45.78.183";
+const API_BASE_URL = "http://34.100.142.28";
+
+interface Image {
+  id: number;
+  documentId: string;
+  name: string;
+  alternativeText: string | null;
+  caption: string | null;
+  width: number;
+  height: number;
+  formats: string; 
+  hash: string;
+  ext: string;
+  mime: string;
+  size: number;
+  url: string;
+  previewUrl: string | null;
+  provider: string;
+  provider_metadata: {
+    public_id: string;
+    resource_type: string;
+  };
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+}
+
+interface Country {
+  id: number;
+  documentId: string;
+  name: string;
+  show_on_home: boolean;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  image: Image;
+}
+
+interface Continent {
+  id: number;
+  documentId: string;
+  name: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  image: Image;
+  countries: Country[];
+}
 
 const Hero = async () => {
-  // const res = await axios.get(API_BASE_URL + "/api/countries?populate=*");
-  // let country_names: { name: string; flag: string }[] = [];
+  const resCountry = await axios.get(API_BASE_URL + "/api/countries?populate=*");
+  const country_names: { name: string; flag: string }[] = [];
 
-  // res.data.data.map((item: any) => {
-  //   country_names.push({
-  //     name: item.country,
-  //     flag: API_BASE_URL + item.Image[0].url,
-  //   });
-  // });
+  resCountry.data.data.map((item: Country) => {
+    if(item.show_on_home){
+      country_names.push({
+        name: item.name,
+        flag: item.image.url,
+      });
+    }
+  });
+
+  const resContinent = await axios.get(API_BASE_URL + "/api/continents?populate=*");
+  const continent_names: { name: string; flag: string }[] = [];
+
+  resContinent.data.data.map((item: Continent) => {
+    continent_names.push({
+      name: item.name,
+      flag: item.image.url,
+    });
+  });
 
   return (
     <div className="h-screen w-full relative bg-black">
@@ -47,7 +107,7 @@ const Hero = async () => {
 
           {/* Country Buttons */}
           <div className="mt-6 flex flex-wrap justify-center gap-3 md:gap-16">
-            {/* {country_names.map((country) => (
+            {country_names.map((country) => (
               <Link href={`/${country.name}`} key={country.name}>
                 <Button
                   key={country.name}
@@ -64,23 +124,25 @@ const Hero = async () => {
                   />
                 </Button>
               </Link>
-            ))} */}
-            <Link href={`/europe`}>
-              <Button
-                key="europe"
-                variant="outline"
-                className="bg-transparent border-2 text-xs sm:text-sm md:text-lg px-3 py-1 sm:px-4 sm:py-2 border-white hover:bg-white transition duration-700 flex items-center"
-              >
-                EUROPE
-                <img
-                  src={"/Images_home/Europe.png"}
-                  width={14}
-                  height={14}
-                  className="ml-2"
-                  alt={`Europe Flag`}
-                />
-              </Button>
-            </Link>
+            ))}
+            {continent_names.map((continent) => (
+              <Link href={`/${continent.name}`} key={continent.name}>
+                <Button
+                  key={continent.name}
+                  variant="outline"
+                  className="bg-transparent border-2 text-xs sm:text-sm md:text-lg px-3 py-1 sm:px-4 sm:py-2 border-white hover:bg-white transition duration-700 flex items-center"
+                >
+                  {continent.name.toUpperCase()}
+                  <img
+                    src={continent.flag}
+                    width={14}
+                    height={14}
+                    className="ml-2"
+                    key={`${continent.name} Flag`}
+                  />
+                </Button>
+              </Link>
+            ))}
           </div>
 
           <p className="mt-6 text-lg sm:text-xl md:text-3xl font-albert md:mt-12">
