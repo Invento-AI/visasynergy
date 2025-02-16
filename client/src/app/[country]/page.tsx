@@ -12,34 +12,40 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import { visaCategories, faqData, STEPS } from "@/lib/constant";
-
-async function page() {
+type Props = {
+  params: Promise<{ country: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+async function page({ params }: Props) {
+  const { country } = await params;
   return (
     <>
       {/* <div>{params.country}</div> */}
       <div className="relative w-full h-[300px] md:h-[400px] lg:h-[450px] flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 w-full h-full">
-        <Image
-          src="/country_image/canada.jpg" // Ensure this image is placed in the public folder or use the correct path
-          alt="Visa Opportunities"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-30" /> {/* Dark overlay */}
-      </div>
+        {/* Background Image */}
+        <div className="absolute inset-0 w-full h-full">
+          <Image
+            src="/country_image/canada.jpg" // Ensure this image is placed in the public folder or use the correct path
+            alt="Visa Opportunities"
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-30" />{" "}
+          {/* Dark overlay */}
+        </div>
 
-      {/* Content */}
-      <div className="relative z-10 font-asap  text-center px-4">
-        <h1 className="text-white text-3xl md:text-5xl ">
-          Explore Visa Opportunities in <span className="text-white">Europe</span>
-        </h1>
-        <button className="mt-6 bg-[#51868e] w-[249px] font-sans h-auto p-2 rounded-lg text-white text-m hover:bg-white hover:text-[#51868e] border-2 hover:border-[#51868e] duration-700">
-          Need Help? Talk to an Expert
-        </button>
+        {/* Content */}
+        <div className="relative z-10 font-asap  text-center px-4">
+          <h1 className="text-white text-3xl md:text-5xl ">
+            Explore Visa Opportunities in{" "}
+            <span className="text-white">{country}</span>
+          </h1>
+          <button className="mt-6 bg-[#51868e] w-[249px] font-sans h-auto p-2 rounded-lg text-white text-m hover:bg-white hover:text-[#51868e] border-2 hover:border-[#51868e] duration-700">
+            Need Help? Talk to an Expert
+          </button>
+        </div>
       </div>
-    </div>
 
       <div className="container min-w-full p-16 bg-white">
         {/* Header Section */}
@@ -67,32 +73,31 @@ async function page() {
         </div> */}
         {/* Visa Categories Section */}
         <div className="mt-12 flex">
-  <div className="w-full pr-6">
-    <h2 className="text-5xl font-semibold mb-6 font-asap text-[#3b4f84]">
-      Visa Categories & Options for [Country Name]
-    </h2>
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {visaCategories.map((category, index) => (
-        <div
-          key={index}
-          className="p-6 border rounded-lg shadow-lg bg-[#EDF3F5] text-[#1A202C] flex flex-col justify-between h-full"
-        >
-          <div>
-            <h3 className="text-2xl font-semibold">{category.title}</h3>
-            <p className="mt-2 text-gray-700">{category.description}</p>
+          <div className="w-full pr-6">
+            <h2 className="text-5xl font-semibold mb-6 font-asap text-[#3b4f84]">
+              Visa Categories & Options for [Country Name]
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {visaCategories.map((category, index) => (
+                <div
+                  key={index}
+                  className="p-6 border rounded-lg shadow-lg bg-[#EDF3F5] text-[#1A202C] flex flex-col justify-between h-full"
+                >
+                  <div>
+                    <h3 className="text-2xl font-semibold">{category.title}</h3>
+                    <p className="mt-2 text-gray-700">{category.description}</p>
+                  </div>
+                  <Link
+                    href={category.link}
+                    className="mt-6 w-full px-6 py-3 border-2 border-[#51868e] text-[#51868e] rounded-lg text-center hover:bg-[#51868e] hover:text-white duration-700"
+                  >
+                    Explore More
+                  </Link>
+                </div>
+              ))}
+            </div>
           </div>
-          <Link
-            href={category.link}
-            className="mt-6 w-full px-6 py-3 border-2 border-[#51868e] text-[#51868e] rounded-lg text-center hover:bg-[#51868e] hover:text-white duration-700"
-          >
-            Explore More
-          </Link>
         </div>
-      ))}
-    </div>
-  </div>
-</div>
-
 
         <div className="max-w-6xl mt-12">
           <h2 className="text-5xl font-semibold text-[#3b4f84] mb-6 font-asap">
@@ -101,8 +106,8 @@ async function page() {
           <p className="text-[#333333] text-lg font-albert mb-4">
             [Country Name] is a top destination for students, professionals, and
             families seeking a better future. With its strong economy,
-            world-class education, and welcoming immigration policies, it&apos;s the
-            perfect place to grow and succeed.
+            world-class education, and welcoming immigration policies, it&apos;s
+            the perfect place to grow and succeed.
           </p>
           <ul className="list-disc list-outside space-y-3 text-[#333333] pl-6 text-lg font-albert">
             <li>
@@ -131,8 +136,8 @@ async function page() {
             </li>
           </ul>
           <p className="text-[#333333] text-lg font-albert mt-4">
-            Whether you&apos;re looking to study, work, or settle, [Country Name]
-            offers everything you need for a successful future!
+            Whether you&apos;re looking to study, work, or settle, [Country
+            Name] offers everything you need for a successful future!
           </p>
         </div>
 
@@ -147,8 +152,6 @@ async function page() {
 
             {/* Content Section */}
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 w-full items-center">
-
-
               {/* Left Section - 60% Width */}
               <div className="lg:col-span-2 flex flex-col justify-center h-full">
                 <p className="text-2xl text-black mb-4 font-albert">
@@ -158,13 +161,28 @@ async function page() {
                 {/* Steps - Limited to 4 */}
                 <div className="space-y-2 flex flex-col justify-center mt-4">
                   {STEPS.slice(0, 4).map((step) => (
-                    <Card key={step.id} className="p-3 bg-gray-100 rounded-lg flex items-center">
-                      <Image src={step.icon} alt={step.title} width={40} height={40} className="mr-3" />
+                    <Card
+                      key={step.id}
+                      className="p-3 bg-gray-100 rounded-lg flex items-center"
+                    >
+                      <Image
+                        src={step.icon}
+                        alt={step.title}
+                        width={40}
+                        height={40}
+                        className="mr-3"
+                      />
                       <div>
-                        <h3 className="font-bold text-black" style={{ fontFamily: "Albert Sans" }}>
+                        <h3
+                          className="font-bold text-black"
+                          style={{ fontFamily: "Albert Sans" }}
+                        >
                           {step.title}
                         </h3>
-                        <p className="text-[#1d2c3c]" style={{ fontFamily: "Albert Sans" }}>
+                        <p
+                          className="text-[#1d2c3c]"
+                          style={{ fontFamily: "Albert Sans" }}
+                        >
                           {step.description}
                         </p>
                       </div>
@@ -173,10 +191,11 @@ async function page() {
                 </div>
               </div>
 
-
               {/* Right Section - Centered Image */}
               <div className="lg:col-span-2 flex justify-center items-center h-full relative w-full">
-                <div className="relative w-3/4 max-w-[450px] h-auto"> {/* Restrict max size */}
+                <div className="relative w-3/4 max-w-[450px] h-auto">
+                  {" "}
+                  {/* Restrict max size */}
                   <Image
                     src="/country_image/visaProcess.png"
                     alt="Visa Consultation"
@@ -186,7 +205,6 @@ async function page() {
                   />
                 </div>
               </div>
-
             </div>
           </div>
         </div>
