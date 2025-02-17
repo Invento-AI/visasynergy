@@ -15,6 +15,7 @@ import {
   FaLinkedin,
   FaWhatsapp,
 } from "react-icons/fa";
+import { Country, Continent } from "../lib/response_structure"
 import Link from "next/link";
 import axios from "axios";
 import HeroCarousel from "./HeroCarousel";
@@ -22,62 +23,15 @@ import QuickEnquiry from "./QuickEnquiry";
 
 const API_BASE_URL = "http://34.100.142.28";
 
-interface Image {
-  id: number;
-  documentId: string;
-  name: string;
-  alternativeText: string | null;
-  caption: string | null;
-  width: number;
-  height: number;
-  formats: string; 
-  hash: string;
-  ext: string;
-  mime: string;
-  size: number;
-  url: string;
-  previewUrl: string | null;
-  provider: string;
-  provider_metadata: {
-    public_id: string;
-    resource_type: string;
-  };
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-}
-
-interface Country {
-  id: number;
-  documentId: string;
-  name: string;
-  show_on_home: boolean;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  image: Image;
-}
-
-interface Continent {
-  id: number;
-  documentId: string;
-  name: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  image: Image;
-  countries: Country[];
-}
-
 const Hero = async () => {
   const resCountry = await axios.get(API_BASE_URL + "/api/countries?populate=*");
   const country_names: { name: string; flag: string }[] = [];
-
+  
   resCountry.data.data.map((item: Country) => {
     if(item.show_on_home){
       country_names.push({
         name: item.name,
-        flag: item.image.url,
+        flag: item.image? item.image.url : "",
       });
     }
   });
@@ -88,7 +42,7 @@ const Hero = async () => {
   resContinent.data.data.map((item: Continent) => {
     continent_names.push({
       name: item.name,
-      flag: item.image.url,
+      flag: item.image? item.image.url : "",
     });
   });
 
