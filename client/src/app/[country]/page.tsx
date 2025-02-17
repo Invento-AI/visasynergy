@@ -12,9 +12,9 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import { visaCategories, faqData, STEPS } from "@/lib/constant";
-import type { Country, } from "@/lib/response_structure";
+import type { Country } from "@/lib/response_structure";
 import axios from "axios";
-import { BlocksRenderer, } from '@strapi/blocks-react-renderer';
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
 const API_BASE_URL = "http://34.100.142.28";
 
@@ -24,41 +24,15 @@ type Props = {
 };
 
 const Country = async ({ params }: Props) => {
-
   const { country } = await params;
 
-  const resSection = await axios.get(API_BASE_URL + "/api/countries/meccuvsvy125eerlcsqcujhm?populate=*");
-  const section = resSection.data.data.Section;console.log(section);
+  const resSection = await axios.get(
+    API_BASE_URL + "/api/countries/meccuvsvy125eerlcsqcujhm?populate=*"
+  );
+  const section = resSection.data.data.Section;
+  console.log(section);
 
   const richBlock = section[0].description;
-
-  // const convertRichTextToPlainText = (sections: Section[]): string => {
-  //   return sections
-  //     .map((section) => {
-  //       const title = section.title;
-  //       const descriptionText = section.description
-  //         .map((block) => {
-  //           if (block.type === "paragraph") {
-  //             return block.children
-  //               .map((child) => child.text)
-  //               .join("");
-  //           } else if (block.type === "list") {
-  //             return block.children
-  //               .map((item) =>
-  //                 item.children?.map((subItem) => subItem.text).join("") || ""
-  //               )
-  //               .join("\n");
-  //           }
-  //           return "";
-  //         })
-  //         .join("\n");
-  
-  //       return `${title}\n${descriptionText}`;
-  //     })
-  //     .join("\n\n");
-  // };
-
-  // console.log(convertRichTextToPlainText(section));
 
   return (
     <>
@@ -254,7 +228,10 @@ const Country = async ({ params }: Props) => {
       </div>
 
       {/* <div>{convertRichTextToPlainText(section)}</div> */}
-      <div className=""> <BlocksRenderer content={richBlock}/></div>
+      <div className="">
+        {" "}
+        <BlocksRenderer content={richBlock} />
+      </div>
     </>
   );
 };
