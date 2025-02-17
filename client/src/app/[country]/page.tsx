@@ -16,7 +16,7 @@ type Props = {
   params: Promise<{ country: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
-async function page({ params }: Props) {
+const Country = async ({ params }: Props) => {
   const { country } = await params;
   return (
     <>
@@ -235,6 +235,6 @@ async function page({ params }: Props) {
       </div>
     </>
   );
-}
+};
 
-export default page;
+export default Country;

@@ -9,7 +9,7 @@ import Image from "next/image";
 import WelcomePopup from "@/components/WelcomePopup";
 import CheckEligibility from "@/components/CheckEligibility";
 import Testimonials from "@/components/Testimonials";
-export default function Home() {
+const Home = () => {
   return (
     <div className="relative min-h-screen bg-white text-white">
       <Navbar />
@@ -244,4 +244,6 @@ export default function Home() {
       <Footer />
     </div>
   );
-}
+};
+
+export default Home;

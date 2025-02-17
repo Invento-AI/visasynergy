@@ -6,7 +6,7 @@ import React from "react";
 import CheckEligibility from "@/components/CheckEligibility";
 import Testimonials from "@/components/Testimonials";
 
-export default function About() {
+const AboutUs = () => {
   return (
     <main className="md:mx-6 mb-6">
       <div className="container mx-auto md:min-w-full p-8">
@@ -262,4 +262,6 @@ export default function About() {
       <Testimonials />
     </main>
   );
-}
+};
+
+export default AboutUs;

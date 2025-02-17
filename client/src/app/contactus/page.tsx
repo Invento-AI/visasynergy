@@ -5,7 +5,7 @@ import "@fontsource/albert-sans";
 import Image from "next/image";
 import ContactUsForm from "@/components/ContactUsForm";
 
-export default function ContactPage() {
+const ContactPage = () => {
   return (
     <div className="min-h-screen">
       <main className="px-4 md:px-0 mx-auto max-w-screen-xl">
@@ -31,7 +31,13 @@ export default function ContactPage() {
             <div className="space-y-4 md:space-y-12">
               <div className="flex items-center space-x-4 p-4 bg-[#edf3f5] rounded-md font-albert">
                 <div className="p-2 bg-white rounded-full">
-                  <Image src="/email.gif" alt="email" width={10} height={10} className="w-10 h-10" />
+                  <Image
+                    src="/email.gif"
+                    alt="email"
+                    width={10}
+                    height={10}
+                    className="w-10 h-10"
+                  />
                 </div>
                 <div>
                   <p className="font-bold">Email</p>
@@ -43,7 +49,13 @@ export default function ContactPage() {
 
               <div className="flex items-center space-x-4 p-4 bg-[#edf3f5] rounded-md font-albert">
                 <div className="p-2 bg-white rounded-full">
-                  <Image src="/call.gif" alt="phone" width={10} height={10} className="w-10 h-10" />
+                  <Image
+                    src="/call.gif"
+                    alt="phone"
+                    width={10}
+                    height={10}
+                    className="w-10 h-10"
+                  />
                 </div>
                 <div>
                   <p className="font-bold">Phone</p>
@@ -59,8 +71,8 @@ export default function ContactPage() {
               Get in touch
             </h2>
             <p className="text-sm md:text-base font-albert">
-              We&apos;re here to help. Send us a message & we will respond within 24
-              hours.
+              We&apos;re here to help. Send us a message & we will respond
+              within 24 hours.
             </p>
             <hr className="border-[#51868e] border-1 my-4" />
 
@@ -97,4 +109,6 @@ export default function ContactPage() {
       </main>
     </div>
   );
-}
+};
+
+export default ContactPage;

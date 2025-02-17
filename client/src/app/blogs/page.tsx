@@ -14,7 +14,7 @@ import {
 import QuickEnquiry from "@/components/QuickEnquiry";
 import { BLOGSDATA } from "@/lib/constant";
 
-export default function NewsPage() {
+const BlogsPage = () => {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [cursorVisible, setCursorVisible] = useState(false);
 
@@ -124,7 +124,6 @@ export default function NewsPage() {
       </div>
 
       <div className="bg-white block md:hidden">
-
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center text-[#3b4f84] mt-10 px-4">
           Stay Updated with the Latest Immigration & Visa News
         </h1>
@@ -220,4 +219,6 @@ export default function NewsPage() {
       </div>
     </div>
   );
-}
+};
+
+export default BlogsPage;
