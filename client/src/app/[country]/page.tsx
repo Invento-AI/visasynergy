@@ -12,12 +12,54 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import { visaCategories, faqData, STEPS } from "@/lib/constant";
+import type { Country, } from "@/lib/response_structure";
+import axios from "axios";
+import { BlocksRenderer, } from '@strapi/blocks-react-renderer';
+
+const API_BASE_URL = "http://34.100.142.28";
+
 type Props = {
   params: Promise<{ country: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
+
 const Country = async ({ params }: Props) => {
+
   const { country } = await params;
+
+  const resSection = await axios.get(API_BASE_URL + "/api/countries/meccuvsvy125eerlcsqcujhm?populate=*");
+  const section = resSection.data.data.Section;console.log(section);
+
+  const richBlock = section[0].description;
+
+  // const convertRichTextToPlainText = (sections: Section[]): string => {
+  //   return sections
+  //     .map((section) => {
+  //       const title = section.title;
+  //       const descriptionText = section.description
+  //         .map((block) => {
+  //           if (block.type === "paragraph") {
+  //             return block.children
+  //               .map((child) => child.text)
+  //               .join("");
+  //           } else if (block.type === "list") {
+  //             return block.children
+  //               .map((item) =>
+  //                 item.children?.map((subItem) => subItem.text).join("") || ""
+  //               )
+  //               .join("\n");
+  //           }
+  //           return "";
+  //         })
+  //         .join("\n");
+  
+  //       return `${title}\n${descriptionText}`;
+  //     })
+  //     .join("\n\n");
+  // };
+
+  // console.log(convertRichTextToPlainText(section));
+
   return (
     <>
       {/* <div>{params.country}</div> */}
@@ -48,29 +90,6 @@ const Country = async ({ params }: Props) => {
       </div>
 
       <div className="container min-w-full p-16 bg-white">
-        {/* Header Section */}
-        {/* <div className="flex items-center p-6 gap-7 rounded-lg">
-          <img
-            src="/Images_home/Canada_svg.webp"
-            alt="Canada Flag"
-            width={278}
-            height={175}
-            className="mr-4 rounded-3xl"
-          />
-          <div>
-            <h1 className="text-5xl font-bold text-[#3b4f84] font-asap">
-              Explore Visa Opportunities in [Country Name]
-            </h1>
-            <p className="mt-2 text-[#333333] font-albert text-lg">
-              Everything you need to know about visas—study, work, PR, and more!
-              Find the best visa option for your goals, from study to permanent
-              residency.
-            </p>
-            <button className="mt-4 px-6 py-2 bg-[#51868e] hover:border-[#51868e] border-2 hover:text-[#51868e] text-white rounded-lg hover:bg-white duration-700">
-              Need Help? Talk to an Expert
-            </button>
-          </div>
-        </div> */}
         {/* Visa Categories Section */}
         <div className="mt-12 flex">
           <div className="w-full pr-6">
@@ -233,6 +252,9 @@ const Country = async ({ params }: Props) => {
           </Accordion>
         </div>
       </div>
+
+      {/* <div>{convertRichTextToPlainText(section)}</div> */}
+      <div className=""> <BlocksRenderer content={richBlock}/></div>
     </>
   );
 };

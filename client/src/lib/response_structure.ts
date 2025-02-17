@@ -44,6 +44,26 @@ interface Image {
     updatedAt: string;
     publishedAt: string;
   }
+
+export interface Section {
+    __component: string;
+    id: number;
+    title: string;
+    description: DescriptionBlock[];
+  }
+  
+interface DescriptionBlock {
+    type: string;
+    format?: string;
+    children: DescriptionChild[];
+  }
+  
+interface DescriptionChild {
+    type: string;
+    text?: string;
+    bold?: boolean;
+    children?: DescriptionChild[];
+  }
   
 export interface Country {
     id: number;
@@ -54,6 +74,7 @@ export interface Country {
     updatedAt: string;
     publishedAt: string;
     image: Image;
+    Section: Section[];
   }
   
 export interface Continent {

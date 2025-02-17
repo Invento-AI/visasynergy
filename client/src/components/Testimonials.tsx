@@ -14,7 +14,7 @@ const API_BASE_URL = "http://34.100.142.28";
 
 const TestimonialCard = ( { testimonial }: { testimonial: Testimonial } ) => {
   return (
-    <Card className="h-[300px] text-center max-w-1/5 md:mx-10 flex flex-col p-4 shadow-lg rounded-lg">
+    <Card className="h-[300px] text-left max-w-1/5 md:mx-10 flex flex-col p-4 shadow-lg rounded-lg font-albert">
       <CardContent className="flex flex-col space-y-3 h-full">
         <div className="flex items-center space-x-1 ">
           {[...Array(5)].map((_, index:number) => (
@@ -56,7 +56,6 @@ const TestimonialCard = ( { testimonial }: { testimonial: Testimonial } ) => {
 const Testimonials = async() => {
 
   const resTestimonial = await axios.get( API_BASE_URL + "/api/testimonials?populate=*");
-  console.log(resTestimonial.data.data)
   const testimonials = resTestimonial.data.data
 
   return (
